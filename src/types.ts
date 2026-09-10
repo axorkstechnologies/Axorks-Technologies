@@ -1,23 +1,23 @@
-export interface ServiceCapability {
+export interface TeamMember {
   id: string;
-  title: string;
-  subtitle: string;
-  priceTag: string;
+  name: string;
+  role: string;
   description: string;
-  technologies: string[];
-  colorAccent: 'gold' | 'emerald' | 'violet' | 'wine';
-  features: string[];
-  typicalTimeline: string;
+  image: string | null;
+  accent: 'gold' | 'emerald' | 'violet' | 'wine' | 'cyan';
 }
 
-export interface CaseStudy {
+export interface ProjectImage {
+  src: string;
+  alt: string;
+}
+
+export interface Project {
   id: string;
   title: string;
-  client: string;
   tagline: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  images: ProjectImage[];
   tags: string[];
   statusBadge: string;
   categoryBadge: string;
@@ -25,27 +25,31 @@ export interface CaseStudy {
     value: string;
     label: string;
   }[];
-  architecture: {
-    backend: string;
-    database: string;
-    aiModel: string;
-    highlights: string[];
-  };
+  accent: 'gold' | 'emerald' | 'violet' | 'wine';
 }
 
-export interface AcceleratorProduct {
+export interface Service {
   id: string;
-  code: string;
   title: string;
-  category: string;
-  badge: string;
   description: string;
-  stats: {
-    label: string;
-    value: string;
-    highlight?: boolean;
-  }[];
-  demoFeatures: string[];
+  icon: string;
+  features: string[];
+  accent: 'gold' | 'emerald' | 'violet' | 'wine' | 'cyan' | 'burgundy';
+}
+
+export interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface WhyItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  accent: 'gold' | 'emerald' | 'violet' | 'wine';
 }
 
 export interface FaqItem {
@@ -56,7 +60,6 @@ export interface FaqItem {
 
 export interface EstimateFormState {
   service: string;
-  budget: string;
   fullName: string;
   email: string;
   phone: string;

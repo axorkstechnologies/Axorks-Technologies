@@ -1,238 +1,360 @@
-import { ServiceCapability, CaseStudy, AcceleratorProduct, FaqItem } from '../types';
+import { TeamMember, Project, Service, ProcessStep, WhyItem, FaqItem } from '../types';
 
-export const SERVICES: ServiceCapability[] = [
+// ─── TEAM MEMBERS ────────────────────────────────────────────────────────────
+
+export const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: 'web-apps',
-    title: 'Custom Web Applications',
-    subtitle: 'High-Throughput Full-Stack Platforms',
-    priceTag: 'Milestone from $1,500',
-    description:
-      'Full-stack bespoke cloud platforms engineered with zero bloat. We build high-throughput client portals, administrative dashboards, and subscription SaaS products tailored for massive data concurrency.',
-    technologies: ['Next.js 15 (App Router)', 'Serverless PostgreSQL', 'WebSockets', 'Dynamic RBAC'],
-    colorAccent: 'gold',
-    features: [
-      'Sub-second page transitions with React Server Components',
-      'Granular role-based access control (RBAC) & tenant isolation',
-      'Real-time bi-directional telemetry via WebSocket / SSE',
-      'Automated zero-downtime CI/CD deployment pipelines'
-    ],
-    typicalTimeline: '2 to 4 weeks'
+    id: 'mujahid',
+    name: 'Muhammad Mujahid',
+    role: 'Founder & CEO / Chief Systems Architect',
+    description: 'Development, Marketing, Sales, Accounts & Web3. BS Software Engineering.',
+    image: '/Images/Founder and CEO SOFTWARE ENGINEER.jpeg',
+    accent: 'gold',
   },
   {
-    id: 'ai-automation',
-    title: 'AI Automation & Autonomous Agents',
-    subtitle: 'Intelligent Operational Pipelines',
-    priceTag: 'Milestone from $1,200',
-    description:
-      'Bridge complex manual operational workflows with self-healing AI agents, fine-tuned domain RAG engines, automated document intelligence, and multi-agent coordination frameworks.',
-    technologies: ['Vector RAG Engine', 'FastAPI Python Core', 'Document Vision AI', 'Multi-Agent ERP Sync'],
-    colorAccent: 'emerald',
-    features: [
-      'Sub-50ms vector semantic similarity search & retrieval',
-      'Deterministic output schemas with automated guardrails',
-      'Multi-modal document parsing (PDF, scanned images, invoices)',
-      'Autonomous queue retry mechanics with human escalation fallback'
-    ],
-    typicalTimeline: '2 to 3 weeks'
+    id: 'farhana',
+    name: 'Farhana',
+    role: 'Co-Founder / Business Lead',
+    description: 'Accounts, HR, and business operations. BBA.',
+    image: null,
+    accent: 'emerald',
   },
   {
-    id: 'mobile-apps',
-    title: 'Scalable Cross-Platform Mobile',
-    subtitle: 'Native-Performance iOS & Android',
-    priceTag: 'Milestone from $1,400',
-    description:
-      'Native-performance iOS and Android applications developed for high operational dependability. Features local offline SQLite replication, biometric hardware authorization, and low-battery background sync.',
-    technologies: ['React Native / Flutter', 'Offline-First WatermelonDB', 'Biometrics', 'App Store Deployment'],
-    colorAccent: 'violet',
-    features: [
-      'Zero-latency offline data mutations with sync conflict resolution',
-      'Biometric authentication (FaceID, fingerprint, secure enclave)',
-      'Optimized 60fps animations with minimal memory footprint',
-      'Complete Apple App Store & Google Play Store publishing handling'
-    ],
-    typicalTimeline: '3 to 5 weeks'
+    id: 'faisal',
+    name: 'Faisal',
+    role: 'Software Engineer',
+    description: 'Flutter & mobile application development. iOS & Android.',
+    image: null,
+    accent: 'violet',
   },
   {
-    id: 'devops-sla',
-    title: 'Continuous DevOps & Engineering SLA',
-    subtitle: 'On-Demand Infrastructure Reliability',
-    priceTag: 'Sprint from $1,000',
-    description:
-      'Reliable on-demand infrastructure management, CI/CD pipeline automation, automated penetration testing, vulnerability remediation, and 24/7 cluster telemetry without locking into expensive permanent hires.',
-    technologies: ['Docker / K8s', 'GitHub Actions CI/CD', 'Cloudflare Enterprise', 'Grafana Alerts'],
-    colorAccent: 'wine',
-    features: [
-      'Automated containerized staging environments per pull request',
-      '24/7 uptime monitoring with sub-minute threshold incident alerts',
-      'Automated vulnerability scanning & dependency security patching',
-      'Cloud compute cost optimization & auto-scaling tuning'
-    ],
-    typicalTimeline: 'Ongoing Sprint Basis'
-  }
+    id: 'shayan',
+    name: 'Shayan',
+    role: 'Web Developer',
+    description: 'Frontend & full-stack web development.',
+    image: null,
+    accent: 'cyan',
+  },
+  {
+    id: 'alina',
+    name: 'Alina',
+    role: 'AI & Neural Networks Engineer',
+    description: 'AI automation, neural networks, and intelligent integrations.',
+    image: null,
+    accent: 'wine',
+  },
+  {
+    id: 'farwa',
+    name: 'Farwa',
+    role: 'Marketing & Outreach',
+    description: 'Brand strategy, digital marketing, and client outreach.',
+    image: '/Images/FARWA Marketing & Outreach.jpeg',
+    accent: 'gold',
+  },
+  {
+    id: 'furqan',
+    name: 'Furqan',
+    role: 'Business Development Officer',
+    description: 'Business growth, partnerships, and client relations.',
+    image: '/Images/FURQAN Business Development Officer.jpeg',
+    accent: 'emerald',
+  },
+  {
+    id: 'web3-dev',
+    name: 'Blockchain Developer',
+    role: 'Web3 & Decentralized Systems',
+    description: 'Smart contracts, DeFi protocols, and decentralized applications.',
+    image: null,
+    accent: 'violet',
+  },
 ];
 
-export const CASE_STUDIES: CaseStudy[] = [
+// ─── PROJECTS / CASE STUDIES ─────────────────────────────────────────────────
+
+export const PROJECTS: Project[] = [
   {
     id: 'agrotrace',
     title: 'AgroTrace',
-    client: 'GCC Agro Corp',
-    tagline: 'Farm-to-Distributor Perishable Telemetry',
+    tagline: 'Real-Time Food Supply-Chain Tracking',
     description:
-      'Enterprise farm-to-distributor batch telemetry and quality grading engine. Integrated real-time edge IoT sensors across agricultural holdings with custom computer vision models to track perishables and eliminate transport degradation.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCfPI73QNSb0X5zDBpB-9-Gnl1lIweK7xxrExL6S5ed9DFRi4mxtU2coAdlCrKKBygWheVavkf6TVk55hjX0e7ywAwGtkHDm9ldkA-7oAuZHZbZZpy4ERnG30Xm6UQXUhRHevtfVQJ_IALl3QVeuazad5ywlc4KM7C_r_WPJBVHBBli94aurae2NHX0qtQkcrAVmsXBEORHcXgDjHyrK18SoWiRfCtY2gZ29kuOz_tLpQg1Fzjz8rM5',
-    imageAlt:
-      'Dark high-contrast futuristic control dashboard for an agricultural telemetry platform called AgroTrace with live data graphs, geographic field maps in neon green and cyan accents.',
-    tags: ['FastAPI', 'PostGIS', 'TensorFlow Lite', 'Edge IoT'],
-    statusBadge: 'Production Deployed',
-    categoryBadge: 'IoT • Supply Chain',
-    metrics: [
-      { value: '42%', label: 'Perishable Spoilage Reduction' },
-      { value: '14,000+', label: 'Live Ingestion Telemetry Nodes' }
+      'Real-time food supply-chain tracking platform for Sindh & Punjab. Live logistics, thermal monitoring, export compliance, dashboards, alerts, and supply node management across the entire agricultural distribution network.',
+    images: [
+      { src: '/Images/Agrotrace.jpeg', alt: 'AgroTrace — supply chain tracking dashboard with live logistics map' },
+      { src: '/Images/agrotrace2.jpeg', alt: 'AgroTrace — operations overview and monitoring panel' },
+      { src: '/Images/Agrotrace3.jpeg', alt: 'AgroTrace — delay analytics and performance metrics' },
+      { src: '/Images/Agrotrace4.jpeg', alt: 'AgroTrace — recent shipments tracking interface' },
+      { src: '/Images/Agrotrace5.jpeg', alt: 'AgroTrace — supply nodes network visualization' },
     ],
-    architecture: {
-      backend: 'FastAPI microservices running on edge container clusters',
-      database: 'PostGIS with distributed TimescaleDB time-series partitions',
-      aiModel: 'Quantized TensorFlow Lite edge model running on field gateways',
-      highlights: [
-        'Real-time temperature and humidity anomaly detection within 1.4 seconds',
-        'Automated bill-of-lading quality certifications generated at delivery dock',
-        'Zero data loss during satellite uplink connectivity drops'
-      ]
-    }
+    tags: ['Real-Time Tracking', 'IoT Sensors', 'Thermal Monitoring', 'Export Compliance'],
+    statusBadge: 'Production',
+    categoryBadge: 'Supply Chain • AgriTech',
+    metrics: [
+      { value: '42%', label: 'Spoilage Reduction' },
+      { value: '14K+', label: 'Active Supply Nodes' },
+    ],
+    accent: 'emerald',
+  },
+  {
+    id: 'ipmi-os',
+    title: 'IPMI-OS 2.0',
+    tagline: 'AI-Powered Trading & Decision System',
+    description:
+      'Advanced AI-powered trading and decision system with multi-tier TQE analysis, opportunity scanner, risk governor, order flow intelligence, and a live execution engine for data-driven market decisions.',
+    images: [
+      { src: '/Images/IPMI-OS.jpeg', alt: 'IPMI-OS 2.0 — AI trading dashboard with opportunity scanner' },
+      { src: '/Images/IPMI-OS2.jpeg', alt: 'IPMI-OS 2.0 — multi-tier TQE analysis engine' },
+      { src: '/Images/IPMI-OS3.jpeg', alt: 'IPMI-OS 2.0 — risk governor and order flow intelligence' },
+      { src: '/Images/IPMI-OS4.jpeg', alt: 'IPMI-OS 2.0 — live execution engine interface' },
+    ],
+    tags: ['AI Engine', 'Risk Analysis', 'Order Flow', 'Live Trading'],
+    statusBadge: 'Live System',
+    categoryBadge: 'FinTech • AI Trading',
+    metrics: [
+      { value: 'Multi-Tier', label: 'TQE Analysis Depth' },
+      { value: 'Real-Time', label: 'Execution Engine' },
+    ],
+    accent: 'gold',
   },
   {
     id: 'mediverse',
     title: 'MediVerse',
-    client: 'US Health Group',
-    tagline: 'HIPAA-Compliant Clinical Documentation Synthesizer',
+    tagline: 'AI-Powered Global Healthcare Platform',
     description:
-      'HIPAA-compliant clinical documentation synthesizer and telehealth gateway. Connects doctor-patient audio consultations directly to an on-premise localized LLM, transcribing clinical notes into standardized EHR structures in real-time.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBiyy3pNVeZXn1IFL8hM5meBKDRBSQCARhBg8Twu5c9JVwXd-3lTPVYT1XE8WF06mXqqKPAMH5ZKnHcoj-Y9Xx4Gnkvy9AU2JTY3jtWHzS31vi7jt549quwp0LB4m7zKZKhUIWBiVsztoqA_ql0M9c5BIvvFKQWPcLfMqjqtr1joEsV5vb7q7grWhKsVckHux6cbO_OUGRV-HmhpznbXopivQaI9iPP6s99RF_l4g_mgEK6EDEaq4-h',
-    imageAlt:
-      'High-end dark medical software UI mockup representing MediVerse, showing clinical records with clean translucent frosted cards, real-time AI transcription waveforms.',
-    tags: ['Next.js 15', 'Local LLM', 'HL7 / FHIR', 'WebRTC'],
-    statusBadge: 'HIPAA Certified',
-    categoryBadge: 'Healthcare AI • Telehealth',
-    metrics: [
-      { value: '80%', label: 'Documentation Time Saved' },
-      { value: '< 1.2s', label: 'Diagnostic EHR Retrieval Latency' }
+      'AI-powered global healthcare platform providing digital care access, specialist connections, and home medical assistance. Built with compliance for WHO, SDG 3, HIPAA, and GDPR standards.',
+    images: [
+      { src: '/Images/Mediverse.jpeg', alt: 'MediVerse — AI healthcare platform main dashboard' },
+      { src: '/Images/mediverse2.jpeg', alt: 'MediVerse — digital care access and specialist directory' },
+      { src: '/Images/Mediverse3.jpeg', alt: 'MediVerse — home medical assistance interface' },
+      { src: '/Images/Mediverse4.jpeg', alt: 'MediVerse — compliance and patient records management' },
     ],
-    architecture: {
-      backend: 'Zero-knowledge encrypted WebRTC gateway with Node.js stream processor',
-      database: 'Encrypted PostgreSQL with hardware security module (HSM) encryption keys',
-      aiModel: 'Air-gapped on-premise localized clinical LLM fine-tuned on medical ontologies',
-      highlights: [
-        'Fully complies with HIPAA Title II administrative and security standards',
-        'Automatic FHIR resource mapping with EHR bi-directional synchronization',
-        'Physician voice authentication with noise-suppressed ambient mic intake'
-      ]
-    }
+    tags: ['Healthcare AI', 'HIPAA Compliant', 'Telemedicine', 'WHO / SDG 3'],
+    statusBadge: 'Deployed',
+    categoryBadge: 'Healthcare • AI',
+    metrics: [
+      { value: 'Global', label: 'Patient Access Reach' },
+      { value: 'HIPAA', label: 'Compliance Grade' },
+    ],
+    accent: 'violet',
   },
   {
-    id: 'risk-engine',
-    title: 'Autonomous Risk Engine',
-    client: 'UK Trade Desk',
-    tagline: 'Ultra-Low-Latency Anomaly Scoring System',
+    id: 'fume',
+    title: 'FUME Fragrances',
+    tagline: 'Premium Fragrance Brand & E-Commerce',
     description:
-      'Ultra-low-latency compliance and trade anomaly scoring system. Evaluates multi-jurisdiction risk matrices across parallel transaction streams, executing automated circuit breakers and tamper-proof immutable audit records.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDK4t82lf4GWcy1J2goWGE5EQ_JaT_6MuH7S3ms-nXKQRpXzYbspksCeErGbIbeUxpEj95opUHQpI4YJXNs2TcPpJy2CosiJPEtMIqakTl9QpiBX_JA_PIIwZpMTClH919UJug1jPaX56vKXir33jqz-_ZCZv3aumqJcUS0-kDUr89uBCMA_tiLCWBfeK1_S2Iu7owjKNAdPau8S63AbbXQyfd_2k7ydcgQwyZOnrnxNqt1tz3myp7L',
-    imageAlt:
-      'High-frequency financial trade fraud and autonomous risk calculation system screen on a dark glass monitor with live candlestick graphs and anomaly detection tags.',
-    tags: ['Go Core', 'Redis Streams', 'Vector Graph', 'eBPF Guard'],
-    statusBadge: 'High-Frequency',
-    categoryBadge: 'FinTech • Risk AI',
-    metrics: [
-      { value: '99.4%', label: 'Precision Anomaly Trigger' },
-      { value: '$80M+', label: 'Monthly Volume Monitored' }
+      'Premium fragrance brand website and full e-commerce experience. Haute parfumerie presentation, discovery collection showcase, product pages, and elegant packaging — designed and built end-to-end by AXORKS.',
+    images: [
+      { src: '/Images/Fume prints-04.png', alt: 'FUME Fragrances — brand logo and identity' },
+      { src: '/Images/4bVSv.jpg', alt: 'FUME Fragrances — premium product bottle presentation' },
+      { src: '/Images/MCraF.jpg', alt: 'FUME Fragrances — discovery collection and packaging' },
+      { src: '/Images/4ma95.jpg', alt: 'FUME Fragrances — e-commerce product page design' },
     ],
-    architecture: {
-      backend: 'High-concurrency compiled Go service with zero-allocation memory pools',
-      database: 'Redis Enterprise in-memory stream cluster with ClickHouse analytics mirror',
-      aiModel: 'Dynamic isolation forest and graph neural network anomaly classifier',
-      highlights: [
-        'Sub-8 millisecond trade risk decision latency under peak market volatility',
-        'Multi-currency balance reconciliation across 14 financial exchanges',
-        'Cryptographically signed tamper-evident compliance audit trail'
-      ]
-    }
-  }
+    tags: ['E-Commerce', 'Brand Design', 'Product Pages', 'Luxury UI'],
+    statusBadge: 'Live',
+    categoryBadge: 'E-Commerce • Luxury Brand',
+    metrics: [
+      { value: 'Full', label: 'End-to-End Build' },
+      { value: 'Premium', label: 'Design System' },
+    ],
+    accent: 'wine',
+  },
 ];
 
-export const ACCELERATORS: AcceleratorProduct[] = [
+// ─── SERVICES ────────────────────────────────────────────────────────────────
+
+export const SERVICES: Service[] = [
   {
-    id: 'flux-engine',
-    code: 'FX',
-    title: 'Axorks FluxEngine',
-    category: 'Turnkey AI Automation Pipeline & Agent Harness',
-    badge: 'Instant Deploy',
+    id: 'web-apps',
+    title: 'Custom Web Applications',
     description:
-      'Plug-and-play ingestion system for complex invoices, scanned PDFs, KYC paperwork, and tabular data. Exports pre-validated typed JSON structures into any database with custom human-in-the-loop exception workflows.',
-    stats: [
-      { label: 'Throughput Capability', value: '2,500 docs/min' },
-      { label: 'Extraction Accuracy', value: '99.8% Normalized', highlight: true },
-      { label: 'Deployment Model', value: 'Docker / AWS ECS / VPC Private' }
+      'Full-stack bespoke platforms — client portals, dashboards, SaaS products — engineered for performance, security, and scale.',
+    icon: 'Globe',
+    features: [
+      'React / Next.js / Node.js',
+      'Real-time dashboards & data visualization',
+      'Role-based access control',
+      'CI/CD deployment pipelines',
     ],
-    demoFeatures: [
-      'Multi-page invoice & receipt OCR extraction',
-      'Table header reconstruction with bounding box verification',
-      'Automated schema mapping to QuickBooks, Xero, or PostgreSQL',
-      'Real-time confidence scoring with human approval dashboard'
-    ]
+    accent: 'gold',
   },
   {
-    id: 'omniportal-core',
-    code: 'OP',
-    title: 'OmniPortal Core',
-    category: 'Multi-Tenant SaaS Foundation Architecture',
-    badge: 'White-Label Ready',
+    id: 'ai-automation',
+    title: 'AI Automation & Integrations',
     description:
-      'The enterprise starter skeleton used in AXORKS web apps. Pre-configured with Next.js 15, Supabase Auth, hierarchical multi-tenant schemas, Stripe recurring meter billing, audit trails, and transactional email triggers.',
-    stats: [
-      { label: 'Time-to-Market Acceleration', value: 'Saves 120+ Eng Hours', highlight: true },
-      { label: 'Included Integrations', value: 'Stripe Billing + Supabase + Postmark' },
-      { label: 'Ownership Clause', value: '100% Unrestricted IP Handover' }
+      'Intelligent workflows, RAG engines, document processing, and multi-agent coordination to automate complex operations.',
+    icon: 'Brain',
+    features: [
+      'Custom AI agents & pipelines',
+      'Document intelligence & OCR',
+      'Vector search & RAG systems',
+      'API integrations & sync',
     ],
-    demoFeatures: [
-      'Ready multi-tenant database partitioning with RLS security',
-      'Subscription checkout, invoices, and tiered usage quotas',
-      'Team member invitations, granular permissions, and audit logs',
-      'Custom domain routing with SSL certificate generation'
-    ]
-  }
+    accent: 'emerald',
+  },
+  {
+    id: 'mobile-apps',
+    title: 'Mobile Apps',
+    description:
+      'Native-performance iOS and Android applications with Flutter. Offline-first, biometric auth, and app store deployment.',
+    icon: 'Smartphone',
+    features: [
+      'Flutter / iOS / Android',
+      'Offline-first architecture',
+      'Push notifications & real-time',
+      'App Store & Play Store publishing',
+    ],
+    accent: 'violet',
+  },
+  {
+    id: 'web3-blockchain',
+    title: 'Web3 & Blockchain',
+    description:
+      'Decentralized applications, smart contracts, DeFi protocols, and blockchain integrations for the next generation of the web.',
+    icon: 'Blocks',
+    features: [
+      'Smart contracts (Solidity / Rust)',
+      'DeFi & tokenization',
+      'NFT marketplaces',
+      'Wallet integration & dApps',
+    ],
+    accent: 'cyan',
+  },
+  {
+    id: 'support',
+    title: 'Ongoing Support & Maintenance',
+    description:
+      'Reliable infrastructure management, monitoring, security patching, and performance optimization on an ongoing basis.',
+    icon: 'Shield',
+    features: [
+      'DevOps & CI/CD',
+      '24/7 monitoring & alerts',
+      'Security audits & patching',
+      'Performance optimization',
+    ],
+    accent: 'wine',
+  },
+  {
+    id: 'product-dev',
+    title: 'Product Development',
+    description:
+      'We also build and sell our own products. From concept to launch, we create proprietary platforms and tools.',
+    icon: 'Rocket',
+    features: [
+      'MVP to production',
+      'Product strategy & roadmap',
+      'Scalable architecture',
+      'Full IP ownership',
+    ],
+    accent: 'burgundy',
+  },
 ];
+
+// ─── PROCESS STEPS ───────────────────────────────────────────────────────────
+
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    step: 1,
+    title: 'Discovery',
+    description: 'Free consultation to understand your goals, challenges, and technical requirements.',
+    icon: 'Search',
+  },
+  {
+    step: 2,
+    title: 'Proposal',
+    description: 'Clear fixed-price proposal with scope, milestones, timeline, and deliverables — before writing a single line of code.',
+    icon: 'FileText',
+  },
+  {
+    step: 3,
+    title: 'Build',
+    description: 'Milestone-based development with staging previews, direct communication, and transparent progress.',
+    icon: 'Code',
+  },
+  {
+    step: 4,
+    title: 'Launch & Support',
+    description: 'Production deployment, knowledge transfer, 100% IP handover, and ongoing support as needed.',
+    icon: 'Rocket',
+  },
+];
+
+// ─── WHY AXORKS ──────────────────────────────────────────────────────────────
+
+export const WHY_ITEMS: WhyItem[] = [
+  {
+    id: 'pricing',
+    title: 'Starting from $1,000',
+    description: 'Professional-grade projects at accessible prices. Every engagement starts with a clear fixed-price proposal.',
+    icon: 'Tag',
+    accent: 'gold',
+  },
+  {
+    id: 'fixed-price',
+    title: 'Fixed-Price Milestones',
+    description: 'No hourly billing surprises. You know the exact cost before development begins. Pay per milestone.',
+    icon: 'ShieldCheck',
+    accent: 'emerald',
+  },
+  {
+    id: 'direct-access',
+    title: 'Direct Team Access',
+    description: 'Talk directly to senior engineers and leadership. No middlemen, no account managers, no outsourced juniors.',
+    icon: 'Users',
+    accent: 'violet',
+  },
+  {
+    id: 'offices',
+    title: 'Real Offices',
+    description: 'Registered company with physical offices in Karachi & Islamabad, Pakistan. Axorks Pvt Limited.',
+    icon: 'Building2',
+    accent: 'wine',
+  },
+  {
+    id: 'response',
+    title: '24h Response Time',
+    description: 'Every inquiry gets a human response within 24 hours. Direct Slack, WhatsApp, and email availability.',
+    icon: 'Clock',
+    accent: 'gold',
+  },
+  {
+    id: 'ip',
+    title: '100% IP Ownership',
+    description: 'All source code, designs, and documentation are transferred to you upon completion. Zero lock-in.',
+    icon: 'Key',
+    accent: 'emerald',
+  },
+];
+
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-1',
     question: 'How do fixed-price milestone contracts work at AXORKS?',
     answer:
-      'Before writing a single line of code, we produce a comprehensive Technical Specification Document that defines every user story, architectural boundary, and acceptance criterion. We divide the total cost into deliverable milestones (with projects starting from $1,000). You review and test functioning builds on staging before approving payment for each milestone.'
+      'Before writing a single line of code, we produce a comprehensive Technical Specification Document that defines every deliverable and acceptance criterion. We divide the total cost into milestones (projects start from $1,000). You review and test functioning builds on staging before approving payment for each milestone.',
   },
   {
     id: 'faq-2',
-    question: 'Do I get 100% intellectual property ownership of the source code?',
+    question: 'Do I get 100% intellectual property ownership?',
     answer:
-      'Yes, without exceptions. Upon milestone completion and final settlement, all source code, design assets, database schemas, and documentation are transferred directly to your private GitHub/GitLab repositories under full commercial ownership. We do not retain proprietary lock-in.'
+      'Yes, without exceptions. Upon final settlement, all source code, design assets, database schemas, and documentation are transferred to your private repositories under full commercial ownership. We do not retain proprietary lock-in.',
   },
   {
     id: 'faq-3',
-    question: 'Who will actually work on my system?',
+    question: 'Who will actually work on my project?',
     answer:
-      'Every project is spearheaded directly by Muhammad Mujahid (Founder & CEO / Chief Systems Architect) and experienced senior software engineers. We never outsource work to unsupervised junior contractors or third-party offshore shops.'
+      'Every project is led directly by Muhammad Mujahid (Founder & CEO / Chief Systems Architect) and senior engineers. We never outsource to unsupervised contractors or third-party shops. You get direct access to the people who build your product.',
   },
   {
     id: 'faq-4',
-    question: 'How do you handle time zone overlap with US, UK, and European clients?',
+    question: 'What is the minimum engagement to work with AXORKS?',
     answer:
-      'Our engineering desks maintain dedicated daily synchronous working hours spanning UTC-5 (US Eastern) to UTC+5 (Pakistan / South Asia), providing reliable 4 to 6 hours of direct overlap every single business day via Slack, WhatsApp, and Google Meet.'
+      'Our projects start from $1,000. This allows founders and growing businesses to validate MVPs and critical automations without enterprise-scale commitments. Every project receives a clear fixed-price proposal before development begins.',
   },
   {
     id: 'faq-5',
-    question: 'What is the minimum engagement threshold to work with AXORKS?',
+    question: 'Where are you located?',
     answer:
-      'Our focused project sprints and starter architectural milestones start from $1,000. This allows emerging founders and growing businesses to validate MVPs and mission-critical automations without enterprise-scale retainer commitments.'
-  }
+      'AXORKS Technologies (Axorks Pvt Limited) is a registered private company with offices in Karachi and Islamabad, Pakistan. We serve clients worldwide with overlapping working hours across US, UK, and European time zones.',
+  },
 ];

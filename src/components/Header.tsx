@@ -1,138 +1,148 @@
-import React, { useState } from 'react';
-import { ArrowRight, Menu, X, MessageCircle, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
 
 interface HeaderProps {
   onOpenDiscovery: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const NAV_LINKS = [
+  { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
+  { label: 'Process', href: '#process' },
+  { label: 'Team', href: '#team' },
+  { label: 'Contact', href: '#contact' },
+];
 
-  const navLinks = [
-    { name: 'Capabilities', href: '#capabilities' },
-    { name: 'Delivered Systems', href: '#proof-of-work' },
-    { name: 'Accelerators', href: '#products' },
-    { name: 'Methodology', href: '#methodology' },
-    { name: 'Founder & CEO', href: '#leadership' },
-    { name: 'Compare', href: '#why-axorks' }
-  ];
+export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
+  };
+
+  const handleNavClick = (href: string) => {
+    setIsOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl bg-[#060913]/85 border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.65)] transition-all">
-      <div className="h-20 max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
-        {/* Brand Logo & Architecture Core Tag */}
-        <div className="flex items-center gap-4">
-          <a
-            href="#"
-            className="flex items-center gap-2 p-1.5 rounded-xl bg-[#0E1628]/70 border border-[#F5C761]/30 backdrop-blur-md shadow-[0_0_15px_rgba(245,199,97,0.12)] hover:border-[#F5C761]/60 transition-all"
-          >
-            <img
-              src="https://lh3.googleusercontent.com/aida/AEtjO1WqNLtUj-8pABOwtymLOxpfAuCi_pY6_W6igZ6MmcBDA0L2KY3v_xHm84fNt7e0wXwFPfVqyPy7ArAtzaJ5WJ9kYpxBxfUf6yd289uhJH6pPhDSP3tzmQ0t_DQxaXq9mZoZ7JPgwU1ksb0HaCJBmvfZmlCRSY-pQ91yZYTGK514Qk_OVBN1YG-Zn6FxOlFxd80uq11-dYwWPWiNAqDSPNasokYC22we2EjwWTEHZtaStylWn-1ikH27OIc"
-              alt="AXORKS Technologies Brand Logo"
-              className="h-9 w-auto object-contain"
-            />
-          </a>
-
-          <span className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#141F36]/90 border border-[#F5C761]/25 text-[#FDE68A] text-[11px] font-mono tracking-widest uppercase shadow-[0_0_12px_rgba(245,199,97,0.12)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-            2026 ARCHITECTURE CORE
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'glass-card border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#F5C761] to-[#D97706] flex items-center justify-center shadow-[0_0_20px_rgba(245,199,97,0.3)]">
+            <span className="text-[#2A1800] font-bold text-sm font-headline">A</span>
+          </div>
+          <span className="font-headline text-xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-[#F5C761] transition-colors">
+            AXORKS
           </span>
-        </div>
+        </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 text-[12px] font-semibold tracking-wider uppercase">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-[#CBD5E1] hover:text-[#F5C761] transition-colors py-1 relative group"
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-1">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className="px-4 py-2 text-[13px] font-medium text-[var(--text-muted)] hover:text-[#F5C761] transition-colors uppercase tracking-wider cursor-pointer"
             >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F5C761] transition-all group-hover:w-full" />
-            </a>
+              {link.label}
+            </button>
           ))}
         </nav>
 
-        {/* Header Action Buttons */}
-        <div className="flex items-center gap-3">
-          {/* Direct WhatsApp Pill */}
-          <a
-            href="https://wa.me/923141030223"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141F36]/80 border border-[#10B981]/35 hover:border-[#10B981] hover:bg-[#044E38]/25 text-white font-mono text-[12px] transition-all shadow-[0_0_12px_rgba(16,185,129,0.15)]"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
-            </span>
-            <span className="text-[#6EE7B7] font-medium">+92 314 103 0223</span>
-          </a>
-
-          {/* Book Discovery Call Button */}
+        {/* Desktop Actions */}
+        <div className="hidden lg:flex items-center gap-3">
           <button
-            onClick={onOpenDiscovery}
-            className="relative group overflow-hidden px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-[12px] uppercase font-bold tracking-wider transition-all duration-300 glow-gold-box hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            onClick={toggleTheme}
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[#F5C761] hover:bg-[var(--bg-tertiary)] transition-all cursor-pointer"
+            aria-label="Toggle theme"
           >
-            <span className="relative z-10 flex items-center gap-2 text-[#2A1800]">
-              <span>Book Discovery Call</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FDE68A] via-[#F5C761] to-[#6EE7B7] opacity-0 group-hover:opacity-100 transition-opacity" />
+            {isDark ? <Sun className="w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
           </button>
 
-          {/* Mobile Menu Toggle Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            className="lg:hidden p-2 rounded-xl bg-[#0E1628] border border-white/10 text-white hover:border-[#F5C761]/40"
+            onClick={onOpenDiscovery}
+            className="magnetic-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-[12px] uppercase font-bold tracking-wider shadow-[0_0_20px_rgba(245,199,97,0.25)] cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <span>Book Discovery Call</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="flex lg:hidden items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[#F5C761] transition-all cursor-pointer"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <Sun className="w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-primary)] hover:text-[#F5C761] transition-all cursor-pointer"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-white/[0.08] bg-[#060913]/98 backdrop-blur-3xl px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200">
-          <div className="flex items-center gap-2 pb-3 border-b border-white/[0.06] text-[12px] text-[#FDE68A] font-mono uppercase">
-            <ShieldCheck className="w-4 h-4 text-[#10B981]" />
-            Direct Access to Senior Architects
-          </div>
-          <div className="flex flex-col space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-[#CBD5E1] hover:text-[#F5C761] transition-colors py-1.5 font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-          <div className="pt-4 border-t border-white/[0.08] flex flex-col gap-3">
-            <a
-              href="https://wa.me/923141030223"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0E1628] border border-[#10B981]/40 text-[#6EE7B7] font-mono text-[13px]"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp: +92 314 103 0223</span>
-            </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenDiscovery();
-              }}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-[13px] uppercase font-bold tracking-wider glow-gold-box"
-            >
-              Book Discovery Call
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Mobile Menu Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="lg:hidden overflow-hidden glass-card border-t border-white/[0.06]"
+          >
+            <nav className="flex flex-col px-4 py-4 gap-1">
+              {NAV_LINKS.map((link, i) => (
+                <motion.button
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-left px-4 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[#F5C761] hover:bg-[var(--bg-tertiary)] transition-all text-sm font-medium uppercase tracking-wider cursor-pointer"
+                >
+                  {link.label}
+                </motion.button>
+              ))}
+              <div className="pt-3 mt-2 border-t border-white/[0.06]">
+                <button
+                  onClick={() => { setIsOpen(false); onOpenDiscovery(); }}
+                  className="w-full magnetic-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-[12px] uppercase font-bold tracking-wider cursor-pointer"
+                >
+                  <span>Book Discovery Call</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
