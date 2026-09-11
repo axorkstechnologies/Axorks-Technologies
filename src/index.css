@@ -239,3 +239,42 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ─── REFINED SOFT-IVORY LUXURY SURFACES (30–40% Architectural Contrast) ──── */
+
+.surface-ivory {
+  background-color: #FAF8F5;
+  color: #0F172A;
+  border: 1px solid rgba(226, 220, 209, 0.85);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.surface-ivory .text-primary-dark {
+  color: #0A0F1D;
+}
+
+.surface-ivory .text-secondary-dark {
+  color: #1E293B;
+}
+
+.surface-ivory .text-muted-dark {
+  color: #475569;
+}
+
+.surface-ivory .border-ivory {
+  border-color: rgba(214, 207, 195, 0.7);
+}
+
+.surface-ivory input,
+.surface-ivory textarea,
+.surface-ivory select {
+  background-color: #FFFFFF;
+  color: #0A0F1D;
+  border-color: rgba(203, 195, 182, 0.9);
+}
+
+.surface-ivory input::placeholder,
+.surface-ivory textarea::placeholder {
+  color: #64748B;
+  opacity: 1;
+}

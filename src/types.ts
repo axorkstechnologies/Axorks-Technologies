@@ -31,9 +31,12 @@ export interface Project {
 export interface Service {
   id: string;
   title: string;
+  tagline: string;
   description: string;
   icon: string;
   features: string[];
+  deliverables: string[];
+  technologies: string[];
   accent: 'gold' | 'emerald' | 'violet' | 'wine' | 'cyan' | 'burgundy';
 }
 

@@ -181,6 +181,7 @@ export const SERVICES: Service[] = [
   {
     id: 'web-apps',
     title: 'Custom Web Applications',
+    tagline: 'Bespoke Platforms Built for Scale',
     description:
       'Full-stack bespoke platforms — client portals, dashboards, SaaS products — engineered for performance, security, and scale.',
     icon: 'Globe',
@@ -190,11 +191,20 @@ export const SERVICES: Service[] = [
       'Role-based access control',
       'CI/CD deployment pipelines',
     ],
+    deliverables: [
+      'Production-ready web application',
+      'Admin dashboard & user portal',
+      'REST / GraphQL API layer',
+      'CI/CD pipeline & staging environment',
+      'Full source code & documentation',
+    ],
+    technologies: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker', 'AWS'],
     accent: 'gold',
   },
   {
     id: 'ai-automation',
     title: 'AI Automations & Multi-AI Workflows',
+    tagline: 'Intelligent Systems That Work Autonomously',
     description:
       'Intelligent multi-agent workflows, autonomous pipelines, RAG engines, and document processing to automate complex operations.',
     icon: 'Brain',
@@ -204,11 +214,20 @@ export const SERVICES: Service[] = [
       'Vector search & RAG systems',
       'API integrations & automation',
     ],
+    deliverables: [
+      'Production AI agent or pipeline',
+      'Vector database & RAG integration',
+      'API endpoints for AI inference',
+      'Monitoring dashboard & logs',
+      'Model fine-tuning documentation',
+    ],
+    technologies: ['Python', 'LangChain', 'LlamaIndex', 'OpenAI', 'Pinecone', 'FastAPI', 'PyTorch', 'Docker'],
     accent: 'emerald',
   },
   {
     id: 'mobile-apps',
     title: 'Mobile Apps',
+    tagline: 'Native Performance on Every Device',
     description:
       'Native-performance iOS and Android applications with Flutter. Offline-first, biometric auth, and app store deployment.',
     icon: 'Smartphone',
@@ -218,11 +237,20 @@ export const SERVICES: Service[] = [
       'Push notifications & real-time',
       'App Store & Play Store publishing',
     ],
+    deliverables: [
+      'Cross-platform iOS & Android app',
+      'Backend API & cloud functions',
+      'Push notification integration',
+      'App Store & Play Store submission',
+      'Full source code & CI/CD',
+    ],
+    technologies: ['Flutter', 'Dart', 'Firebase', 'Swift', 'Kotlin', 'Node.js', 'REST API', 'SQLite'],
     accent: 'violet',
   },
   {
     id: 'web3-blockchain',
     title: 'Web3 & Blockchain',
+    tagline: 'Decentralized Systems & Smart Contracts',
     description:
       'Decentralized applications, smart contracts (Solidity / Rust), DeFi protocols, and blockchain integrations for the next generation of the web.',
     icon: 'Blocks',
@@ -232,11 +260,20 @@ export const SERVICES: Service[] = [
       'NFT marketplaces',
       'Wallet integration & dApps',
     ],
+    deliverables: [
+      'Audited smart contracts',
+      'dApp frontend & wallet integration',
+      'Tokenomics & deployment scripts',
+      'Security audit report',
+      'Full source code & documentation',
+    ],
+    technologies: ['Solidity', 'Hardhat', 'Ethers.js', 'Rust', 'IPFS', 'The Graph', 'React', 'Web3.js'],
     accent: 'cyan',
   },
   {
     id: 'support',
     title: 'Ongoing Support',
+    tagline: 'Reliable Infrastructure & Maintenance',
     description:
       'Reliable infrastructure management, monitoring, security patching, and performance optimization on an ongoing basis.',
     icon: 'Shield',
@@ -246,11 +283,20 @@ export const SERVICES: Service[] = [
       'Security audits & patching',
       'Performance optimization',
     ],
+    deliverables: [
+      'Infrastructure monitoring setup',
+      'Automated backup & disaster recovery',
+      'Monthly security patch reports',
+      'Performance profiling & optimization',
+      'SLA-bound response guarantees',
+    ],
+    technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Grafana', 'GitHub Actions', 'CloudFlare', 'Linux'],
     accent: 'wine',
   },
   {
     id: 'product-dev',
     title: 'Product Development',
+    tagline: 'From Concept to Market-Ready Product',
     description:
       'We also build and sell our own products. From concept to launch, we create proprietary platforms and tools.',
     icon: 'Rocket',
@@ -260,6 +306,14 @@ export const SERVICES: Service[] = [
       'Scalable architecture',
       'Full IP ownership',
     ],
+    deliverables: [
+      'Market-ready MVP or full product',
+      'Product roadmap & strategy document',
+      'Scalable cloud architecture',
+      'Analytics & growth tracking',
+      'Complete IP transfer & documentation',
+    ],
+    technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'Docker', 'Stripe', 'Vercel'],
     accent: 'burgundy',
   },
 ];

@@ -1,13 +1,10 @@
 import React from 'react';
 import { Mail, MessageSquare, MapPin, ArrowRight } from 'lucide-react';
+import { useRouter, RoutePath } from '../router/Router';
 
 export const Footer: React.FC = () => {
+  const { navigate } = useRouter();
   const currentYear = new Date().getFullYear();
-
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <footer className="w-full border-t border-[var(--glass-border)] bg-[var(--bg-secondary)]/80 backdrop-blur-2xl relative z-10">
@@ -15,8 +12,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column with Official Metallic Logo */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[var(--gold)]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#111622] flex items-center justify-center shrink-0">
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center gap-3 mb-4 text-left cursor-pointer group"
+              aria-label="AXORKS Technologies Home"
+            >
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[var(--gold)]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#111622] flex items-center justify-center shrink-0 group-hover:border-[var(--gold)] transition-all">
                 <img
                   src="/Logos/axorks_monogram.png"
                   alt="AXORKS Technologies official metallic emblem"
@@ -25,14 +26,14 @@ export const Footer: React.FC = () => {
               </div>
 
               <div className="flex flex-col">
-                <span className="font-headline text-lg font-extrabold tracking-widest text-[var(--text-primary)] leading-none">
+                <span className="font-headline text-lg font-extrabold tracking-widest text-[var(--text-primary)] group-hover:text-[var(--gold)] transition-colors leading-none">
                   AXORKS
                 </span>
                 <span className="text-[9px] font-mono-code text-[var(--text-muted)] tracking-widest uppercase mt-0.5">
                   TECHNOLOGIES
                 </span>
               </div>
-            </div>
+            </button>
 
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
               Axorks Pvt Limited — software engineering studio with offices in Karachi &amp; Islamabad. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems.
@@ -52,17 +53,17 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5">
               {[
-                { label: 'Capabilities & Services', id: 'services' },
-                { label: 'Delivered Work', id: 'work' },
-                { label: 'Execution Process', id: 'process' },
-                { label: 'Engineering Team', id: 'team' },
-                { label: 'Selective Practice / Careers', id: 'careers' },
-                { label: 'Request Proposal', id: 'contact' },
+                { label: 'Capabilities & Services', path: '/services' as RoutePath },
+                { label: 'Delivered Work', path: '/work' as RoutePath },
+                { label: 'Execution Process', path: '/process' as RoutePath },
+                { label: 'Engineering Team', path: '/team' as RoutePath },
+                { label: 'Selective Practice / Careers', path: '/careers' as RoutePath },
+                { label: 'Request Proposal', path: '/contact' as RoutePath },
               ].map((link) => (
-                <li key={link.id}>
+                <li key={link.path}>
                   <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors cursor-pointer"
+                    onClick={() => navigate(link.path)}
+                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors cursor-pointer text-left"
                   >
                     {link.label}
                   </button>
@@ -77,12 +78,23 @@ export const Footer: React.FC = () => {
               Core Capabilities
             </h4>
             <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
-              <li>Custom Web Applications</li>
-              <li>AI Automations &amp; Multi-AI</li>
-              <li>Cross-Platform Mobile Apps</li>
-              <li>Web3 &amp; Blockchain Systems</li>
-              <li>Proprietary Products</li>
-              <li>Ongoing Support &amp; SLA</li>
+              {[
+                'Custom Web Applications',
+                'AI Automations & Multi-AI',
+                'Cross-Platform Mobile Apps',
+                'Web3 & Blockchain Systems',
+                'Proprietary Products',
+                'Ongoing Support & SLA',
+              ].map((service) => (
+                <li key={service}>
+                  <button
+                    onClick={() => navigate('/services')}
+                    className="hover:text-[var(--gold)] transition-colors cursor-pointer text-left"
+                  >
+                    {service}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 

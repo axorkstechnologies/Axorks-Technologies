@@ -1,48 +1,55 @@
+import React from 'react';
+import { RouterProvider, useRouter } from './router/Router';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { Projects } from './components/Projects';
-import { Process } from './components/Process';
-import { Team } from './components/Team';
-import { Careers } from './components/Careers';
-import { DiscoveryPortal } from './components/DiscoveryPortal';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { DeliveredWorkPage } from './pages/DeliveredWorkPage';
+import { ProcessPage } from './pages/ProcessPage';
+import { TeamPage } from './pages/TeamPage';
+import { CareersPage } from './pages/CareersPage';
+import { ContactPage } from './pages/ContactPage';
 
-export default function App() {
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+const AppContent: React.FC = () => {
+  const { path, navigate } = useRouter();
+
+  const renderActivePage = () => {
+    switch (path) {
+      case '/services':
+        return <ServicesPage />;
+      case '/work':
+        return <DeliveredWorkPage />;
+      case '/process':
+        return <ProcessPage />;
+      case '/team':
+        return <TeamPage />;
+      case '/careers':
+        return <CareersPage />;
+      case '/contact':
+        return <ContactPage />;
+      case '/':
+      default:
+        return <HomePage />;
+    }
   };
 
   return (
-    <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#F5C761] selection:text-[#2A1800] font-sans">
-      <Header onOpenDiscovery={scrollToContact} />
+    <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#F5C761] selection:text-[#2A1800] font-sans flex flex-col justify-between">
+      <Header onOpenDiscovery={() => navigate('/contact')} />
 
-      <main className="w-full pt-[72px]">
-        {/* 1. Hero */}
-        <Hero onOpenDiscovery={scrollToContact} />
-
-        {/* 2. What We Build — Services */}
-        <Services />
-
-        {/* 3. Selected Work — Projects & Case Studies */}
-        <Projects />
-
-        {/* 4. How We Work — Process */}
-        <Process />
-
-        {/* 5. Team */}
-        <Team />
-
-        {/* 6. Careers */}
-        <Careers />
-
-        {/* 7. Contact / Proposal Form + WhatsApp */}
-        <DiscoveryPortal />
+      <main className="w-full pt-[76px] flex-1">
+        {renderActivePage()}
       </main>
 
-      {/* 8. Footer */}
       <Footer />
     </div>
+  );
+};
+
+export default function App() {
+  return (
+    <RouterProvider>
+      <AppContent />
+    </RouterProvider>
   );
 }

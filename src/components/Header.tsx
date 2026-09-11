@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { useRouter, RoutePath } from '../router/Router';
 
 interface HeaderProps {
-  onOpenDiscovery: () => void;
+  onOpenDiscovery?: () => void;
 }
 
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Delivered Work', href: '#work' },
-  { label: 'Process', href: '#process' },
-  { label: 'Team', href: '#team' },
-  { label: 'Careers', href: '#careers' },
-  { label: 'Contact', href: '#contact' },
+const NAV_LINKS: { label: string; path: RoutePath }[] = [
+  { label: 'Services', path: '/services' },
+  { label: 'Delivered Work', path: '/work' },
+  { label: 'Process', path: '/process' },
+  { label: 'Team', path: '/team' },
+  { label: 'Careers', path: '/careers' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
+  const { path: currentPath, navigate } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,10 +27,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (path: RoutePath) => {
     setIsOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    navigate(path);
+  };
+
+  const handleCta = () => {
+    setIsOpen(false);
+    if (onOpenDiscovery) {
+      onOpenDiscovery();
+    } else {
+      navigate('/contact');
+    }
   };
 
   return (
@@ -41,13 +51,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[76px]">
         {/* Official Metallic Logo & Wordmark — Fully Visible & Perfectly Framed */}
-        <a
-          href="#"
-          className="flex items-center gap-3 group"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-3 group text-left cursor-pointer"
+          aria-label="AXORKS Technologies Home"
         >
           {/* Approved 3D Metallic Gunmetal & Gold AX Emblem */}
           <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden border border-[#F5C761]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#111622] flex items-center justify-center group-hover:border-[#F5C761] transition-all shrink-0">
@@ -66,25 +73,36 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
               TECHNOLOGIES
             </span>
           </div>
-        </a>
+        </button>
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-1.5">
-          {NAV_LINKS.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className="px-4 py-2 text-xs font-headline font-semibold text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors uppercase tracking-wider cursor-pointer"
-            >
-              {link.label}
-            </button>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = currentPath === link.path;
+
+            return (
+              <button
+                key={link.path}
+                onClick={() => handleNavClick(link.path)}
+                className={`relative px-4 py-2 text-xs font-headline uppercase tracking-wider transition-colors cursor-pointer rounded-lg ${
+                  isActive
+                    ? 'text-[var(--gold)] font-bold bg-white/[0.04]'
+                    : 'text-[var(--text-secondary)] font-semibold hover:text-[var(--gold)] hover:bg-white/[0.02]'
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--gold)] rounded-full" />
+                )}
+              </button>
+            );
+          })}
         </nav>
 
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center gap-3.5">
           <button
-            onClick={onOpenDiscovery}
+            onClick={handleCta}
             className="magnetic-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-xs font-headline font-bold uppercase tracking-wider glow-gold-jewel cursor-pointer shadow-lg"
           >
             <span>Book Free Discovery Call</span>
@@ -115,25 +133,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
             className="lg:hidden overflow-hidden glass-2 border-t border-white/[0.08]"
           >
             <nav className="flex flex-col px-4 py-4 gap-1">
-              {NAV_LINKS.map((link, i) => (
-                <motion.button
-                  key={link.href}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04 }}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-left px-4 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--gold)] hover:bg-white/[0.04] transition-all text-xs font-headline font-semibold uppercase tracking-wider cursor-pointer"
-                >
-                  {link.label}
-                </motion.button>
-              ))}
+              {NAV_LINKS.map((link, i) => {
+                const isActive = currentPath === link.path;
+
+                return (
+                  <motion.button
+                    key={link.path}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04 }}
+                    onClick={() => handleNavClick(link.path)}
+                    className={`text-left px-4 py-3 rounded-xl transition-all text-xs font-headline uppercase tracking-wider cursor-pointer flex items-center justify-between ${
+                      isActive
+                        ? 'text-[var(--gold)] font-bold bg-white/[0.06]'
+                        : 'text-[var(--text-secondary)] font-semibold hover:text-[var(--gold)] hover:bg-white/[0.04]'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />}
+                  </motion.button>
+                );
+              })}
 
               <div className="pt-3 mt-2 border-t border-white/[0.06]">
                 <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    onOpenDiscovery();
-                  }}
+                  onClick={handleCta}
                   className="w-full magnetic-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-xs font-headline font-bold uppercase tracking-wider cursor-pointer shadow-lg"
                 >
                   <span>Book Free Discovery Call</span>
