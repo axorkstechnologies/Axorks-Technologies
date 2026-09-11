@@ -45,7 +45,7 @@ export const DiscoveryPortal: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* ─── Frictionless Proposal Intake Form (7 Cols) ─────────────────── */}
-          <div className="lg:col-span-7 glass-2 holographic-edge rounded-3xl p-6 sm:p-8 lg:p-10 spatial-card shadow-[0_24px_70px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
+          <div className="lg:col-span-7 glass-2 holographic-edge rounded-3xl p-6 sm:p-8 lg:p-10 spatial-card shadow-[0_24px_70px_rgba(0,0,0,0.8)]">
             <div className="flex items-center justify-between pb-4 mb-6 border-b border-[var(--glass-border)]">
               <div>
                 <h3 className="font-headline text-xl font-bold text-[var(--text-primary)]">
@@ -224,13 +224,18 @@ export const DiscoveryPortal: React.FC = () => {
             </div>
 
             {/* Direct Email */}
-            <div className="glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card border-[var(--gold)]/35 shadow-xl">
+            <a
+              href="mailto:contact@axorks.com?subject=Project%20Inquiry%20%E2%80%94%20AXORKS%20Technologies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card border-[var(--gold)]/35 hover:border-[var(--gold)] shadow-xl transition-all group cursor-pointer"
+            >
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-11 h-11 rounded-2xl bg-[var(--gold)]/15 border border-[var(--gold)]/40 flex items-center justify-center text-[var(--gold)]">
+                <div className="w-11 h-11 rounded-2xl bg-[var(--gold)]/15 border border-[var(--gold)]/40 flex items-center justify-center text-[var(--gold)] group-hover:scale-105 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-headline font-bold text-base text-[var(--text-primary)]">
+                  <h4 className="font-headline font-bold text-base text-[var(--text-primary)] group-hover:text-[var(--gold)] transition-colors">
                     Direct Email
                   </h4>
                   <p className="text-xs text-[var(--gold)] font-mono-code font-semibold">
@@ -241,7 +246,7 @@ export const DiscoveryPortal: React.FC = () => {
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                 Send RFPs, architectural diagrams, and project documents directly to our leadership.
               </p>
-            </div>
+            </a>
 
             {/* FAQ Accordion */}
             <div className="space-y-2.5">

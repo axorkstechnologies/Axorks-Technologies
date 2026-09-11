@@ -40,46 +40,6 @@
   --input-border: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme="light"] {
-  --bg-primary: #F8F9FA;
-  --bg-secondary: #EDF0F4;
-  --bg-tertiary: #E2E7EC;
-  --bg-card: #FFFFFF;
-  --text-primary: #0A0F1D;     /* High contrast charcoal 14:1 */
-  --text-secondary: #1E293B;   /* High contrast slate 10:1 */
-  --text-muted: #334155;       /* High contrast muted 7:1 (zero wash-out) */
-
-  /* Adjusted jewel tones for light background contrast */
-  --gold: #B48310;
-  --gold-light: #926600;
-  --gold-dark: #785200;
-  --emerald: #058A5E;
-  --emerald-light: #046C49;
-  --emerald-dark: #034D34;
-  --violet: #6D28D9;
-  --violet-light: #5B21B6;
-  --wine: #9F1239;
-  --wine-light: #881337;
-  --cyan: #0284C7;
-  --cyan-light: #0369A1;
-
-  --glass-bg: #FFFFFF;
-  --glass-border: rgba(15, 23, 42, 0.14);
-  --glass-highlight: transparent;
-  --glass-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(15, 23, 42, 0.05);
-  --caustic-glow: radial-gradient(circle at 50% 0%, rgba(180, 131, 16, 0.08), rgba(5, 138, 94, 0.05) 45%, transparent 70%);
-
-  /* Hero Scrim for Light Mode */
-  --hero-scrim: transparent;
-  --input-bg: #FFFFFF;
-  --input-border: rgba(15, 23, 42, 0.22);
-}
-
-/* Eliminate white gradient glare over text in light mode */
-[data-theme="light"] .glass-2::before {
-  display: none !important;
-}
-
 /* ─── BASE & UNINHIBITED VERTICAL SCROLL FLOW ──────────────────────────────── */
 
 @layer base {
@@ -178,18 +138,6 @@
   transition: opacity 0.4s ease;
 }
 
-[data-theme="light"] .holographic-edge::after {
-  background: linear-gradient(
-    115deg,
-    rgba(180, 131, 16, 0.35) 0%,
-    rgba(5, 138, 94, 0.28) 30%,
-    rgba(2, 132, 199, 0.28) 55%,
-    rgba(109, 40, 217, 0.28) 80%,
-    rgba(159, 18, 57, 0.35) 100%
-  );
-  opacity: 0.55;
-}
-
 .holographic-edge:hover::after {
   opacity: 1;
 }
@@ -201,6 +149,9 @@
 }
 
 .spatial-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  clip-path: inset(0 round 1.5rem);
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
   will-change: transform;
 }
@@ -212,24 +163,12 @@
     0 0 25px -4px rgba(245, 199, 97, 0.2);
 }
 
-[data-theme="light"] .spatial-card:hover {
-  box-shadow:
-    0 20px 45px -8px rgba(15, 23, 42, 0.12),
-    0 0 20px -3px rgba(180, 131, 16, 0.15);
-}
-
 /* ─── JEWEL BOX GLOWS ─────────────────────────────────────────────────────── */
 
 .glow-gold-jewel {
   box-shadow:
     0 0 35px -8px rgba(245, 199, 97, 0.35),
     0 10px 24px -5px rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="light"] .glow-gold-jewel {
-  box-shadow:
-    0 0 30px -6px rgba(180, 131, 16, 0.25),
-    0 8px 20px -4px rgba(15, 23, 42, 0.1);
 }
 
 /* ─── LIVING AMBIENT MOTION & CAUSTICS ─────────────────────────────────────── */

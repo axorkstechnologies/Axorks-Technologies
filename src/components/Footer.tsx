@@ -16,11 +16,11 @@ export const Footer: React.FC = () => {
           {/* Brand Column with Official Metallic Logo */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[var(--gold)]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#050A14] flex items-center justify-center">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[var(--gold)]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#111622] flex items-center justify-center shrink-0">
                 <img
-                  src="/Logos/7FEo7.jpg"
+                  src="/Logos/axorks_monogram.png"
                   alt="AXORKS Technologies official metallic emblem"
-                  className="w-full h-full object-cover scale-[1.3] object-top"
+                  className="w-full h-full object-contain p-0.5"
                 />
               </div>
 
@@ -94,7 +94,9 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:contact@axorks.com"
+                  href="mailto:contact@axorks.com?subject=Project%20Inquiry%20%E2%80%94%20AXORKS%20Technologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors"
                 >
                   <Mail className="w-4 h-4 text-[var(--gold)]" />

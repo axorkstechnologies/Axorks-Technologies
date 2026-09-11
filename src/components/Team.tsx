@@ -70,7 +70,9 @@ export const Team: React.FC = () => {
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <a
-                  href="mailto:contact@axorks.com"
+                  href="mailto:contact@axorks.com?subject=Technical%20Inquiry%20%E2%80%94%20AXORKS%20Technologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-4 py-2 rounded-xl glass-2 hover:border-[var(--gold)] text-xs font-mono-code text-[var(--text-primary)] flex items-center gap-2 transition-colors border border-[var(--glass-border)]"
                 >
                   <Mail className="w-3.5 h-3.5 text-[var(--gold)]" />

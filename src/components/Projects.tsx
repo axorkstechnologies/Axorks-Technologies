@@ -76,26 +76,26 @@ export const Projects: React.FC = () => {
             return (
               <div
                 key={project.id}
-                className="glass-2 holographic-edge rounded-3xl overflow-hidden isolate spatial-card shadow-[0_24px_64px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
+                className="glass-2 holographic-edge rounded-3xl overflow-hidden isolate spatial-card shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
+                style={{ clipPath: 'inset(0 round 1.5rem)' }}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 w-full overflow-hidden">
                   {/* Media Viewport (7 Cols) */}
-                  <div className={`lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 overflow-hidden ${
+                  <div className={`min-w-0 lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 overflow-hidden ${
                     isReversed ? 'lg:order-last' : 'lg:order-first'
                   }`}>
-                    {/* Main Image Frame — Strictly Contained with Hardware Mask */}
+                    {/* Main Image Frame — Strictly Contained with Hardware Geometric Clipping */}
                     <div
-                      className="relative aspect-[16/9] sm:aspect-[16/8.8] w-full rounded-2xl overflow-hidden isolate bg-black/20 dark:bg-[#050A14] group cursor-pointer border border-[var(--glass-border)]"
+                      className="relative aspect-[16/9] sm:aspect-[16/8.8] w-full rounded-2xl overflow-hidden isolate bg-[#050A14] group cursor-pointer border border-[var(--glass-border)] shrink-0"
                       style={{
-                        transform: 'translateZ(0)',
-                        WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+                        clipPath: 'inset(0 round 1rem)',
                       }}
                       onClick={() => setLightboxImage({ src: currentImage.src, alt: currentImage.alt, title: project.title })}
                     >
                       <img
                         src={currentImage.src}
                         alt={currentImage.alt}
-                        className="w-full h-full object-cover object-top block max-w-full rounded-2xl transition-opacity duration-300 group-hover:opacity-95"
+                        className="w-full h-full object-cover object-top block max-w-full transition-opacity duration-300 group-hover:opacity-95"
                         loading="lazy"
                       />
 
@@ -133,15 +133,14 @@ export const Projects: React.FC = () => {
                         <button
                           key={imgIdx}
                           onClick={() => handleSelectImage(project.id, imgIdx)}
-                          className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden isolate border-2 transition-all cursor-pointer relative ${
+                          className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer relative ${
                             currentImgIndex === imgIdx
                               ? 'shadow-md ring-2 ring-[var(--gold)]/40'
                               : 'opacity-60 hover:opacity-100 border-transparent'
                           }`}
                           style={{
                             borderColor: currentImgIndex === imgIdx ? accent.color : 'transparent',
-                            transform: 'translateZ(0)',
-                            WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+                            clipPath: 'inset(0 round 0.5rem)',
                           }}
                           aria-label={`View screenshot ${imgIdx + 1}`}
                         >
@@ -157,7 +156,7 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Case Study Details & Measurable Metrics (5 Cols) */}
-                  <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                  <div className="min-w-0 lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-2">
                         <span className="text-[11px] font-mono-code uppercase tracking-wider text-[var(--text-muted)]">
