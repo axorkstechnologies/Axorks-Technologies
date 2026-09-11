@@ -11,40 +11,53 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="w-full border-t border-white/[0.08] bg-[var(--bg-secondary)]/80 backdrop-blur-2xl relative z-10">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Brand Column */}
+          {/* Brand Column with Official Metallic Logo */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#F5C761] to-[#D97706] flex items-center justify-center">
-                <span className="text-[#2A1800] font-bold text-sm font-headline">A</span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#F5C761]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#050A14] flex items-center justify-center">
+                <img
+                  src="/Logos/7FEo7.jpg"
+                  alt="AXORKS Technologies official metallic emblem"
+                  className="w-full h-full object-cover scale-[1.3] object-top"
+                />
               </div>
-              <span className="font-headline text-xl font-bold text-[var(--text-primary)]">
-                AXORKS
-              </span>
+
+              <div className="flex flex-col">
+                <span className="font-headline text-lg font-extrabold tracking-widest text-[var(--text-primary)] leading-none">
+                  AXORKS
+                </span>
+                <span className="text-[9px] font-mono-code text-[var(--text-muted)] tracking-widest uppercase mt-0.5">
+                  TECHNOLOGIES
+                </span>
+              </div>
             </div>
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
-              Axorks Pvt Limited — a registered private software engineering studio. Building custom web applications, AI automations, mobile apps, and Web3 systems.
+
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
+              Axorks Pvt Limited — a registered private software engineering studio. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems.
             </p>
+
             <div className="flex items-center gap-2 text-[#F5C761] font-mono-code text-xs font-semibold">
               <span>Projects from $1,000</span>
               <span className="text-[var(--text-muted)]">•</span>
-              <span>Fixed-Price</span>
+              <span>Fixed-Price Proposals</span>
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-[var(--text-muted)] font-semibold font-mono-code mb-4">
               Navigation
             </h4>
             <ul className="space-y-2.5">
               {[
-                { label: 'Services', id: 'services' },
-                { label: 'Selected Work', id: 'work' },
-                { label: 'How We Work', id: 'process' },
-                { label: 'Our Team', id: 'team' },
-                { label: 'Contact', id: 'contact' },
+                { label: 'Capabilities & Services', id: 'services' },
+                { label: 'Delivered Work', id: 'work' },
+                { label: 'Execution Process', id: 'process' },
+                { label: 'Why AXORKS', id: 'why-axorks' },
+                { label: 'Engineering Team', id: 'team' },
+                { label: 'Request Proposal', id: 'contact' },
               ].map((link) => (
                 <li key={link.id}>
                   <button
@@ -60,39 +73,41 @@ export const Footer: React.FC = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-4">
-              Services
+            <h4 className="text-xs uppercase tracking-wider text-[var(--text-muted)] font-semibold font-mono-code mb-4">
+              Core Capabilities
             </h4>
-            <ul className="space-y-2.5">
-              {[
-                'Custom Web Applications',
-                'AI Automation & Integrations',
-                'Mobile Apps (Flutter)',
-                'Web3 & Blockchain',
-                'Ongoing Support',
-                'Product Development',
-              ].map((service) => (
-                <li key={service}>
-                  <span className="text-sm text-[var(--text-secondary)]">{service}</span>
-                </li>
-              ))}
+            <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
+              <li>Custom Web Applications</li>
+              <li>AI Automations &amp; Multi-AI</li>
+              <li>Cross-Platform Mobile Apps</li>
+              <li>Web3 &amp; Blockchain Systems</li>
+              <li>Proprietary Products</li>
+              <li>Ongoing Support &amp; SLA</li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Details & Direct Action */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-4">
-              Contact
+            <h4 className="text-xs uppercase tracking-wider text-[var(--text-muted)] font-semibold font-mono-code mb-4">
+              Direct Contact
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:contact@axorks.com" className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#F5C761] transition-colors">
+                <a
+                  href="mailto:contact@axorks.com"
+                  className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#F5C761] transition-colors"
+                >
                   <Mail className="w-4 h-4 text-[#F5C761]" />
                   <span>contact@axorks.com</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/923141030223" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#10B981] transition-colors">
+                <a
+                  href="https://wa.me/923141030223"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#10B981] transition-colors"
+                >
                   <MessageSquare className="w-4 h-4 text-[#10B981]" />
                   <span>+92 314 103 0223</span>
                 </a>
@@ -107,28 +122,28 @@ export const Footer: React.FC = () => {
               href="https://wa.me/923141030223"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-[11px] uppercase font-bold tracking-wider magnetic-btn cursor-pointer"
+              className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-[11px] uppercase font-headline font-bold tracking-wider magnetic-btn cursor-pointer shadow-md"
             >
-              <span>Start a Project</span>
+              <span>Chat on WhatsApp</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-[var(--text-muted)]">
-            © {currentYear} Axorks Pvt Limited. All rights reserved.
+            &copy; {currentYear} Axorks Pvt Limited. All rights reserved.
           </div>
-          <div className="flex items-center gap-4 text-xs text-[var(--text-muted)]">
-            <span>Registered Private Company</span>
+          <div className="flex items-center gap-4 text-xs text-[var(--text-muted)] font-mono-code">
+            <span>Registered Private Software Company</span>
             <span>•</span>
             <span>Karachi &amp; Islamabad</span>
           </div>
         </div>
       </div>
 
-      {/* Schema.org JSON-LD */}
+      {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -143,7 +158,7 @@ export const Footer: React.FC = () => {
                 url: 'https://axorks.com',
                 email: 'contact@axorks.com',
                 telephone: '+923141030223',
-                description: 'Registered private software engineering studio building custom web applications, AI automations, mobile apps, and Web3 systems.',
+                description: 'Registered private software engineering studio building custom web applications, multi-AI workflows, mobile apps, and Web3 systems.',
                 foundingDate: '2023',
                 founder: {
                   '@type': 'Person',
@@ -162,7 +177,6 @@ export const Footer: React.FC = () => {
                     addressCountry: 'PK',
                   },
                 ],
-                sameAs: [],
               },
               {
                 '@type': 'LocalBusiness',
