@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
+import { ShieldCheck, Award, Zap, Clock, Users } from 'lucide-react';
 
 interface CounterProps {
   target: number;
@@ -29,7 +30,7 @@ const AnimatedCounter: React.FC<CounterProps> = ({ target, suffix = '', prefix =
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -43,41 +44,104 @@ const AnimatedCounter: React.FC<CounterProps> = ({ target, suffix = '', prefix =
 };
 
 const TRUST_METRICS = [
-  { value: 4, suffix: '+', label: 'Production Platforms Shipped', prefix: '' },
-  { value: 100, suffix: '%', label: 'On-Time Milestone Delivery', prefix: '' },
-  { value: 1000, suffix: '', label: 'Projects Starting From', prefix: '$' },
-  { value: 24, suffix: 'h', label: 'Maximum Response Time', prefix: '<' },
-  { value: 8, suffix: '+', label: 'Senior Engineers & Specialists', prefix: '' },
+  {
+    value: 4,
+    suffix: '+',
+    prefix: '',
+    label: 'Platforms Shipped',
+    subtext: 'AgroTrace, IPMI-OS, MediVerse, FUME',
+    icon: Award,
+    accent: '#F5C761',
+  },
+  {
+    value: 100,
+    suffix: '%',
+    prefix: '',
+    label: 'Fixed-Price Milestones',
+    subtext: 'Zero hourly surprise billing',
+    icon: ShieldCheck,
+    accent: '#10B981',
+  },
+  {
+    value: 1000,
+    suffix: '',
+    prefix: '$',
+    label: 'Projects Starting From',
+    subtext: 'Clear proposal before code',
+    icon: Zap,
+    accent: '#F5C761',
+  },
+  {
+    value: 24,
+    suffix: 'h',
+    prefix: '<',
+    label: 'Guaranteed Response',
+    subtext: 'Direct engineering desks',
+    icon: Clock,
+    accent: '#06B6D4',
+  },
+  {
+    value: 8,
+    suffix: '+',
+    prefix: '',
+    label: 'Specialists & Builders',
+    subtext: 'Direct founder oversight',
+    icon: Users,
+    accent: '#8B5CF6',
+  },
 ];
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="w-full border-y border-[var(--border-subtle)] bg-[var(--bg-secondary)]/50 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+    <section className="w-full relative z-20 -mt-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4"
         >
-          {TRUST_METRICS.map((metric, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center"
-            >
-              <div className="font-display-hero text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F5C761]">
-                <AnimatedCounter target={metric.value} suffix={metric.suffix} prefix={metric.prefix} />
-              </div>
-              <div className="mt-1 text-[11px] sm:text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium">
-                {metric.label}
-              </div>
-            </motion.div>
-          ))}
+          {TRUST_METRICS.map((metric, i) => {
+            const IconComponent = metric.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="glass-2 holographic-edge rounded-2xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] shadow-[0_12px_32px_rgba(0,0,0,0.5)]"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${metric.accent}15`, border: `1px solid ${metric.accent}30` }}
+                  >
+                    <IconComponent className="w-4 h-4" style={{ color: metric.accent }} />
+                  </div>
+                  <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase">
+                    PROOF
+                  </span>
+                </div>
+
+                <div>
+                  <div
+                    className="font-display-hero text-2xl sm:text-3xl font-extrabold tracking-tight"
+                    style={{ color: metric.accent }}
+                  >
+                    <AnimatedCounter target={metric.value} suffix={metric.suffix} prefix={metric.prefix} />
+                  </div>
+                  <div className="mt-1 text-xs font-headline font-bold text-[var(--text-primary)]">
+                    {metric.label}
+                  </div>
+                  <div className="text-[11px] text-[var(--text-muted)] mt-0.5 line-clamp-1">
+                    {metric.subtext}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

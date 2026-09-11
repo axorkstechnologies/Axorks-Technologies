@@ -41,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'glass-card border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+          ? 'glass-2 border-b border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.5)]'
           : 'bg-transparent'
       }`}
     >
@@ -115,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden glass-card border-t border-white/[0.06]"
+            className="lg:hidden overflow-hidden glass-2 border-t border-white/[0.08]"
           >
             <nav className="flex flex-col px-4 py-4 gap-1">
               {NAV_LINKS.map((link, i) => (

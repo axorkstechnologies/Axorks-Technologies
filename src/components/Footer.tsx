@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full border-t border-[var(--border-subtle)] bg-[var(--bg-secondary)]/50">
+    <footer className="w-full border-t border-white/[0.08] bg-[var(--bg-secondary)]/80 backdrop-blur-2xl relative z-10">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
