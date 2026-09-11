@@ -7,19 +7,19 @@ const ICON_MAP: Record<string, React.FC<{ className?: string; style?: React.CSSP
 };
 
 const ACCENTS: Record<string, { color: string; border: string; bg: string }> = {
-  gold: { color: '#F5C761', border: 'border-[#F5C761]/30', bg: 'rgba(245, 199, 97, 0.12)' },
-  emerald: { color: '#10B981', border: 'border-[#10B981]/30', bg: 'rgba(16, 185, 129, 0.12)' },
-  violet: { color: '#8B5CF6', border: 'border-[#8B5CF6]/30', bg: 'rgba(139, 92, 246, 0.12)' },
-  wine: { color: '#BE123C', border: 'border-[#BE123C]/30', bg: 'rgba(190, 18, 60, 0.12)' },
+  gold: { color: 'var(--gold)', border: 'border-[var(--gold)]/30', bg: 'rgba(245, 199, 97, 0.12)' },
+  emerald: { color: 'var(--emerald)', border: 'border-[var(--emerald)]/30', bg: 'rgba(16, 185, 129, 0.12)' },
+  violet: { color: 'var(--violet)', border: 'border-[var(--violet)]/30', bg: 'rgba(139, 92, 246, 0.12)' },
+  wine: { color: 'var(--wine)', border: 'border-[var(--wine)]/30', bg: 'rgba(190, 18, 60, 0.12)' },
 };
 
 export const WhyAxorks: React.FC = () => {
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative bg-[var(--bg-secondary)]/30 border-y border-white/[0.06]" id="why-axorks">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative bg-[var(--bg-secondary)]/40 border-y border-[var(--glass-border)]" id="why-axorks">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header — Commercial Transparency */}
         <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[#F5C761]/30 text-xs uppercase text-[#F5C761] tracking-widest font-semibold font-mono-code mb-3.5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--gold)]/30 text-xs uppercase text-[var(--gold)] tracking-widest font-semibold font-mono-code mb-3.5">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Commercial Transparency</span>
           </div>
@@ -49,7 +49,7 @@ export const WhyAxorks: React.FC = () => {
                     className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
                     style={{
                       backgroundColor: accent.bg,
-                      border: `1px solid ${accent.color}40`,
+                      border: `1px solid ${accent.color}`,
                     }}
                   >
                     <IconComponent className="w-5 h-5" style={{ color: accent.color }} />
@@ -67,8 +67,8 @@ export const WhyAxorks: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs font-mono-code text-[var(--text-muted)]">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#10B981]" />
+                <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center gap-2 text-xs font-mono-code text-[var(--text-muted)]">
+                  <CheckCircle className="w-3.5 h-3.5 text-[var(--emerald)]" />
                   <span>Standard Contract Guarantee</span>
                 </div>
               </div>
@@ -79,18 +79,17 @@ export const WhyAxorks: React.FC = () => {
         {/* Office Verification Card */}
         <div className="mt-12 rounded-3xl overflow-hidden glass-2 holographic-edge max-w-5xl mx-auto shadow-2xl spatial-card">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0 items-center">
-            <div className="md:col-span-7 relative h-[260px] sm:h-[320px] overflow-hidden bg-[#030712]">
+            <div className="md:col-span-7 relative h-[260px] sm:h-[320px] overflow-hidden bg-black/10">
               <img
                 src="/Images/Axorks_Office.jpeg"
                 alt="AXORKS Technologies engineering studio in Karachi and Islamabad"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/90 via-transparent to-transparent md:hidden" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#030712] hidden md:block" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:hidden" />
 
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-[#030712]/85 backdrop-blur-xl border border-[#10B981]/40 text-[#6EE7B7] text-[11px] font-mono-code flex items-center gap-1.5 shadow-lg">
+                <span className="px-3 py-1 rounded-full glass-2 text-[var(--emerald)] text-[11px] font-mono-code font-semibold flex items-center gap-1.5 shadow-lg border border-[var(--glass-border)]">
                   <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                   Real Physical Offices
                 </span>
@@ -98,7 +97,7 @@ export const WhyAxorks: React.FC = () => {
             </div>
 
             <div className="md:col-span-5 p-6 sm:p-8 lg:p-10 space-y-4">
-              <div className="text-[11px] uppercase tracking-wider font-mono-code text-[#F5C761] font-semibold">
+              <div className="text-[11px] uppercase tracking-wider font-mono-code text-[var(--gold)] font-semibold">
                 Registered Corporate Entity
               </div>
 
@@ -106,17 +105,17 @@ export const WhyAxorks: React.FC = () => {
                 Axorks Pvt Limited
               </h3>
 
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
                 Registered private software company operating real engineering offices in Karachi &amp; Islamabad, Pakistan. Serving clients worldwide.
               </p>
 
-              <div className="space-y-2 pt-2 border-t border-white/[0.06] text-xs font-mono-code text-[var(--text-muted)]">
+              <div className="space-y-2 pt-2 border-t border-[var(--glass-border)] text-xs font-mono-code text-[var(--text-muted)]">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#10B981]" />
+                  <MapPin className="w-3.5 h-3.5 text-[var(--emerald)]" />
                   <span>Karachi: Commercial Tech Sector</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#8B5CF6]" />
+                  <MapPin className="w-3.5 h-3.5 text-[var(--violet)]" />
                   <span>Islamabad: Blue Area Business Zone</span>
                 </div>
               </div>
@@ -126,7 +125,7 @@ export const WhyAxorks: React.FC = () => {
                   href="https://wa.me/923141030223"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-headline font-bold uppercase tracking-wider text-[#F5C761] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs font-headline font-bold uppercase tracking-wider text-[var(--gold)] hover:underline"
                 >
                   <span>Connect with Engineering on WhatsApp &rarr;</span>
                 </a>

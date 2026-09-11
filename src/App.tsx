@@ -16,7 +16,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#F5C761] selection:text-[#2A1800] overflow-x-hidden font-sans">
+    <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#F5C761] selection:text-[#2A1800] font-sans">
       <Header onOpenDiscovery={scrollToContact} />
 
       <main className="w-full pt-[72px]">

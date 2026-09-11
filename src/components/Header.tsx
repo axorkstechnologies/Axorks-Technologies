@@ -65,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
           </div>
 
           <div className="flex flex-col">
-            <span className="font-headline text-lg sm:text-xl font-extrabold tracking-widest text-[var(--text-primary)] group-hover:text-[#F5C761] transition-colors leading-none">
+            <span className="font-headline text-lg sm:text-xl font-extrabold tracking-widest text-[var(--text-primary)] group-hover:text-[var(--gold)] transition-colors leading-none">
               AXORKS
             </span>
             <span className="text-[9px] font-mono-code text-[var(--text-muted)] tracking-widest uppercase mt-0.5">
@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="px-4 py-2 text-xs font-headline font-semibold text-[var(--text-secondary)] hover:text-[#F5C761] transition-colors uppercase tracking-wider cursor-pointer"
+              className="px-4 py-2 text-xs font-headline font-semibold text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors uppercase tracking-wider cursor-pointer"
             >
               {link.label}
             </button>
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
         <div className="hidden lg:flex items-center gap-3.5">
           <button
             onClick={toggleTheme}
-            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[#F5C761] hover:bg-white/[0.04] transition-all cursor-pointer"
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--gold)] hover:bg-white/[0.04] transition-all cursor-pointer"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun className="w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
@@ -110,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[#F5C761] transition-all cursor-pointer"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--gold)] transition-all cursor-pointer"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-10 h-10 rounded-xl glass-2 border-white/10 flex items-center justify-center text-[var(--text-primary)] hover:text-[#F5C761] transition-all cursor-pointer"
+            className="w-10 h-10 rounded-xl glass-2 border-white/10 flex items-center justify-center text-[var(--text-primary)] hover:text-[var(--gold)] transition-all cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left px-4 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[#F5C761] hover:bg-white/[0.04] transition-all text-xs font-headline font-semibold uppercase tracking-wider cursor-pointer"
+                  className="text-left px-4 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--gold)] hover:bg-white/[0.04] transition-all text-xs font-headline font-semibold uppercase tracking-wider cursor-pointer"
                 >
                   {link.label}
                 </motion.button>

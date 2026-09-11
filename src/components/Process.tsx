@@ -104,7 +104,7 @@ export const Process: React.FC = () => {
         <div className="mt-14 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-wider text-[#F5C761] hover:underline cursor-pointer group"
+            className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-wider text-[var(--gold)] hover:underline cursor-pointer group"
           >
             <span>Ready to start with Step 1? Schedule a free discovery call</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

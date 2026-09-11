@@ -10,13 +10,13 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full border-t border-white/[0.08] bg-[var(--bg-secondary)]/80 backdrop-blur-2xl relative z-10">
+    <footer className="w-full border-t border-[var(--glass-border)] bg-[var(--bg-secondary)]/80 backdrop-blur-2xl relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column with Official Metallic Logo */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#F5C761]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#050A14] flex items-center justify-center">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[var(--gold)]/45 shadow-[0_0_20px_rgba(245,199,97,0.25)] bg-[#050A14] flex items-center justify-center">
                 <img
                   src="/Logos/7FEo7.jpg"
                   alt="AXORKS Technologies official metallic emblem"
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
               Axorks Pvt Limited — a registered private software engineering studio. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems.
             </p>
 
-            <div className="flex items-center gap-2 text-[#F5C761] font-mono-code text-xs font-semibold">
+            <div className="flex items-center gap-2 text-[var(--gold)] font-mono-code text-xs font-semibold">
               <span>Projects from $1,000</span>
               <span className="text-[var(--text-muted)]">•</span>
               <span>Fixed-Price Proposals</span>
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[#F5C761] transition-colors cursor-pointer"
+                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -95,9 +95,9 @@ export const Footer: React.FC = () => {
               <li>
                 <a
                   href="mailto:contact@axorks.com"
-                  className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#F5C761] transition-colors"
+                  className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#F5C761]" />
+                  <Mail className="w-4 h-4 text-[var(--gold)]" />
                   <span>contact@axorks.com</span>
                 </a>
               </li>
@@ -106,9 +106,9 @@ export const Footer: React.FC = () => {
                   href="https://wa.me/923141030223"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#10B981] transition-colors"
+                  className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--emerald)] transition-colors"
                 >
-                  <MessageSquare className="w-4 h-4 text-[#10B981]" />
+                  <MessageSquare className="w-4 h-4 text-[var(--emerald)]" />
                   <span>+92 314 103 0223</span>
                 </a>
               </li>
@@ -131,7 +131,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-[var(--text-muted)]">
             &copy; {currentYear} Axorks Pvt Limited. All rights reserved.
           </div>

@@ -9,22 +9,22 @@ const ACCENT_COLORS: Record<string, {
   badgeBg: string;
 }> = {
   emerald: {
-    color: '#10B981',
+    color: 'var(--emerald)',
     glow: 'rgba(16, 185, 129, 0.25)',
     badgeBg: 'rgba(16, 185, 129, 0.15)',
   },
   gold: {
-    color: '#F5C761',
+    color: 'var(--gold)',
     glow: 'rgba(245, 199, 97, 0.25)',
     badgeBg: 'rgba(245, 199, 97, 0.15)',
   },
   violet: {
-    color: '#8B5CF6',
+    color: 'var(--violet)',
     glow: 'rgba(139, 92, 246, 0.25)',
     badgeBg: 'rgba(139, 92, 246, 0.15)',
   },
   wine: {
-    color: '#BE123C',
+    color: 'var(--wine)',
     glow: 'rgba(190, 18, 60, 0.25)',
     badgeBg: 'rgba(190, 18, 60, 0.15)',
   },
@@ -45,12 +45,12 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative bg-[var(--bg-secondary)]/40 border-y border-white/[0.06]" id="work">
+    <section className="w-full py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative bg-[var(--bg-secondary)]/40 border-y border-[var(--glass-border)]" id="work">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header — Proof Through Work */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 sm:mb-20">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[#10B981]/30 text-xs uppercase text-[#10B981] tracking-widest font-semibold font-mono-code mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--emerald)]/30 text-xs uppercase text-[var(--emerald)] tracking-widest font-semibold font-mono-code mb-3">
               <Activity className="w-3.5 h-3.5" />
               <span>Proof Through Work</span>
             </div>
@@ -76,16 +76,16 @@ export const Projects: React.FC = () => {
             return (
               <div
                 key={project.id}
-                className="glass-2 holographic-edge rounded-3xl overflow-hidden spatial-card shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
+                className="glass-2 holographic-edge rounded-3xl overflow-hidden spatial-card shadow-[0_24px_64px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                   {/* Media Viewport (7 Cols) */}
-                  <div className={`lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[#030712]/70 ${
+                  <div className={`lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 ${
                     isReversed ? 'lg:order-last' : 'lg:order-first'
                   }`}>
                     {/* Main Image Frame */}
                     <div
-                      className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#050A14] group cursor-pointer"
+                      className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden bg-black/10 dark:bg-[#050A14] group cursor-pointer border border-[var(--glass-border)]"
                       onClick={() => setLightboxImage({ src: currentImage.src, alt: currentImage.alt, title: project.title })}
                     >
                       <img
@@ -95,7 +95,7 @@ export const Projects: React.FC = () => {
                         loading="lazy"
                       />
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/80 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                       {/* Status Badges */}
                       <div className="absolute top-3.5 left-3.5 flex flex-wrap items-center gap-2">
@@ -104,12 +104,12 @@ export const Projects: React.FC = () => {
                           style={{
                             backgroundColor: accent.badgeBg,
                             color: accent.color,
-                            borderColor: `${accent.color}40`,
+                            borderColor: accent.color,
                           }}
                         >
                           {project.categoryBadge}
                         </span>
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono-code uppercase font-semibold text-white/90 bg-[#030712]/80 backdrop-blur-xl border border-white/10">
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono-code uppercase font-semibold text-white bg-black/70 backdrop-blur-xl border border-white/20">
                           {project.statusBadge}
                         </span>
                       </div>
@@ -121,7 +121,7 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Screenshot Selector Thumbnails */}
-                    <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center gap-2 overflow-x-auto gallery-scroll pb-1">
+                    <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center gap-2 overflow-x-auto gallery-scroll pb-1">
                       <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 mr-1">
                         Screens ({project.images.length}):
                       </span>
@@ -131,7 +131,7 @@ export const Projects: React.FC = () => {
                           onClick={() => handleSelectImage(project.id, imgIdx)}
                           className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer relative ${
                             currentImgIndex === imgIdx
-                              ? 'scale-105 shadow-[0_0_15px_rgba(245,199,97,0.3)]'
+                              ? 'scale-105 shadow-md'
                               : 'opacity-50 hover:opacity-100 border-transparent'
                           }`}
                           style={{
@@ -177,14 +177,13 @@ export const Projects: React.FC = () => {
 
                       {/* Real Verified Metrics */}
                       <div
-                        className="mt-6 grid grid-cols-2 gap-3 p-4 rounded-2xl bg-[#030712]/80 border"
-                        style={{ borderColor: `${accent.color}30` }}
+                        className="mt-6 grid grid-cols-2 gap-3 p-4 rounded-2xl bg-[var(--bg-primary)]/80 border border-[var(--glass-border)]"
                       >
                         {project.metrics.map((metric, mIdx) => (
                           <div key={mIdx}>
                             <div
                               className="font-display-hero text-2xl sm:text-3xl font-extrabold tracking-tight"
-                              style={{ color: mIdx === 0 ? accent.color : '#F8FAFC' }}
+                              style={{ color: mIdx === 0 ? accent.color : 'var(--text-primary)' }}
                             >
                               {metric.value}
                             </div>
@@ -197,12 +196,12 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Tags & Action Link */}
-                    <div className="mt-8 pt-6 border-t border-white/[0.08]">
+                    <div className="mt-8 pt-6 border-t border-[var(--glass-border)]">
                       <div className="flex flex-wrap gap-1.5 mb-5">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] text-[var(--text-muted)] font-mono-code text-[10px] uppercase tracking-wider"
+                            className="px-2.5 py-1 rounded-md bg-[var(--bg-tertiary)]/70 border border-[var(--glass-border)] text-[var(--text-secondary)] font-mono-code text-[10px] uppercase tracking-wider font-medium"
                           >
                             {tag}
                           </span>
@@ -210,7 +209,7 @@ export const Projects: React.FC = () => {
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono-code text-[#F5C761]">
+                        <span className="text-xs font-mono-code text-[var(--gold)] font-medium">
                           Live in Production
                         </span>
 
@@ -239,14 +238,14 @@ export const Projects: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[#030712]/95 backdrop-blur-3xl flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
             onClick={() => setLightboxImage(null)}
           >
             <div
               className="relative max-w-6xl w-full max-h-[90vh] glass-2 rounded-3xl overflow-hidden p-2 sm:p-4 shadow-[0_32px_100px_rgba(0,0,0,0.9)]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between pb-3 px-2 border-b border-white/[0.08] mb-3">
+              <div className="flex items-center justify-between pb-3 px-2 border-b border-[var(--glass-border)] mb-3">
                 <div>
                   <h4 className="font-headline font-bold text-base text-[var(--text-primary)]">
                     {lightboxImage.title} // SCREENSHOT INSPECTION
@@ -257,14 +256,14 @@ export const Projects: React.FC = () => {
                 </div>
                 <button
                   onClick={() => setLightboxImage(null)}
-                  className="w-9 h-9 rounded-xl glass-2 border-white/20 flex items-center justify-center text-[var(--text-primary)] hover:text-[#F5C761] transition-colors cursor-pointer"
+                  className="w-9 h-9 rounded-xl glass-2 border-[var(--glass-border)] flex items-center justify-center text-[var(--text-primary)] hover:text-[var(--gold)] transition-colors cursor-pointer"
                   aria-label="Close image modal"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="relative rounded-2xl overflow-hidden max-h-[78vh] flex items-center justify-center bg-black/50">
+              <div className="relative rounded-2xl overflow-hidden max-h-[78vh] flex items-center justify-center bg-black/40">
                 <img
                   src={lightboxImage.src}
                   alt={lightboxImage.alt}

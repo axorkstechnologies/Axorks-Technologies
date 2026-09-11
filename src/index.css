@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ─── THEME VARIABLES & JEWEL PALETTE 2026 ─────────────────────────────────── */
+/* ─── THEME VARIABLES & JEWEL PALETTE ──────────────────────────────────────── */
 
 :root {
   --bg-primary: #030712;
@@ -20,54 +20,85 @@
   --emerald-dark: #0D9668;
   --violet: #8B5CF6;
   --violet-light: #A78BFA;
-  --wine: #881337;
-  --wine-light: #BE123C;
+  --wine: #BE123C;
+  --wine-light: #E11D48;
   --cyan: #06B6D4;
   --cyan-light: #67E8F9;
   --burgundy: #4C0519;
   --ivory: #FDFBF7;
 
   /* Glass 2.0 Tokens */
-  --glass-bg: rgba(8, 15, 34, 0.65);
+  --glass-bg: rgba(8, 15, 34, 0.72);
   --glass-border: rgba(255, 255, 255, 0.09);
   --glass-highlight: rgba(255, 255, 255, 0.16);
-  --glass-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.06) inset;
+  --glass-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.06) inset;
   --caustic-glow: radial-gradient(circle at 50% 0%, rgba(245, 199, 97, 0.12), rgba(16, 185, 129, 0.08) 45%, transparent 70%);
+
+  /* Hero Scrim */
+  --hero-scrim: linear-gradient(to right, #030712 0%, rgba(3, 7, 18, 0.95) 45%, rgba(3, 7, 18, 0.6) 70%, transparent 100%);
+  --input-bg: rgba(3, 7, 18, 0.85);
+  --input-border: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] {
-  --bg-primary: #FBF9F5;
-  --bg-secondary: #F3EFEA;
-  --bg-tertiary: #E8E2D9;
+  --bg-primary: #F8F9FA;
+  --bg-secondary: #EDF0F4;
+  --bg-tertiary: #E2E7EC;
   --bg-card: #FFFFFF;
-  --text-primary: #0F172A;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
+  --text-primary: #0A0F1D;     /* High contrast charcoal 14:1 */
+  --text-secondary: #1F2937;   /* High contrast slate 9:1 */
+  --text-muted: #475569;       /* High contrast muted 5.8:1 */
 
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(15, 23, 42, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.85);
-  --glass-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.07), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
-  --caustic-glow: radial-gradient(circle at 50% 0%, rgba(212, 168, 67, 0.1), rgba(16, 185, 129, 0.05) 45%, transparent 70%);
+  /* Adjusted jewel tones for light background contrast */
+  --gold: #B48310;
+  --gold-light: #926600;
+  --gold-dark: #785200;
+  --emerald: #058A5E;
+  --emerald-light: #046C49;
+  --emerald-dark: #034D34;
+  --violet: #6D28D9;
+  --violet-light: #5B21B6;
+  --wine: #9F1239;
+  --wine-light: #881337;
+  --cyan: #0284C7;
+  --cyan-light: #0369A1;
+
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 1);
+  --glass-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  --caustic-glow: radial-gradient(circle at 50% 0%, rgba(180, 131, 16, 0.08), rgba(5, 138, 94, 0.05) 45%, transparent 70%);
+
+  /* Hero Scrim for Light Mode */
+  --hero-scrim: linear-gradient(to right, #F8F9FA 0%, rgba(248, 249, 250, 0.95) 45%, rgba(248, 249, 250, 0.6) 70%, transparent 100%);
+  --input-bg: #FFFFFF;
+  --input-border: rgba(15, 23, 42, 0.16);
 }
 
-/* ─── BASE & SMOOTH SCROLL ────────────────────────────────────────────────── */
+/* ─── BASE & UNINHIBITED VERTICAL SCROLL FLOW ──────────────────────────────── */
 
 @layer base {
-  html, body {
+  html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+    height: auto;
+  }
+
+  body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    overscroll-behavior: none;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    min-height: 100vh;
+    overflow-x: clip; /* Prevents horizontal scroll without locking vertical document flow */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(245, 199, 97, 0.25) transparent;
+    scrollbar-color: rgba(245, 199, 97, 0.3) transparent;
   }
 }
 
@@ -93,12 +124,11 @@
 
 .glass-2 {
   background: var(--glass-bg);
-  backdrop-filter: blur(28px) saturate(1.8);
-  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   position: relative;
-  overflow: hidden;
 }
 
 .glass-2::before {
@@ -128,18 +158,30 @@
   padding: 1px;
   background: linear-gradient(
     115deg,
-    rgba(245, 199, 97, 0.5) 0%,
-    rgba(16, 185, 129, 0.4) 28%,
-    rgba(6, 182, 212, 0.4) 52%,
-    rgba(139, 92, 246, 0.45) 75%,
-    rgba(136, 19, 55, 0.5) 100%
+    rgba(245, 199, 97, 0.45) 0%,
+    rgba(16, 185, 129, 0.35) 28%,
+    rgba(6, 182, 212, 0.35) 52%,
+    rgba(139, 92, 246, 0.4) 75%,
+    rgba(190, 18, 60, 0.45) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.7;
   transition: opacity 0.4s ease;
+}
+
+[data-theme="light"] .holographic-edge::after {
+  background: linear-gradient(
+    115deg,
+    rgba(180, 131, 16, 0.35) 0%,
+    rgba(5, 138, 94, 0.28) 30%,
+    rgba(2, 132, 199, 0.28) 55%,
+    rgba(109, 40, 217, 0.28) 80%,
+    rgba(159, 18, 57, 0.35) 100%
+  );
+  opacity: 0.55;
 }
 
 .holographic-edge:hover::after {
@@ -154,85 +196,39 @@
 }
 
 .spatial-card {
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
   transform-style: preserve-3d;
   will-change: transform;
 }
 
 .spatial-card:hover {
-  transform: translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg) scale(1.015);
+  transform: translateY(-4px) scale(1.01);
   box-shadow:
-    0 32px 70px -15px rgba(0, 0, 0, 0.85),
-    0 0 35px -5px rgba(245, 199, 97, 0.22),
-    0 0 1px 1px rgba(255, 255, 255, 0.12) inset;
+    0 24px 50px -10px rgba(0, 0, 0, 0.4),
+    0 0 25px -4px rgba(245, 199, 97, 0.2);
+}
+
+[data-theme="light"] .spatial-card:hover {
+  box-shadow:
+    0 20px 45px -8px rgba(15, 23, 42, 0.12),
+    0 0 20px -3px rgba(180, 131, 16, 0.15);
 }
 
 /* ─── JEWEL BOX GLOWS ─────────────────────────────────────────────────────── */
 
 .glow-gold-jewel {
   box-shadow:
-    0 0 40px -8px rgba(245, 199, 97, 0.35),
-    0 12px 28px -6px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+    0 0 35px -8px rgba(245, 199, 97, 0.35),
+    0 10px 24px -5px rgba(0, 0, 0, 0.5);
 }
 
-.glow-emerald-jewel {
+[data-theme="light"] .glow-gold-jewel {
   box-shadow:
-    0 0 40px -8px rgba(16, 185, 129, 0.35),
-    0 12px 28px -6px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
-}
-
-.glow-violet-jewel {
-  box-shadow:
-    0 0 40px -8px rgba(139, 92, 246, 0.35),
-    0 12px 28px -6px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
-}
-
-.glow-wine-jewel {
-  box-shadow:
-    0 0 40px -8px rgba(136, 19, 55, 0.35),
-    0 12px 28px -6px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
-}
-
-.glow-cyan-jewel {
-  box-shadow:
-    0 0 40px -8px rgba(6, 182, 212, 0.35),
-    0 12px 28px -6px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+    0 0 30px -6px rgba(180, 131, 16, 0.25),
+    0 8px 20px -4px rgba(15, 23, 42, 0.1);
 }
 
 /* ─── LIVING AMBIENT MOTION & CAUSTICS ─────────────────────────────────────── */
-
-@keyframes spatialFloat {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(0.4deg);
-  }
-}
-
-.spatial-float {
-  animation: spatialFloat 7s ease-in-out infinite;
-}
-
-@keyframes ambientPulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.75;
-    transform: scale(1.04);
-  }
-}
-
-.ambient-pulse {
-  animation: ambientPulse 5s ease-in-out infinite;
-}
 
 @keyframes morphCaustic {
   0%, 100% {
@@ -241,7 +237,7 @@
   }
   33% {
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-    transform: rotate(120deg) scale(1.05);
+    transform: rotate(120deg) scale(1.04);
   }
   66% {
     border-radius: 50% 60% 30% 60% / 40% 50% 60% 50%;
@@ -256,12 +252,12 @@
 /* ─── MAGNETIC BUTTON PHYSICS ─────────────────────────────────────────────── */
 
 .magnetic-btn {
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
   will-change: transform;
 }
 
 .magnetic-btn:hover {
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.025);
 }
 
 .magnetic-btn:active {
