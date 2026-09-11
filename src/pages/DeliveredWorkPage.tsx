@@ -53,7 +53,7 @@ export const DeliveredWorkPage: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[var(--glass-border)] mb-6">
               <div>
                 <span className="font-mono-code text-xs text-[var(--emerald)] font-bold tracking-widest uppercase">
-                  CASE STUDY 01 // ENTERPRISE SUPPLY CHAIN &amp; LOGISTICS
+                  Enterprise Supply Chain &amp; Logistics
                 </span>
                 <h2 className="font-display-hero text-3xl sm:text-4xl font-extrabold text-white mt-1">
                   {agrotrace.title}
@@ -81,7 +81,7 @@ export const DeliveredWorkPage: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/70" />
-                  <span className="ml-3 text-white/60">agrotrace.live.system // sindh-punjab-corridor</span>
+                  <span className="ml-3 text-white/60">agrotrace.live.system · Sindh-Punjab Corridor</span>
                 </div>
                 <button
                   onClick={() => setLightboxImage({ src: agrotrace.images[selectedImages.agrotrace || 0].src, alt: agrotrace.images[selectedImages.agrotrace || 0].alt, title: agrotrace.title })}
@@ -234,7 +234,7 @@ export const DeliveredWorkPage: React.FC = () => {
               <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
                 <div>
                   <span className="font-mono-code text-xs text-[var(--gold)] font-bold tracking-widest uppercase">
-                    CASE STUDY 02 // FINTECH &amp; ALGORITHMIC AI
+                    Fintech &amp; Algorithmic AI
                   </span>
                   <h2 className="font-display-hero text-3xl font-bold text-white mt-1">
                     {ipmi.title}
@@ -292,7 +292,7 @@ export const DeliveredWorkPage: React.FC = () => {
               <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
                 <div>
                   <span className="font-mono-code text-xs text-[#A78BFA] font-bold tracking-widest uppercase">
-                    CASE STUDY 03 // HEALTHCARE AI &amp; TELEMEDICINE
+                    Healthcare AI &amp; Telemedicine
                   </span>
                   <h2 className="font-display-hero text-3xl font-bold text-white mt-1">
                     {mediverse.title}
@@ -452,7 +452,7 @@ export const DeliveredWorkPage: React.FC = () => {
               <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
                 <div>
                   <span className="font-mono-code text-xs text-[#F43F5E] font-bold tracking-widest uppercase">
-                    CASE STUDY 04 // LUXURY BRAND &amp; COMMERCE
+                    Luxury Brand &amp; E-Commerce
                   </span>
                   <h2 className="font-display-hero text-3xl font-bold text-white mt-1">
                     {fume.title}
@@ -518,7 +518,7 @@ export const DeliveredWorkPage: React.FC = () => {
             <div className="flex items-center justify-between pb-3 px-2 border-b border-[var(--glass-border)] mb-3">
               <div>
                 <h4 className="font-headline font-bold text-base text-white">
-                  {lightboxImage.title} // SCREENSHOT ARCHITECTURAL INSPECTION
+                  {lightboxImage.title}
                 </h4>
                 <p className="text-xs text-[var(--text-muted)] font-mono-code">
                   {lightboxImage.alt}

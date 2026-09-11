@@ -36,7 +36,7 @@ export const ProcessPage: React.FC = () => {
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="px-3 py-1 rounded-md text-[11px] font-mono-code font-bold uppercase tracking-wider bg-[#0F172A] text-white">
-                    PHASE 01 // INTAKE &amp; ARCHITECTURE
+                    Phase 1: Discovery &amp; Strategy
                   </span>
                   <span className="text-xs font-mono-code text-[#B48310] font-bold">
                     Zero Financial Obligation
@@ -105,7 +105,7 @@ export const ProcessPage: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#0F172A]/10 text-[#0A0F1D]">
-                    PHASE 02 // CONTRACT LOCK
+                    Phase 2: Milestone Agreement
                   </span>
                   <span className="text-[11px] font-mono-code text-[#058A5E] font-bold">
                     Milestone-Based
@@ -137,7 +137,7 @@ export const ProcessPage: React.FC = () => {
               </div>
 
               <div className="mt-8 pt-4 border-t border-[rgba(214,207,195,0.7)] text-xs font-mono-code font-bold text-[#058A5E]">
-                // Zero Hourly Billing Ambiguity
+                No Hourly Surprises
               </div>
             </div>
 
@@ -146,7 +146,7 @@ export const ProcessPage: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#0F172A]/10 text-[#0A0F1D]">
-                    PHASE 03 // ITERATIVE SPRINT RELEASES
+                    Phase 3: Development &amp; Testing
                   </span>
                   <span className="text-[11px] font-mono-code text-[#6D28D9] font-bold">
                     Client Testing Gate
@@ -168,7 +168,7 @@ export const ProcessPage: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-[#6D28D9] shrink-0" />
-                    <span>Direct Slack/WhatsApp engineer access</span>
+                    <span>Direct engineer access on WhatsApp and Slack</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-[#6D28D9] shrink-0" />
@@ -182,7 +182,7 @@ export const ProcessPage: React.FC = () => {
               </div>
 
               <div className="mt-8 pt-4 border-t border-[rgba(214,207,195,0.7)] text-xs font-mono-code font-bold text-[#6D28D9]">
-                // You Verify Working Software First
+                Verified Before Payment
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@ export const ProcessPage: React.FC = () => {
               <div className="lg:col-span-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <span className="px-3 py-1 rounded-md text-[11px] font-mono-code font-bold uppercase tracking-wider bg-[#BE123C] text-white">
-                    PHASE 04 // LAUNCH &amp; HANDOVER
+                    Phase 4: Launch &amp; Handover
                   </span>
                   <span className="text-xs font-mono-code text-[#BE123C] font-bold">
                     100% Commercial IP Transfer
@@ -245,7 +245,7 @@ export const ProcessPage: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="glass-2 holographic-edge rounded-3xl p-8 sm:p-12 spatial-card">
             <span className="font-mono-code text-xs uppercase text-[var(--gold)] tracking-widest font-bold block mb-2">
-              EXECUTIVE COMMERCIAL TERMS
+              Our Commitments
             </span>
             <h2 className="font-display-hero text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] mb-8">
               The Three Pillars of Milestone Delivery
@@ -254,7 +254,7 @@ export const ProcessPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--glass-border)]">
               <div className="pt-4 md:pt-0 md:pr-6 space-y-2">
                 <span className="font-mono-code text-xs text-[var(--gold)] font-bold uppercase">
-                  PILLAR 01 // BUDGET CERTAINTY
+                  Pillar 1: Budget Certainty
                 </span>
                 <h3 className="font-headline text-lg font-bold text-[var(--text-primary)]">
                   Fixed Scope &amp; Budget Lock
@@ -266,7 +266,7 @@ export const ProcessPage: React.FC = () => {
 
               <div className="pt-6 md:pt-0 md:px-6 space-y-2">
                 <span className="font-mono-code text-xs text-[var(--emerald)] font-bold uppercase">
-                  PILLAR 02 // QUALITY ASSURANCE
+                  Pillar 2: Quality Assurance
                 </span>
                 <h3 className="font-headline text-lg font-bold text-[var(--text-primary)]">
                   Staging Inspection Before Release
@@ -278,7 +278,7 @@ export const ProcessPage: React.FC = () => {
 
               <div className="pt-6 md:pt-0 md:pl-6 space-y-2">
                 <span className="font-mono-code text-xs text-[#A78BFA] font-bold uppercase">
-                  PILLAR 03 // FULL ASSET HANDOVER
+                  Pillar 3: Full IP Ownership
                 </span>
                 <h3 className="font-headline text-lg font-bold text-[var(--text-primary)]">
                   Full IP &amp; Code Repository Transfer

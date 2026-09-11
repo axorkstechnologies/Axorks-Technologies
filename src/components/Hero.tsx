@@ -101,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
             initial={{ opacity: 1, y: 0 }}
             className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm"
           >
-            Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, and mobile solutions. All work is delivered with fixed-price proposals and clear milestone-based payments.
+            Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, web3 platforms, and mobile solutions. All work is delivered with fixed-price proposals and clear milestone-based payments.
           </motion.p>
 
           {/* Locked Pricing Language & Commercial Badges */}

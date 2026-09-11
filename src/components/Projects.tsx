@@ -253,7 +253,7 @@ export const Projects: React.FC = () => {
               <div className="flex items-center justify-between pb-3 px-2 border-b border-[var(--glass-border)] mb-3">
                 <div>
                   <h4 className="font-headline font-bold text-base text-[var(--text-primary)]">
-                    {lightboxImage.title} // SCREENSHOT INSPECTION
+                    {lightboxImage.title}
                   </h4>
                   <p className="text-xs text-[var(--text-muted)] font-mono-code">
                     {lightboxImage.alt}

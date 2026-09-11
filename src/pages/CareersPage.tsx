@@ -43,7 +43,7 @@ export const CareersPage: React.FC = () => {
       <section className="w-full px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-7xl mx-auto space-y-6">
           <span className="font-mono-code text-xs uppercase text-[var(--gold)] tracking-widest font-bold block">
-            01 // PRIMARY TECHNICAL ARCHITECTURE OPENINGS
+            Core Engineering Roles
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -119,7 +119,7 @@ export const CareersPage: React.FC = () => {
       <section className="w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-6">
           <span className="font-mono-code text-xs uppercase text-[#A78BFA] tracking-widest font-bold block">
-            02 // SPECIALIZED DISCIPLINES &amp; COMMERCIAL PRACTICE
+            Specialized Roles &amp; Practice
           </span>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -193,7 +193,7 @@ export const CareersPage: React.FC = () => {
         <div className="max-w-4xl mx-auto surface-ivory rounded-3xl p-8 sm:p-12 spatial-card flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <span className="text-[11px] font-mono-code text-[#0A0F1D] font-bold uppercase tracking-wider block mb-2">
-              // SENIOR CREDENTIALS SUBMISSION PROTOCOL
+              Direct Application
             </span>
             <h3 className="font-display-hero text-2xl font-extrabold text-[#0A0F1D]">
               Direct Partner Review
@@ -204,7 +204,7 @@ export const CareersPage: React.FC = () => {
           </div>
 
           <a
-            href="mailto:careers@axorks.com?subject=Senior%20Practice%20Submission%20%E2%80%94%20AXORKS%20Technologies"
+            href="mailto:careers@axorks.com?subject=Senior%20Practice%20Submission%20-%20AXORKS%20Technologies"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-[#0F172A] text-white text-xs font-headline font-bold uppercase tracking-wider hover:bg-[#1E293B] transition-all shadow-lg cursor-pointer"

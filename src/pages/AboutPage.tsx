@@ -79,7 +79,7 @@ export const AboutPage: React.FC = () => {
       <section className="w-full px-4 sm:px-6 lg:px-8 mb-20">
         <div className="max-w-7xl mx-auto space-y-6">
           <span className="font-mono-code text-xs uppercase text-[var(--gold)] tracking-widest font-bold block">
-            01 // ARCHITECTURAL LEADERSHIP
+            Studio Leadership
           </span>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -167,7 +167,7 @@ export const AboutPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="font-mono-code text-xs uppercase text-[#A78BFA] tracking-widest font-bold">
-                02 // APPLIED AI &amp; NEURAL SYSTEMS
+                AI &amp; Neural Systems
               </span>
               <div className="h-[1px] flex-1 bg-white/[0.08]" />
             </div>
@@ -215,7 +215,7 @@ export const AboutPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="font-mono-code text-xs uppercase text-[#38BDF8] tracking-widest font-bold">
-                03 // CORE APPLICATION &amp; MOBILE ENGINEERING
+                Web &amp; Mobile Engineering
               </span>
               <div className="h-[1px] flex-1 bg-white/[0.08]" />
             </div>
@@ -266,7 +266,7 @@ export const AboutPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="font-mono-code text-xs uppercase text-[var(--gold)] tracking-widest font-bold">
-                04 // CLIENT PARTNERSHIPS &amp; GROWTH
+                Partnerships &amp; Client Success
               </span>
               <div className="h-[1px] flex-1 bg-white/[0.08]" />
             </div>

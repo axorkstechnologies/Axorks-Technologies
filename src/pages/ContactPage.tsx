@@ -232,7 +232,7 @@ export const ContactPage: React.FC = () => {
 
             {/* Direct Email Card */}
             <a
-              href="mailto:contact@axorks.com?subject=Project%20Inquiry%20%E2%80%94%20AXORKS%20Technologies"
+              href="mailto:contact@axorks.com?subject=Project%20Inquiry%20-%20AXORKS%20Technologies"
               target="_blank"
               rel="noopener noreferrer"
               className="block glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card border-[var(--gold)]/35 hover:border-[var(--gold)] shadow-xl transition-all group cursor-pointer"
