@@ -92,9 +92,17 @@ export const Team: React.FC = () => {
         </div>
 
         {/* ─── Team Roster ───────────────────────────────────────────────────── */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 spatial-stage">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 spatial-stage">
           {TEAM_MEMBERS.map((member) => {
             const accent = ACCENT_COLORS[member.accent] || ACCENT_COLORS.gold;
+            const department =
+              member.id === 'mujahid' || member.id === 'farhana'
+                ? 'Leadership'
+                : member.id === 'farwa'
+                ? 'Marketing'
+                : member.id === 'furqan'
+                ? 'Business Dev'
+                : 'Engineering';
 
             return (
               <div
@@ -118,13 +126,18 @@ export const Team: React.FC = () => {
                       }}
                     >
                       <div
-                        className="w-18 h-18 sm:w-22 sm:h-22 rounded-full flex items-center justify-center border transition-transform duration-300 group-hover:scale-105 shadow-md"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center border transition-transform duration-300 group-hover:scale-105 shadow-md backdrop-blur-sm"
                         style={{
                           borderColor: accent.color,
                           backgroundColor: accent.bg,
                         }}
                       >
-                        <User className="w-9 h-9 sm:w-11 sm:h-11 opacity-60" style={{ color: accent.color }} />
+                        <span
+                          className="text-xl sm:text-2xl font-display-hero font-bold select-none"
+                          style={{ color: accent.color }}
+                        >
+                          {member.name.charAt(0)}
+                        </span>
                       </div>
                     </div>
                   )}
@@ -160,7 +173,7 @@ export const Team: React.FC = () => {
 
                   <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-mono-code text-[var(--text-muted)]">
                     <span>Direct Access</span>
-                    <span style={{ color: accent.color }} className="font-semibold">Engineering Team</span>
+                    <span style={{ color: accent.color }} className="font-semibold">{department}</span>
                   </div>
                 </div>
               </div>

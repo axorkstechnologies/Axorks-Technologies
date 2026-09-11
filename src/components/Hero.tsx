@@ -11,9 +11,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
     <section
       className="relative w-full overflow-hidden px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20 lg:pb-32 min-h-[85vh] flex items-center bg-[#060A16]"
     >
-      {/* ─── SYSTEMS LIMITED ATMOSPHERIC MOTION (Seamless Full-Bleed Canvas) ─── */}
+      {/* ─── SYSTEMS LIMITED ATMOSPHERIC MOTION (Strictly Right Side • Atmospheric Background) ─── */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none z-0"
+        className="absolute top-0 bottom-0 right-0 w-full lg:w-[50%] xl:w-[48%] 2xl:w-[46%] pointer-events-none overflow-hidden select-none z-0"
         aria-hidden="true"
       >
         <video
@@ -22,19 +22,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-[72%_center] lg:object-right scale-[1.08] opacity-85"
+          className="w-full h-full object-cover object-center scale-[1.02] opacity-90"
         />
 
-        {/* Seamless Continuous Dark Scrim — Exactly Matches Video Tone with Zero Hard Edges */}
+        {/* Desktop Left-to-Right Feather — Exactly matches base #060A16 with zero line or color split */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="hidden lg:block absolute inset-0 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to right, rgba(6, 10, 22, 0.96) 0%, rgba(6, 10, 22, 0.88) 35%, rgba(6, 10, 22, 0.6) 55%, rgba(6, 10, 22, 0.15) 78%, transparent 100%)',
+              'linear-gradient(to right, #060A16 0%, #060A16 12%, rgba(6, 10, 22, 0.85) 30%, rgba(6, 10, 22, 0.35) 60%, transparent 85%)',
           }}
         />
 
-        {/* Bottom Soft Feather into Next Section */}
+        {/* Mobile Scrim — High-contrast backing for stacked mobile typography */}
+        <div
+          className="lg:hidden absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(6, 10, 22, 0.94) 0%, rgba(6, 10, 22, 0.88) 50%, rgba(6, 10, 22, 0.82) 100%)',
+          }}
+        />
+
+        {/* Top Edge Feather */}
+        <div
+          className="absolute top-0 left-0 right-0 h-16 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, #060A16 0%, transparent 100%)',
+          }}
+        />
+
+        {/* Bottom Feather into Next Section */}
         <div
           className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
           style={{
@@ -43,9 +60,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
         />
       </div>
 
-      {/* ─── HERO CONTENT (High Contrast • Conversion First) ────────────────── */}
+      {/* ─── HERO CONTENT (Strictly Left Side • High Contrast • Conversion First) ── */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="max-w-3xl lg:max-w-2xl xl:max-w-3xl space-y-6 text-left">
+        <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-6 text-left">
           {/* Availability & Guarantee Pill */}
           <motion.div
             initial={{ opacity: 1, y: 0 }}
