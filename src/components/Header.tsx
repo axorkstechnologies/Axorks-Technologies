@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: 'Delivered Work', href: '#work' },
   { label: 'Process', href: '#process' },
   { label: 'Team', href: '#team' },
+  { label: 'Careers', href: '#careers' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
             initial={{ opacity: 1, y: 0 }}
             className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed font-normal max-w-2xl"
           >
-            AXORKS is a registered software engineering studio with offices in Karachi &amp; Islamabad. We architect bespoke cloud platforms, multi-AI workflows, mobile apps, and Web3 systems for growing companies. Fixed-price proposals before code is written. No hourly surprises.
+            AXORKS Technologies operates engineering offices in Karachi &amp; Islamabad. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems for growing businesses and enterprises. Fixed-price proposals before code is written. Milestone-based payments. No hourly surprises.
           </motion.p>
 
           {/* Pricing & Commercial Transparency Badges */}

@@ -22,8 +22,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'faisal',
     name: 'Faisal',
-    role: 'Software Engineer',
-    description: 'Flutter & mobile application development. iOS & Android.',
+    role: 'Flutter & Mobile App Developer',
+    description: 'Flutter and cross-platform mobile application development for iOS and Android.',
     image: null,
     accent: 'violet',
   },
@@ -31,7 +31,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: 'shayan',
     name: 'Shayan',
     role: 'Web Developer',
-    description: 'Frontend & full-stack web development.',
+    description: 'Frontend and full-stack web development with modern React and Node frameworks.',
     image: null,
     accent: 'cyan',
   },
@@ -39,7 +39,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: 'alina',
     name: 'Alina',
     role: 'AI & Neural Networks Engineer',
-    description: 'AI automation, neural networks, and intelligent integrations.',
+    description: 'AI automation, multi-agent workflows, neural networks, and intelligent integrations.',
     image: null,
     accent: 'wine',
   },
@@ -54,18 +54,18 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'furqan',
     name: 'Furqan',
-    role: 'Business Development Officer',
-    description: 'Business growth, partnerships, and client relations.',
+    role: 'Business Development',
+    description: 'Enterprise relationships, client acquisitions, and strategic partnerships.',
     image: '/Images/FURQAN Business Development Officer.jpeg',
     accent: 'emerald',
   },
   {
     id: 'web3-dev',
-    name: 'Blockchain Developer',
-    role: 'Web3 & Decentralized Systems',
-    description: 'Smart contracts, DeFi protocols, and decentralized applications.',
+    name: 'Web3 Developer',
+    role: 'Web3 & Blockchain Systems Lead',
+    description: 'Smart contracts, DeFi protocols, decentralized applications, and blockchain architecture.',
     image: null,
-    accent: 'violet',
+    accent: 'cyan',
   },
 ];
 
@@ -178,15 +178,15 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'ai-automation',
-    title: 'AI Automation & Integrations',
+    title: 'AI Automations & Multi-AI Workflows',
     description:
-      'Intelligent workflows, RAG engines, document processing, and multi-agent coordination to automate complex operations.',
+      'Intelligent multi-agent workflows, autonomous pipelines, RAG engines, and document processing to automate complex operations.',
     icon: 'Brain',
     features: [
       'Custom AI agents & pipelines',
-      'Document intelligence & OCR',
+      'Multi-agent workflow orchestration',
       'Vector search & RAG systems',
-      'API integrations & sync',
+      'API integrations & automation',
     ],
     accent: 'emerald',
   },
@@ -208,7 +208,7 @@ export const SERVICES: Service[] = [
     id: 'web3-blockchain',
     title: 'Web3 & Blockchain',
     description:
-      'Decentralized applications, smart contracts, DeFi protocols, and blockchain integrations for the next generation of the web.',
+      'Decentralized applications, smart contracts (Solidity / Rust), DeFi protocols, and blockchain integrations for the next generation of the web.',
     icon: 'Blocks',
     features: [
       'Smart contracts (Solidity / Rust)',
@@ -220,7 +220,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'support',
-    title: 'Ongoing Support & Maintenance',
+    title: 'Ongoing Support',
     description:
       'Reliable infrastructure management, monitoring, security patching, and performance optimization on an ongoing basis.',
     icon: 'Shield',
@@ -304,7 +304,7 @@ export const WHY_ITEMS: WhyItem[] = [
   {
     id: 'offices',
     title: 'Real Offices',
-    description: 'Registered company with physical offices in Karachi & Islamabad, Pakistan. Axorks Pvt Limited.',
+    description: 'Physical engineering offices in Karachi & Islamabad, Pakistan. Axorks Pvt Limited.',
     icon: 'Building2',
     accent: 'wine',
   },
@@ -355,6 +355,6 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-5',
     question: 'Where are you located?',
     answer:
-      'AXORKS Technologies (Axorks Pvt Limited) is a registered private company with offices in Karachi and Islamabad, Pakistan. We serve clients worldwide with overlapping working hours across US, UK, and European time zones.',
+      'AXORKS Technologies (Axorks Pvt Limited) operates physical offices in Karachi and Islamabad, Pakistan. We serve clients worldwide with overlapping working hours across US, UK, and European time zones.',
   },
 ];

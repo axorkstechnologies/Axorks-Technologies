@@ -98,7 +98,7 @@ export const WhyAxorks: React.FC = () => {
 
             <div className="md:col-span-5 p-6 sm:p-8 lg:p-10 space-y-4">
               <div className="text-[11px] uppercase tracking-wider font-mono-code text-[var(--gold)] font-semibold">
-                Registered Corporate Entity
+                Corporate Entity
               </div>
 
               <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
@@ -106,7 +106,7 @@ export const WhyAxorks: React.FC = () => {
               </h3>
 
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
-                Registered private software company operating real engineering offices in Karachi &amp; Islamabad, Pakistan. Serving clients worldwide.
+                Private software company operating physical engineering offices in Karachi &amp; Islamabad, Pakistan. Serving clients worldwide.
               </p>
 
               <div className="space-y-2 pt-2 border-t border-[var(--glass-border)] text-xs font-mono-code text-[var(--text-muted)]">

@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
-              Axorks Pvt Limited — a registered private software engineering studio. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems.
+              Axorks Pvt Limited — software engineering studio with offices in Karachi &amp; Islamabad. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems.
             </p>
 
             <div className="flex items-center gap-2 text-[var(--gold)] font-mono-code text-xs font-semibold">
@@ -55,8 +55,8 @@ export const Footer: React.FC = () => {
                 { label: 'Capabilities & Services', id: 'services' },
                 { label: 'Delivered Work', id: 'work' },
                 { label: 'Execution Process', id: 'process' },
-                { label: 'Why AXORKS', id: 'why-axorks' },
                 { label: 'Engineering Team', id: 'team' },
+                { label: 'Selective Practice / Careers', id: 'careers' },
                 { label: 'Request Proposal', id: 'contact' },
               ].map((link) => (
                 <li key={link.id}>
@@ -158,7 +158,7 @@ export const Footer: React.FC = () => {
                 url: 'https://axorks.com',
                 email: 'contact@axorks.com',
                 telephone: '+923141030223',
-                description: 'Registered private software engineering studio building custom web applications, multi-AI workflows, mobile apps, and Web3 systems.',
+                description: 'Software engineering studio building custom web applications, multi-AI workflows, mobile apps, and Web3 systems.',
                 foundingDate: '2023',
                 founder: {
                   '@type': 'Person',

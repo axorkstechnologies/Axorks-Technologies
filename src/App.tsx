@@ -1,11 +1,10 @@
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { TrustStrip } from './components/TrustStrip';
 import { Services } from './components/Services';
 import { Projects } from './components/Projects';
 import { Process } from './components/Process';
-import { WhyAxorks } from './components/WhyAxorks';
 import { Team } from './components/Team';
+import { Careers } from './components/Careers';
 import { DiscoveryPortal } from './components/DiscoveryPortal';
 import { Footer } from './components/Footer';
 
@@ -20,31 +19,29 @@ export default function App() {
       <Header onOpenDiscovery={scrollToContact} />
 
       <main className="w-full pt-[72px]">
-        {/* 1. Cinematic Hero */}
+        {/* 1. Hero */}
         <Hero onOpenDiscovery={scrollToContact} />
 
-        {/* 2. Trust / Results Strip */}
-        <TrustStrip />
-
-        {/* 3. What We Build — Services */}
+        {/* 2. What We Build — Services */}
         <Services />
 
-        {/* 4. Selected Work — Projects & Case Studies */}
+        {/* 3. Selected Work — Projects & Case Studies */}
         <Projects />
 
-        {/* 5. How We Work — Process */}
+        {/* 4. How We Work — Process */}
         <Process />
 
-        {/* 6. Why AXORKS — Value Propositions */}
-        <WhyAxorks />
-
-        {/* 7. The Team */}
+        {/* 5. Team */}
         <Team />
 
-        {/* 8. Contact — Discovery Portal + FAQ */}
+        {/* 6. Careers */}
+        <Careers />
+
+        {/* 7. Contact / Proposal Form + WhatsApp */}
         <DiscoveryPortal />
       </main>
 
+      {/* 8. Footer */}
       <Footer />
     </div>
   );
