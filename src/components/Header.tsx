@@ -9,9 +9,10 @@ interface HeaderProps {
 
 const NAV_LINKS: { label: string; path: RoutePath }[] = [
   { label: 'Services', path: '/services' },
-  { label: 'Delivered Work', path: '/work' },
+  { label: 'Work', path: '/work' },
   { label: 'Process', path: '/process' },
-  { label: 'Team', path: '/team' },
+  { label: 'About', path: '/about' },
+  { label: 'Blog', path: '/blog' },
   { label: 'Careers', path: '/careers' },
   { label: 'Contact', path: '/contact' },
 ];
@@ -50,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[76px]">
-        {/* Official Metallic Logo & Wordmark — Fully Visible & Perfectly Framed */}
+        {/* Official Metallic Logo and Wordmark */}
         <button
           onClick={() => navigate('/')}
           className="flex items-center gap-3 group text-left cursor-pointer"

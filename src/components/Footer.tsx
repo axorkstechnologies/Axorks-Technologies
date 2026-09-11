@@ -35,14 +35,12 @@ export const Footer: React.FC = () => {
               </div>
             </button>
 
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
-              Axorks Pvt Limited — software engineering studio with offices in Karachi &amp; Islamabad. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems.
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
+              Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, and mobile solutions. All work is delivered with fixed-price proposals and clear milestone-based payments.
             </p>
 
             <div className="flex items-center gap-2 text-[var(--gold)] font-mono-code text-xs font-semibold">
-              <span>Projects from $1,000</span>
-              <span className="text-[var(--text-muted)]">•</span>
-              <span>Fixed-Price Proposals</span>
+              <span>Projects from $1,000 · Fixed-price milestones</span>
             </div>
           </div>
 
@@ -56,7 +54,8 @@ export const Footer: React.FC = () => {
                 { label: 'Capabilities & Services', path: '/services' as RoutePath },
                 { label: 'Delivered Work', path: '/work' as RoutePath },
                 { label: 'Execution Process', path: '/process' as RoutePath },
-                { label: 'Engineering Team', path: '/team' as RoutePath },
+                { label: 'About Axorks', path: '/about' as RoutePath },
+                { label: 'Engineering Insights', path: '/blog' as RoutePath },
                 { label: 'Selective Practice / Careers', path: '/careers' as RoutePath },
                 { label: 'Request Proposal', path: '/contact' as RoutePath },
               ].map((link) => (
@@ -79,12 +78,12 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
               {[
-                'Custom Web Applications',
                 'AI Automations & Multi-AI',
+                'Custom Web Applications',
                 'Cross-Platform Mobile Apps',
                 'Web3 & Blockchain Systems',
-                'Proprietary Products',
                 'Ongoing Support & SLA',
+                'Proprietary Products',
               ].map((service) => (
                 <li key={service}>
                   <button
@@ -106,7 +105,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:contact@axorks.com?subject=Project%20Inquiry%20%E2%80%94%20AXORKS%20Technologies"
+                  href="mailto:contact@axorks.com?subject=Project%20Inquiry%3A%20AXORKS%20Technologies"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors"

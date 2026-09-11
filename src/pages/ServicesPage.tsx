@@ -45,7 +45,7 @@ export const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Architecture Layout — Varied Rhythm (No AI 3x2 Identical Grid) */}
+      {/* Services Architecture Layout: Varied Rhythm */}
       <section className="w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-10">
 
@@ -58,15 +58,72 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Flagship 01: Custom Web Applications (7 Cols) */}
-              <div className="lg:col-span-7 glass-2 holographic-edge rounded-3xl p-8 sm:p-10 spatial-card flex flex-col justify-between border-[var(--gold)]/30 hover:border-[var(--gold)]/60 transition-all">
+              {/* Flagship 01: AI Automations & Multi-AI (7 Cols) */}
+              <div className="lg:col-span-7 glass-2 holographic-edge rounded-3xl p-8 sm:p-10 spatial-card flex flex-col justify-between border-[var(--emerald)]/30 hover:border-[var(--emerald)]/60 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--emerald)]/15 text-[var(--emerald)] border border-[var(--emerald)]/30">
+                      Applied AI Core · Flagship
+                    </span>
+                    <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                      DISCIPLINE 01
+                    </span>
+                  </div>
+
+                  <h2 className="font-display-hero text-2xl sm:text-3xl font-bold text-white mb-1">
+                    {aiAuto.title}
+                  </h2>
+                  <p className="text-sm font-headline text-[var(--emerald)] font-semibold mb-4">
+                    {aiAuto.tagline}
+                  </p>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                    {aiAuto.description}
+                  </p>
+
+                  <div className="space-y-2.5 mb-6 pt-4 border-t border-[var(--glass-border)]">
+                    <div className="text-[11px] font-mono-code uppercase text-white font-bold tracking-wider mb-2">
+                      Verified Technical Deliverables:
+                    </div>
+                    {aiAuto.deliverables.map((item, dIdx) => (
+                      <div key={dIdx} className="flex items-start gap-2.5 text-xs text-[var(--text-secondary)]">
+                        <Check className="w-4 h-4 mt-0.5 shrink-0 text-[var(--emerald)]" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--glass-border)] mb-6">
+                    {aiAuto.technologies.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-2.5 py-1 rounded-md text-[10px] font-mono-code text-[var(--text-muted)] bg-white/[0.04] border border-white/[0.06]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => navigate('/contact')}
+                    className="w-full py-3.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[var(--emerald)] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[var(--emerald)] transition-all cursor-pointer flex items-center justify-center gap-2 group"
+                  >
+                    <span>Request AI Automation Proposal</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Flagship 02: Custom Web Applications (5 Cols) */}
+              <div className="lg:col-span-5 glass-2 holographic-edge rounded-3xl p-8 sm:p-10 spatial-card flex flex-col justify-between border-[var(--gold)]/30 hover:border-[var(--gold)]/60 transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
                       High-Throughput Web
                     </span>
                     <span className="font-mono-code text-xs text-[var(--text-muted)]">
-                      DISCIPLINE 01
+                      DISCIPLINE 02
                     </span>
                   </div>
 
@@ -110,63 +167,6 @@ export const ServicesPage: React.FC = () => {
                     className="w-full py-3.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[var(--gold)] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[var(--gold)] transition-all cursor-pointer flex items-center justify-center gap-2 group"
                   >
                     <span>Request Web Application Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Flagship 02: AI Automations & Multi-AI (5 Cols) */}
-              <div className="lg:col-span-5 glass-2 holographic-edge rounded-3xl p-8 sm:p-10 spatial-card flex flex-col justify-between border-[var(--emerald)]/30 hover:border-[var(--emerald)]/60 transition-all">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--emerald)]/15 text-[var(--emerald)] border border-[var(--emerald)]/30">
-                      Applied Intelligence
-                    </span>
-                    <span className="font-mono-code text-xs text-[var(--text-muted)]">
-                      DISCIPLINE 02
-                    </span>
-                  </div>
-
-                  <h2 className="font-display-hero text-2xl sm:text-3xl font-bold text-white mb-1">
-                    {aiAuto.title}
-                  </h2>
-                  <p className="text-sm font-headline text-[var(--emerald)] font-semibold mb-4">
-                    {aiAuto.tagline}
-                  </p>
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
-                    {aiAuto.description}
-                  </p>
-
-                  <div className="space-y-2.5 mb-6 pt-4 border-t border-[var(--glass-border)]">
-                    <div className="text-[11px] font-mono-code uppercase text-white font-bold tracking-wider mb-2">
-                      Verified Technical Deliverables:
-                    </div>
-                    {aiAuto.deliverables.map((item, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-2.5 text-xs text-[var(--text-secondary)]">
-                        <Check className="w-4 h-4 mt-0.5 shrink-0 text-[var(--emerald)]" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--glass-border)] mb-6">
-                    {aiAuto.technologies.map((tech, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2.5 py-1 rounded-md text-[10px] font-mono-code text-[var(--text-muted)] bg-white/[0.04] border border-white/[0.06]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full py-3.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[var(--emerald)] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[var(--emerald)] transition-all cursor-pointer flex items-center justify-center gap-2 group"
-                  >
-                    <span>Request AI Pipeline Scope</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

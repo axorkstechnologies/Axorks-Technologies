@@ -1,30 +1,41 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type RoutePath = '/' | '/services' | '/work' | '/process' | '/team' | '/careers' | '/contact';
+export type RoutePath = '/' | '/services' | '/work' | '/process' | '/about' | '/team' | '/careers' | '/contact' | '/blog';
 
 interface RouterContextType {
   path: RoutePath;
-  navigate: (to: RoutePath) => void;
+  navigate: (to: RoutePath, state?: { slug?: string }) => void;
+  postSlug: string | null;
+  setPostSlug: (slug: string | null) => void;
 }
 
 const RouterContext = createContext<RouterContextType>({
   path: '/',
   navigate: () => {},
+  postSlug: null,
+  setPostSlug: () => {},
 });
 
-const VALID_PATHS: RoutePath[] = ['/', '/services', '/work', '/process', '/team', '/careers', '/contact'];
+const VALID_PATHS: RoutePath[] = ['/', '/services', '/work', '/process', '/about', '/team', '/careers', '/contact', '/blog'];
 
-const normalizePath = (pathname: string): RoutePath => {
+const normalizePath = (pathname: string): { path: RoutePath; slug: string | null } => {
   const clean = pathname.toLowerCase().replace(/\/$/, '') || '/';
+  
+  // Handle /blog/:slug
+  if (clean.startsWith('/blog/')) {
+    const slug = clean.replace('/blog/', '');
+    return { path: '/blog', slug };
+  }
+
   if (VALID_PATHS.includes(clean as RoutePath)) {
-    return clean as RoutePath;
+    return { path: clean as RoutePath, slug: null };
   }
   // Handle alias redirects or fallback
-  if (clean === '/home') return '/';
-  if (clean === '/projects' || clean === '/portfolio') return '/work';
-  if (clean === '/jobs' || clean === '/career') return '/careers';
-  if (clean === '/about') return '/team';
-  return '/';
+  if (clean === '/home') return { path: '/', slug: null };
+  if (clean === '/projects' || clean === '/portfolio') return { path: '/work', slug: null };
+  if (clean === '/jobs' || clean === '/career') return { path: '/careers', slug: null };
+  if (clean === '/team') return { path: '/about', slug: null };
+  return { path: '/', slug: null };
 };
 
 interface RouterProviderProps {
@@ -32,26 +43,27 @@ interface RouterProviderProps {
 }
 
 export const RouterProvider: React.FC<RouterProviderProps> = ({ children }) => {
-  const [path, setPath] = useState<RoutePath>(() => {
-    if (typeof window !== 'undefined') {
-      return normalizePath(window.location.pathname);
-    }
-    return '/';
-  });
+  const initial = typeof window !== 'undefined' ? normalizePath(window.location.pathname) : { path: '/' as RoutePath, slug: null };
+  const [path, setPath] = useState<RoutePath>(initial.path);
+  const [postSlug, setPostSlug] = useState<string | null>(initial.slug);
 
-  const navigate = (to: RoutePath) => {
-    if (to === path) {
+  const navigate = (to: RoutePath, state?: { slug?: string }) => {
+    if (to === path && (!state || state.slug === postSlug)) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    window.history.pushState({}, '', to);
+    const targetUrl = state?.slug ? `/blog/${state.slug}` : to;
+    window.history.pushState({}, '', targetUrl);
     setPath(to);
+    setPostSlug(state?.slug || null);
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   useEffect(() => {
     const handlePopState = () => {
-      setPath(normalizePath(window.location.pathname));
+      const parsed = normalizePath(window.location.pathname);
+      setPath(parsed.path);
+      setPostSlug(parsed.slug);
       window.scrollTo({ top: 0, behavior: 'instant' });
     };
 
@@ -59,22 +71,24 @@ export const RouterProvider: React.FC<RouterProviderProps> = ({ children }) => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Sync document title and meta per page
+  // Sync document title and meta per page (Strictly zero em dashes or en dashes)
   useEffect(() => {
     const titles: Record<RoutePath, string> = {
-      '/': 'AXORKS Technologies — Custom Software, AI Automation & Web3 Systems | From $1,000',
-      '/services': 'Capabilities & Engineering Services — AXORKS Technologies',
-      '/work': 'Delivered Work & Production Case Studies — AXORKS Technologies',
-      '/process': 'How We Work: Milestone-Based Execution Blueprint — AXORKS Technologies',
-      '/team': 'Senior Engineering Team & Leadership — AXORKS Technologies',
-      '/careers': 'Selective Practice & Senior Engineering Roles — AXORKS Technologies',
-      '/contact': 'Request a Fixed-Price Proposal — AXORKS Technologies',
+      '/': 'AXORKS Technologies | AI Automation and Custom Software Studio | From $1,000',
+      '/services': 'Capabilities and Engineering Services | AXORKS Technologies',
+      '/work': 'Delivered Work and Production Case Studies | AXORKS Technologies',
+      '/process': 'How We Work: Milestone Execution Blueprint | AXORKS Technologies',
+      '/about': 'About Axorks: Studio Profile and Leadership | AXORKS Technologies',
+      '/team': 'About Axorks: Studio Profile and Leadership | AXORKS Technologies',
+      '/careers': 'Selective Practice and Senior Engineering Roles | AXORKS Technologies',
+      '/contact': 'Request a Fixed-Price Proposal | AXORKS Technologies',
+      '/blog': 'Engineering Insights and Architecture | AXORKS Technologies',
     };
     document.title = titles[path] || titles['/'];
   }, [path]);
 
   return (
-    <RouterContext.Provider value={{ path, navigate }}>
+    <RouterContext.Provider value={{ path, navigate, postSlug, setPostSlug }}>
       {children}
     </RouterContext.Provider>
   );

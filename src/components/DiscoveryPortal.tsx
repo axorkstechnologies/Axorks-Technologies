@@ -20,14 +20,14 @@ export const DiscoveryPortal: React.FC = () => {
     e.preventDefault();
     const { fullName, email, phone, service, budget, scope } = formState;
     const body = `Full Name: ${fullName}%0AEmail: ${email}%0APhone/WhatsApp: ${phone}%0AService Category: ${service}%0ABudget Target: ${budget}%0A%0AProject Scope & Requirements:%0A${scope}`;
-    window.open(`mailto:contact@axorks.com?subject=New Architecture Inquiry — ${fullName}&body=${body}`, '_blank');
+    window.open(`mailto:contact@axorks.com?subject=New Architecture Inquiry: ${fullName}&body=${body}`, '_blank');
     setSubmitted(true);
   };
 
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative bg-[var(--bg-secondary)]/40 border-t border-[var(--glass-border)]" id="contact">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header — Conversion First */}
+        {/* Section Header: Conversion First */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--gold)]/30 text-xs uppercase text-[var(--gold)] tracking-widest font-semibold font-mono-code mb-3.5">
             <Clock className="w-3.5 h-3.5" />
@@ -135,9 +135,9 @@ export const DiscoveryPortal: React.FC = () => {
                     onChange={(e) => setFormState((prev) => ({ ...prev, budget: e.target.value }))}
                     className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all cursor-pointer"
                   >
-                    <option value="$1,000 - $3,000 (Starter Milestone)">$1,000 – $3,000 (Starter Milestone / MVP)</option>
-                    <option value="$3,000 - $8,000 (Production Scale)">$3,000 – $8,000 (Production Web or Mobile App)</option>
-                    <option value="$8,000 - $15,000 (Complex Multi-AI / Web3)">$8,000 – $15,000 (Complex Multi-AI / Web3)</option>
+                    <option value="$1,000 to $3,000 (Starter Milestone)">$1,000 to $3,000 (Starter Milestone / MVP)</option>
+                    <option value="$3,000 to $8,000 (Production Scale)">$3,000 to $8,000 (Production Web or Mobile App)</option>
+                    <option value="$8,000 to $15,000 (Complex Multi-AI / Web3)">$8,000 to $15,000 (Complex Multi-AI / Web3)</option>
                     <option value="$15,000+ (Full Platform Architecture)">$15,000+ (Full Custom Architecture)</option>
                   </select>
                 </div>

@@ -14,7 +14,7 @@ export const Team: React.FC = () => {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative" id="team">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header — Human & Approachable */}
+        {/* Section Header: Human & Approachable */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--emerald)]/30 text-xs uppercase text-[var(--emerald)] tracking-widest font-semibold font-mono-code mb-3.5">
             <Users className="w-3.5 h-3.5" />
@@ -38,7 +38,7 @@ export const Team: React.FC = () => {
               <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-3xl overflow-hidden shadow-2xl border-2 border-[var(--gold)]/40 bg-[var(--bg-tertiary)] glow-gold-jewel group">
                 <img
                   src="/Images/Founder and CEO SOFTWARE ENGINEER.jpeg"
-                  alt="Muhammad Mujahid — Founder & CEO / Chief Systems Architect at AXORKS Technologies"
+                  alt="Muhammad Mujahid, Founder and CEO / Chief Systems Architect at AXORKS Technologies"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
@@ -116,7 +116,7 @@ export const Team: React.FC = () => {
                   {member.image ? (
                     <img
                       src={member.image}
-                      alt={`${member.name} — ${member.role} at AXORKS`}
+                      alt={`${member.name}, ${member.role} at AXORKS`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />

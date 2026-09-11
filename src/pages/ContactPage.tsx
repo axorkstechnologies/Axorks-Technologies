@@ -10,8 +10,8 @@ export const ContactPage: React.FC = () => {
     fullName: '',
     email: '',
     phone: '',
-    service: 'Custom Web Application',
-    budget: '$1,000 – $3,000 (Milestone Delivery)',
+    service: 'AI Automations & Workflows',
+    budget: '$1,000 to $3,000 (Milestone Delivery)',
     scope: '',
   });
 
@@ -22,7 +22,7 @@ export const ContactPage: React.FC = () => {
     e.preventDefault();
     const { fullName, email, phone, service, budget, scope } = formState;
     const body = `Full Name: ${fullName}%0AEmail: ${email}%0APhone/WhatsApp: ${phone}%0AService Category: ${service}%0ABudget Target: ${budget}%0A%0AProject Scope & Requirements:%0A${scope}`;
-    window.open(`mailto:contact@axorks.com?subject=New Architecture Inquiry — ${fullName}&body=${body}`, '_blank');
+    window.open(`mailto:contact@axorks.com?subject=New Architecture Inquiry: ${fullName}&body=${body}`, '_blank');
     setSubmitted(true);
   };
 
@@ -162,9 +162,9 @@ export const ContactPage: React.FC = () => {
                     onChange={(e) => setFormState({ ...formState, budget: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[rgba(203,195,182,0.9)] bg-white text-[#0A0F1D] text-sm focus:outline-none focus:ring-2 focus:ring-[#B48310] transition-all cursor-pointer"
                   >
-                    <option value="$1,000 – $3,000 (Starter / MVP Milestone)">$1,000 – $3,000 (Starter / MVP Milestone)</option>
-                    <option value="$3,000 – $7,500 (Production System)">$3,000 – $7,500 (Production System)</option>
-                    <option value="$7,500 – $15,000+ (Enterprise Platform)">$7,500 – $15,000+ (Enterprise Platform)</option>
+                    <option value="$1,000 to $3,000 (Starter / MVP Milestone)">$1,000 to $3,000 (Starter / MVP Milestone)</option>
+                    <option value="$3,000 to $7,500 (Production System)">$3,000 to $7,500 (Production System)</option>
+                    <option value="$7,500 to $15,000+ (Enterprise Platform)">$7,500 to $15,000+ (Enterprise Platform)</option>
                     <option value="Undetermined / Scoping Required">Undetermined / Scoping Required</option>
                   </select>
                 </div>

@@ -47,7 +47,7 @@ export const Projects: React.FC = () => {
   return (
     <section className="w-full py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative bg-[var(--bg-secondary)]/40 border-y border-[var(--glass-border)]" id="work">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header — Proof Through Work */}
+        {/* Section Header: Proof Through Work */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 sm:mb-20">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--emerald)]/30 text-xs uppercase text-[var(--emerald)] tracking-widest font-semibold font-mono-code mb-3">
@@ -84,7 +84,7 @@ export const Projects: React.FC = () => {
                   <div className={`min-w-0 lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 overflow-hidden ${
                     isReversed ? 'lg:order-last' : 'lg:order-first'
                   }`}>
-                    {/* Main Image Frame — Strictly Contained with Hardware Geometric Clipping */}
+                    {/* Main Image Frame: Strictly Contained with Hardware Geometric Clipping */}
                     <div
                       className="relative aspect-[16/9] sm:aspect-[16/8.8] w-full rounded-2xl overflow-hidden isolate bg-[#050A14] group cursor-pointer border border-[var(--glass-border)] shrink-0"
                       style={{

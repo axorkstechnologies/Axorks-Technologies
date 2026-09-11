@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
           className="w-full h-full object-cover object-center scale-[1.02] opacity-90"
         />
 
-        {/* Desktop Left-to-Right Feather — Exactly matches base #060A16 with zero line or color split */}
+        {/* Desktop Left-to-Right Feather: Exactly matches base #060A16 with zero line or color split */}
         <div
           className="hidden lg:block absolute inset-0 pointer-events-none"
           style={{
@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
           }}
         />
 
-        {/* Mobile Scrim — High-contrast backing for stacked mobile typography */}
+        {/* Mobile Scrim: High-contrast backing for stacked mobile typography */}
         <div
           className="lg:hidden absolute inset-0 pointer-events-none"
           style={{
@@ -66,59 +66,66 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
           {/* Availability & Guarantee Pill */}
           <motion.div
             initial={{ opacity: 1, y: 0 }}
-            className="inline-flex flex-wrap items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/40 border border-[#10B981]/40 shadow-sm backdrop-blur-md"
+            className="inline-flex flex-wrap items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 border border-[#10B981]/50 shadow-sm backdrop-blur-md"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
             </span>
             <span className="text-[11px] sm:text-xs font-mono-code font-bold uppercase tracking-wider text-[#10B981]">
-              Milestone Delivery • Direct Access to Senior Engineers
+              AI-First Engineering Studio · Karachi &amp; Islamabad
             </span>
           </motion.div>
 
-          {/* High-Contrast Conversion Headline — Radiant & Authoritative */}
+          {/* Locked Exact H1 Headline */}
           <motion.h1
             initial={{ opacity: 1, y: 0 }}
             className="font-display-hero text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] text-white font-extrabold tracking-tight leading-[1.08] drop-shadow-md"
           >
-            We build custom software and AI systems that{' '}
+            Intelligent systems that{' '}
             <span className="bg-gradient-to-r from-[#F5C761] via-[#10B981] to-[#06B6D4] bg-clip-text text-transparent">
-              solve real business problems.
+              run your business.
             </span>
           </motion.h1>
 
-          {/* Benefit-Focused Subheadline */}
+          {/* Locked Exact Supporting Line */}
           <motion.p
             initial={{ opacity: 1, y: 0 }}
-            className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm"
+            className="text-lg sm:text-xl font-medium text-[var(--gold)] drop-shadow-sm font-headline"
           >
-            AXORKS Technologies operates engineering offices in Karachi &amp; Islamabad. We build custom web applications, multi-AI workflows, mobile apps, and Web3 systems for growing businesses and enterprises. Fixed-price proposals before code is written. Milestone-based payments. No hourly surprises.
+            AI automation and custom software for growing companies.
           </motion.p>
 
-          {/* Pricing & Commercial Transparency Badges */}
+          {/* Benefit-Focused Narrative */}
+          <motion.p
+            initial={{ opacity: 1, y: 0 }}
+            className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm"
+          >
+            Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, and mobile solutions. All work is delivered with fixed-price proposals and clear milestone-based payments.
+          </motion.p>
+
+          {/* Locked Pricing Language & Commercial Badges */}
           <motion.div
             initial={{ opacity: 1, y: 0 }}
             className="flex flex-wrap items-center gap-2.5 pt-1"
           >
-            <div className="px-3.5 py-1.5 rounded-full bg-black/50 border border-[#F5C761]/40 text-[#F5C761] font-mono-code text-[11px] sm:text-xs uppercase tracking-wider backdrop-blur-md">
-              <span className="text-white/80">From </span>
-              <span className="font-bold text-[#F5C761]">$1,000 Starting</span>
+            <div className="px-4 py-2 rounded-full bg-black/60 border border-[#F5C761]/50 text-[#F5C761] font-mono-code text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
+              <span>Projects from $1,000 · Fixed-price milestones</span>
             </div>
 
-            <div className="px-3.5 py-1.5 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-[11px] sm:text-xs uppercase tracking-wider backdrop-blur-md">
-              <span>100% Fixed-Price Milestones</span>
+            <div className="px-3.5 py-2 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-xs uppercase tracking-wider backdrop-blur-md">
+              <span>100% IP Ownership</span>
             </div>
 
-            <div className="px-3.5 py-1.5 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-[11px] sm:text-xs uppercase tracking-wider backdrop-blur-md">
-              <span>Offices in Karachi &amp; Islamabad</span>
+            <div className="px-3.5 py-2 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-xs uppercase tracking-wider backdrop-blur-md">
+              <span>Direct Partner Access</span>
             </div>
           </motion.div>
 
           {/* Primary Action Triggers */}
           <motion.div
             initial={{ opacity: 1, y: 0 }}
-            className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
+            className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
           >
             <button
               onClick={onOpenDiscovery}
@@ -132,24 +139,31 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
               href="https://wa.me/923141030223"
               target="_blank"
               rel="noopener noreferrer"
-              className="magnetic-btn inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-black/45 border border-[#10B981]/50 hover:border-[#10B981]/80 text-white text-xs sm:text-sm font-headline font-semibold uppercase tracking-wider transition-all backdrop-blur-md"
+              className="magnetic-btn inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-black/50 border border-[#10B981]/50 hover:border-[#10B981]/90 text-white text-xs sm:text-sm font-headline font-semibold uppercase tracking-wider transition-all backdrop-blur-md"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
               </span>
               <MessageSquare className="w-4 h-4 text-[#10B981]" />
-              <span>Direct WhatsApp: +92 314 103 0223</span>
+              <span>WhatsApp: +92 314 103 0223</span>
             </a>
           </motion.div>
 
-          {/* Quiet Reassurance Strip — Typography First */}
+          {/* Direct Email & Quiet Reassurance Strip */}
           <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono-code text-slate-300">
+            <a
+              href="mailto:contact@axorks.com?subject=Project Inquiry: AXORKS Technologies"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--gold)] hover:underline font-semibold"
+            >
+              contact@axorks.com
+            </a>
+            <span className="text-white/30">•</span>
             <span>24-hour proposal turnaround</span>
             <span className="text-white/30">•</span>
-            <span>100% intellectual property transfer</span>
-            <span className="text-white/30">•</span>
-            <span>No hourly lock-in</span>
+            <span>Zero hourly billing surprises</span>
           </div>
         </div>
       </div>

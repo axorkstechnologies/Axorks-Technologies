@@ -17,6 +17,9 @@ export interface Project {
   title: string;
   tagline: string;
   description: string;
+  problem?: string;
+  solution?: string;
+  result?: string;
   images: ProjectImage[];
   tags: string[];
   statusBadge: string;

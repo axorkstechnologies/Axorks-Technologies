@@ -100,7 +100,7 @@ export const CareersPage: React.FC = () => {
                   </div>
 
                   <a
-                    href={`mailto:careers@axorks.com?subject=Application:%20${encodeURIComponent(role.title)}%20—%20AXORKS%20Technologies`}
+                    href={`mailto:careers@axorks.com?subject=Application:%20${encodeURIComponent(role.title)}%20:%20AXORKS%20Technologies`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3.5 rounded-xl glass-2 border border-[var(--gold)]/40 hover:border-[var(--gold)] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[var(--gold)] flex items-center justify-center gap-2 transition-all cursor-pointer"
@@ -173,7 +173,7 @@ export const CareersPage: React.FC = () => {
                   </div>
 
                   <a
-                    href={`mailto:careers@axorks.com?subject=Application:%20${encodeURIComponent(role.title)}%20—%20AXORKS%20Technologies`}
+                    href={`mailto:careers@axorks.com?subject=Application:%20${encodeURIComponent(role.title)}%20:%20AXORKS%20Technologies`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-2.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[var(--gold)] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[var(--gold)] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"

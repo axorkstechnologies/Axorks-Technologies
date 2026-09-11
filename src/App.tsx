@@ -6,9 +6,10 @@ import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { DeliveredWorkPage } from './pages/DeliveredWorkPage';
 import { ProcessPage } from './pages/ProcessPage';
-import { TeamPage } from './pages/TeamPage';
+import { AboutPage } from './pages/AboutPage';
 import { CareersPage } from './pages/CareersPage';
 import { ContactPage } from './pages/ContactPage';
+import { BlogPage } from './pages/BlogPage';
 
 const AppContent: React.FC = () => {
   const { path, navigate } = useRouter();
@@ -21,8 +22,11 @@ const AppContent: React.FC = () => {
         return <DeliveredWorkPage />;
       case '/process':
         return <ProcessPage />;
+      case '/about':
       case '/team':
-        return <TeamPage />;
+        return <AboutPage />;
+      case '/blog':
+        return <BlogPage />;
       case '/careers':
         return <CareersPage />;
       case '/contact':

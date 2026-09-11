@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 export const HeroShader: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* Primary Champagne Gold Caustic Blob — Top Left */}
+      {/* Primary Champagne Gold Caustic Blob: Top Left */}
       <motion.div
         className="absolute -top-[240px] -left-[180px] w-[580px] h-[580px] md:w-[740px] md:h-[740px] caustic-blob opacity-[0.16]"
         style={{
@@ -16,7 +16,7 @@ export const HeroShader: React.FC = () => {
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Emerald Teal Volumetric Bloom — Center Right */}
+      {/* Emerald Teal Volumetric Bloom: Center Right */}
       <motion.div
         className="absolute top-[8%] -right-[120px] w-[460px] h-[460px] md:w-[620px] md:h-[620px] caustic-blob opacity-[0.14]"
         style={{
@@ -28,7 +28,7 @@ export const HeroShader: React.FC = () => {
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Iridescent Violet-Cyan Node — Center/Bottom */}
+      {/* Iridescent Violet-Cyan Node: Center/Bottom */}
       <motion.div
         className="absolute top-[48%] left-[25%] w-[500px] h-[500px] md:w-[680px] md:h-[680px] caustic-blob opacity-[0.12]"
         style={{
@@ -40,7 +40,7 @@ export const HeroShader: React.FC = () => {
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Deep Burgundy/Plum Ambient Shadow Bleed — Bottom Right */}
+      {/* Deep Burgundy/Plum Ambient Shadow Bleed: Bottom Right */}
       <motion.div
         className="absolute -bottom-[150px] right-[10%] w-[420px] h-[420px] md:w-[560px] md:h-[560px] caustic-blob opacity-[0.09]"
         style={{

@@ -26,7 +26,7 @@ export const ProcessPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Architectural Execution Blueprint — Varied Rhythm on Refined Soft-Ivory Surfaces */}
+      {/* Architectural Execution Blueprint: Varied Rhythm on Refined Soft-Ivory Surfaces */}
       <section className="w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
 
@@ -240,7 +240,7 @@ export const ProcessPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Milestone Governance Pillars — Clean Typographic Ledger (No Decorative Icons) */}
+      {/* Milestone Governance Pillars: Clean Typographic Ledger */}
       <section className="w-full px-4 sm:px-6 lg:px-8 mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="glass-2 holographic-edge rounded-3xl p-8 sm:p-12 spatial-card">

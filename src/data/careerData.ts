@@ -30,7 +30,7 @@ export const CAREER_ROLES: CareerRole[] = [
   {
     id: 'fullstack-dev',
     title: 'Software Engineers / Full-Stack Developers',
-    experience: '3–5 Years',
+    experience: '3 to 5 Years',
     department: 'Core Engineering',
     location: 'Karachi / Islamabad',
     overview:
@@ -46,7 +46,7 @@ export const CAREER_ROLES: CareerRole[] = [
   {
     id: 'mobile-dev',
     title: 'Mobile Application Developers (Flutter / Native)',
-    experience: '3–5 Years',
+    experience: '3 to 5 Years',
     department: 'Mobile Engineering',
     location: 'Karachi / Islamabad',
     overview:
@@ -62,7 +62,7 @@ export const CAREER_ROLES: CareerRole[] = [
   {
     id: 'web-dev',
     title: 'Web Developers',
-    experience: '3–5 Years',
+    experience: '3 to 5 Years',
     department: 'Frontend & Systems',
     location: 'Karachi / Islamabad',
     overview:
@@ -78,7 +78,7 @@ export const CAREER_ROLES: CareerRole[] = [
   {
     id: 'ai-engineer',
     title: 'AI Engineers & Neural Networks Engineers',
-    experience: '3–5 Years',
+    experience: '3 to 5 Years',
     department: 'Applied AI & Neural Systems',
     location: 'Karachi / Islamabad / Remote',
     overview:
@@ -94,7 +94,7 @@ export const CAREER_ROLES: CareerRole[] = [
   {
     id: 'web3-dev',
     title: 'Web3 / Blockchain Developers (including Smart Contracts)',
-    experience: '3–5 Years',
+    experience: '3 to 5 Years',
     department: 'Decentralized Systems',
     location: 'Karachi / Islamabad / Remote',
     overview:

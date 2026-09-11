@@ -29,7 +29,7 @@ const CAREER_ROLES: CareerRole[] = [
   {
     id: 'fullstack-dev',
     title: 'Software Engineers / Full-Stack Developers',
-    experience: '3–5 Years Experience',
+    experience: '3 to 5 Years Experience',
     category: 'Core Engineering',
     scope:
       'Design, architect, and ship high-throughput web applications, microservices, and secure relational database architectures.',
@@ -43,7 +43,7 @@ const CAREER_ROLES: CareerRole[] = [
   {
     id: 'mobile-dev',
     title: 'Mobile Application Developers (Flutter / Native)',
-    experience: '3–5 Years Experience',
+    experience: '3 to 5 Years Experience',
     category: 'Mobile Engineering',
     scope:
       'Build native-performance cross-platform iOS and Android applications with smooth animations and resilient offline-first data sync.',
@@ -57,7 +57,7 @@ const CAREER_ROLES: CareerRole[] = [
   {
     id: 'web-dev',
     title: 'Web Developers',
-    experience: '3–5 Years Experience',
+    experience: '3 to 5 Years Experience',
     category: 'Frontend & Systems',
     scope:
       'Engineer responsive, accessible, high-performance web interfaces and design systems with micro-interactions and liquid layouts.',
@@ -71,7 +71,7 @@ const CAREER_ROLES: CareerRole[] = [
   {
     id: 'ai-engineer',
     title: 'AI Engineers & Neural Networks Engineers',
-    experience: '3–5 Years Experience',
+    experience: '3 to 5 Years Experience',
     category: 'Applied AI & Neural Systems',
     scope:
       'Architect autonomous multi-agent pipelines, RAG systems, vector embeddings, and domain-specific fine-tuned neural models.',
@@ -85,7 +85,7 @@ const CAREER_ROLES: CareerRole[] = [
   {
     id: 'web3-dev',
     title: 'Web3 / Blockchain Developers (including Smart Contracts)',
-    experience: '3–5 Years Experience',
+    experience: '3 to 5 Years Experience',
     category: 'Decentralized Systems',
     scope:
       'Develop, audit, and deploy secure smart contracts, DeFi protocols, tokenomics architectures, and decentralized integrations.',
@@ -135,7 +135,7 @@ export const Careers: React.FC = () => {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative" id="careers">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header — Selective & Professional */}
+        {/* Section Header: Selective & Professional */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--gold)]/30 text-xs uppercase text-[var(--gold)] tracking-widest font-semibold font-mono-code mb-3.5">
             <Briefcase className="w-3.5 h-3.5" />
@@ -227,7 +227,7 @@ export const Careers: React.FC = () => {
                   </span>
 
                   <a
-                    href={`mailto:careers@axorks.com?subject=Application:%20${encodeURIComponent(role.title)}%20—%20AXORKS%20Technologies`}
+                    href={`mailto:careers@axorks.com?subject=Application:%20${encodeURIComponent(role.title)}%20:%20AXORKS%20Technologies`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-headline font-bold uppercase tracking-wider transition-colors"

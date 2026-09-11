@@ -17,7 +17,7 @@ export const Process: React.FC = () => {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative" id="process">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header — Simple & Clear */}
+        {/* Section Header: Simple & Clear */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[#8B5CF6]/30 text-xs uppercase text-[#A78BFA] tracking-widest font-semibold font-mono-code mb-3.5">
             <ShieldCheck className="w-3.5 h-3.5" />

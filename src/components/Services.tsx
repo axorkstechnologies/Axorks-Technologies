@@ -57,7 +57,7 @@ export const Services: React.FC = () => {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative" id="services">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header — Client First */}
+        {/* Section Header: Client First */}
         <div className="text-center mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--gold)]/30 text-xs uppercase text-[var(--gold)] tracking-widest font-semibold font-mono-code mb-3.5">
             <span>Capabilities &amp; Scope</span>
