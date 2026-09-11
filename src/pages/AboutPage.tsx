@@ -235,14 +235,29 @@ export const AboutPage: React.FC = () => {
               )}
 
               {faisal && (
-                <div className="p-6 rounded-2xl glass-2 border-white/10 hover:border-[#A78BFA]/40 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[#A78BFA] mb-4">
-                    FS
+                <div className="p-6 rounded-2xl glass-2 border-white/10 hover:border-[var(--gold)]/40 transition-all">
+                  <div className="flex items-center justify-between mb-4">
+                    {faisal.image ? (
+                      <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--gold)]/40 shadow-md shrink-0 bg-[#111622]">
+                        <img
+                          src={faisal.image}
+                          alt={`${faisal.name}, ${faisal.role}`}
+                          className="w-full h-full object-cover object-[center_20%]"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[var(--gold)]">
+                        FQ
+                      </div>
+                    )}
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
+                      Full-Stack
+                    </span>
                   </div>
                   <h4 className="font-headline text-base font-bold text-white mb-1">{faisal.name}</h4>
-                  <div className="text-xs font-mono-code text-[#A78BFA] mb-3">{faisal.role}</div>
+                  <div className="text-xs font-mono-code text-[var(--gold)] mb-3">{faisal.role}</div>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Flutter and mobile engineer specializing in cross-platform iOS and Android builds with offline-first local synchronization and biometric auth.
+                    Builds reliable, scalable web applications and digital products with PHP, Laravel, modern React, WordPress/WooCommerce, backend APIs, and cross-platform mobile delivery.
                   </p>
                 </div>
               )}

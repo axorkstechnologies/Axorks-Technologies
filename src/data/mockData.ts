@@ -37,11 +37,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'faisal',
-    name: 'Faisal',
-    role: 'Mobile Application Developer',
-    description: 'Cross-platform mobile application development with Flutter for iOS and Android with offline-first synchronization.',
-    image: null,
-    accent: 'violet',
+    name: 'Muhammad Faisal Qasim',
+    role: 'Full-Stack Software Engineer',
+    description: 'Scalable web applications and digital products with PHP, Laravel, React, WordPress/WooCommerce, and cross-platform mobile systems.',
+    image: '/Images/Muhammad Faisal Qasim.jpg',
+    accent: 'gold',
   },
   {
     id: 'ali-haider',

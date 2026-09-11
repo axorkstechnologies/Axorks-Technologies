@@ -8,12 +8,12 @@ export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const founder = TEAM_MEMBERS.find((m) => m.id === 'mujahid') || TEAM_MEMBERS[0];
   const featuredTeam = [
+    TEAM_MEMBERS.find((m) => m.id === 'faisal'),
     TEAM_MEMBERS.find((m) => m.id === 'furqan'),
     TEAM_MEMBERS.find((m) => m.id === 'farwa'),
     TEAM_MEMBERS.find((m) => m.id === 'yousaf-piryani'),
     TEAM_MEMBERS.find((m) => m.id === 'alina'),
     TEAM_MEMBERS.find((m) => m.id === 'shayan'),
-    TEAM_MEMBERS.find((m) => m.id === 'ali-haider'),
   ].filter(Boolean) as typeof TEAM_MEMBERS;
 
   return (
@@ -775,7 +775,7 @@ export const HomePage: React.FC = () => {
                         <img
                           src={member.image}
                           alt={`${member.name}, ${member.role} at Axorks`}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-full object-cover object-[center_20%] transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
                         />
                       </div>

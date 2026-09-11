@@ -117,7 +117,7 @@ export const Team: React.FC = () => {
                     <img
                       src={member.image}
                       alt={`${member.name}, ${member.role} at AXORKS`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                   ) : (

@@ -276,8 +276,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'December 2024',
     readTime: '6 min read',
     author: {
-      name: 'Faisal',
-      role: 'Lead Mobile Engineer',
+      name: 'Muhammad Faisal Qasim',
+      role: 'Full-Stack Software Engineer',
     },
     tableOfContents: [
       'The Dual-Codebase Dilemma',
