@@ -9,7 +9,7 @@ export const BlogPage: React.FC = () => {
 
   const activePost = postSlug ? BLOG_POSTS.find((p) => p.slug === postSlug) : null;
 
-  const categories = ['All', 'AI Automation', 'Software Architecture', 'Commercial Governance', 'Mobile Engineering'];
+  const categories = ['All', 'AI Automation', 'Software Architecture', 'Web3 & Blockchain', 'Commercial Governance', 'Mobile Engineering'];
 
   const filteredPosts = selectedCategory === 'All'
     ? BLOG_POSTS
@@ -25,8 +25,34 @@ export const BlogPage: React.FC = () => {
 
   // ─── SINGLE POST READER VIEW ───────────────────────────────────────────────
   if (activePost) {
+    const blogPostingSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: activePost.title,
+      description: activePost.excerpt,
+      datePublished: '2025-01-15',
+      author: {
+        '@type': 'Person',
+        name: activePost.author.name,
+        jobTitle: activePost.author.role,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'AXORKS Technologies',
+        url: 'https://axorks.com',
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `https://axorks.com/blog/${activePost.slug}`,
+      },
+    };
+
     return (
       <div className="w-full pt-8 pb-20 lg:pb-28">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+        />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Action */}
           <button
@@ -119,17 +145,17 @@ export const BlogPage: React.FC = () => {
             ))}
           </article>
 
-          {/* Key Takeaways Box */}
-          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#0B132B] border border-[#10B981]/30">
-            <h3 className="font-display-hero text-lg font-bold text-white mb-4 flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[var(--emerald)]" />
+          {/* Key Takeaways Box on Refined Soft-Ivory Luxury Surface */}
+          <div className="mt-12 p-6 sm:p-8 rounded-3xl surface-ivory spatial-card shadow-2xl border border-[rgba(214,207,195,0.85)]">
+            <h3 className="font-display-hero text-lg font-bold text-[#0A0F1D] mb-4 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-[#058A5E]" />
               <span>Key Architectural Takeaways</span>
             </h3>
             <ul className="space-y-3">
               {activePost.keyTakeaways.map((takeaway, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--emerald)] mt-2 shrink-0" />
-                  <span>{takeaway}</span>
+                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#1E293B]">
+                  <span className="w-2 h-2 rounded-full bg-[#058A5E] mt-1.5 shrink-0" />
+                  <span className="leading-relaxed font-normal">{takeaway}</span>
                 </li>
               ))}
             </ul>

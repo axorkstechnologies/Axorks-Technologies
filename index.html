@@ -39,7 +39,13 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#060913" />
 
-    <!-- Schema.org Organization Graph -->
+    <!-- Geotargeting (GEO Optimization) -->
+    <meta name="geo.region" content="PK-SD" />
+    <meta name="geo.placename" content="Karachi" />
+    <meta name="geo.position" content="24.8607;67.0011" />
+    <meta name="ICBM" content="24.8607, 67.0011" />
+
+    <!-- Schema.org Organization Graph with AEO / GEO Foundations -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,7 +58,7 @@
           "url": "https://axorks.com",
           "email": "contact@axorks.com",
           "telephone": "+923141030223",
-          "description": "Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, and mobile solutions.",
+          "description": "Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, web3 platforms, and mobile solutions.",
           "founder": {
             "@type": "Person",
             "name": "Muhammad Mujahid",
@@ -60,6 +66,32 @@
             "alumniOf": "Bahria University",
             "knowsAbout": ["System Architecture", "AI Automation", "Software Engineering", "Web3 Systems"]
           },
+          "employee": [
+            {
+              "@type": "Person",
+              "name": "Muhammad Faisal Qasim",
+              "jobTitle": "Full-Stack Software Engineer",
+              "knowsAbout": ["PHP", "Laravel", "React", "WordPress", "WooCommerce", "Mobile Engineering"]
+            },
+            {
+              "@type": "Person",
+              "name": "Yousaf Piryani",
+              "jobTitle": "Principal AI Engineer",
+              "knowsAbout": ["Neural Networks", "Deep Learning", "AI Architecture"]
+            },
+            {
+              "@type": "Person",
+              "name": "Furqan",
+              "jobTitle": "Business Development Officer",
+              "knowsAbout": ["Enterprise Relations", "Client Partnerships"]
+            },
+            {
+              "@type": "Person",
+              "name": "Farwa",
+              "jobTitle": "Marketing & Outreach",
+              "knowsAbout": ["Brand Strategy", "Technical Content"]
+            }
+          ],
           "address": [
             {
               "@type": "PostalAddress",
@@ -80,7 +112,7 @@
             "itemListElement": [
               {
                 "@type": "Service",
-                "name": "AI Automations and Multi-AI Workflows",
+                "name": "AI Automation & Intelligent Systems",
                 "description": "Intelligent multi-agent pipelines, RAG retrieval engines, document processing systems, and enterprise workflow integrations."
               },
               {
@@ -90,8 +122,8 @@
               },
               {
                 "@type": "Service",
-                "name": "Web3 and Decentralized Applications",
-                "description": "Audited smart contracts in Solidity and Rust, DeFi settlement protocols, and decentralized applications."
+                "name": "Web3 & Decentralized Applications",
+                "description": "Audited smart contracts in Solidity, EVM protocols, DeFi settlement, and decentralized applications."
               },
               {
                 "@type": "Service",
@@ -100,7 +132,7 @@
               },
               {
                 "@type": "Service",
-                "name": "Ongoing Support and SLA",
+                "name": "Ongoing Support & Infrastructure",
                 "description": "Cloud infrastructure management, continuous monitoring, security patching, and SLA response guarantees."
               },
               {
@@ -126,6 +158,52 @@
             "addressRegion": "Sindh",
             "addressCountry": "PK"
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://axorks.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What services does Axorks Technologies offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Axorks Technologies specializes in AI automation and intelligent multi-agent systems, custom web applications, Web3 smart contracts and decentralized applications, and cross-platform mobile apps."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does custom software cost with Axorks Technologies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Projects start from $1,000. Every project receives an itemized technical scope with guaranteed fixed pricing and milestone-based payments. You inspect working staging builds before releasing payment for each milestone."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who owns the software code and intellectual property?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You retain 100% ownership of all source code, database architectures, documentation, and cloud configurations upon project completion with zero vendor lock-in."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where are Axorks Technologies offices located?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Axorks Technologies has registered software engineering offices in Karachi and Islamabad, Pakistan, serving enterprise clients globally across North America, Europe, the Middle East, and Asia."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast does Axorks deliver an itemized technical proposal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Senior engineering leadership reviews your requirements and delivers a comprehensive technical scope and milestone proposal within 24 hours."
+              }
+            }
+          ]
         },
         {
           "@type": "WebSite",

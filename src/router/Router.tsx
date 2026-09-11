@@ -34,7 +34,6 @@ const normalizePath = (pathname: string): { path: RoutePath; slug: string | null
   if (clean === '/home') return { path: '/', slug: null };
   if (clean === '/projects' || clean === '/portfolio') return { path: '/work', slug: null };
   if (clean === '/jobs' || clean === '/career') return { path: '/careers', slug: null };
-  if (clean === '/team') return { path: '/about', slug: null };
   return { path: '/', slug: null };
 };
 
@@ -78,13 +77,37 @@ export const RouterProvider: React.FC<RouterProviderProps> = ({ children }) => {
       '/services': 'Capabilities and Engineering Services | AXORKS Technologies',
       '/work': 'Delivered Work and Production Case Studies | AXORKS Technologies',
       '/process': 'How We Work: Milestone Execution Blueprint | AXORKS Technologies',
+      '/team': 'Engineering Team and Leadership | AXORKS Technologies',
       '/about': 'About Axorks: Studio Profile and Leadership | AXORKS Technologies',
-      '/team': 'About Axorks: Studio Profile and Leadership | AXORKS Technologies',
       '/careers': 'Selective Practice and Senior Engineering Roles | AXORKS Technologies',
       '/contact': 'Request a Fixed-Price Proposal | AXORKS Technologies',
       '/blog': 'Engineering Insights and Architecture | AXORKS Technologies',
     };
+
+    const descriptions: Record<RoutePath, string> = {
+      '/': 'AI automation and custom software for growing companies. Projects from $1,000 with fixed-price milestones. Offices in Karachi and Islamabad.',
+      '/services': 'Intelligent AI automation, custom web applications, Web3 smart contracts, and cross-platform mobile systems built with fixed-price proposals.',
+      '/work': 'Production case studies in enterprise supply chains, algorithmic trading, healthcare AI, and luxury e-commerce delivered by Axorks.',
+      '/process': 'Our 4-phase milestone framework. You verify working software on private staging before releasing milestone payments. Zero hourly billing surprises.',
+      '/team': 'Meet the engineering leadership, AI researchers, and full-stack developers at Axorks Technologies. Work directly with experienced practitioners.',
+      '/about': 'Axorks Technologies studio profile, architectural rigor, fixed-price philosophy, and executive leadership in Karachi and Islamabad.',
+      '/careers': 'Selective engineering and commercial roles at Axorks Technologies. Minimum 3+ years experience. Direct partner review.',
+      '/contact': 'Request an itemized fixed-price proposal for your custom system. 24-hour turnaround from senior engineering leadership.',
+      '/blog': 'Technical architecture insights, AI automation guides, and commercial engineering governance by Axorks Technologies.',
+    };
+
     document.title = titles[path] || titles['/'];
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', descriptions[path] || descriptions['/']);
+    }
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      const canonicalUrl = path === '/' ? 'https://axorks.com' : `https://axorks.com${path}`;
+      canonical.setAttribute('href', canonicalUrl);
+    }
   }, [path]);
 
   return (

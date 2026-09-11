@@ -10,6 +10,7 @@ import { AboutPage } from './pages/AboutPage';
 import { CareersPage } from './pages/CareersPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
+import { TeamPage } from './pages/TeamPage';
 
 const AppContent: React.FC = () => {
   const { path, navigate } = useRouter();
@@ -23,8 +24,9 @@ const AppContent: React.FC = () => {
       case '/process':
         return <ProcessPage />;
       case '/about':
-      case '/team':
         return <AboutPage />;
+      case '/team':
+        return <TeamPage />;
       case '/blog':
         return <BlogPage />;
       case '/careers':

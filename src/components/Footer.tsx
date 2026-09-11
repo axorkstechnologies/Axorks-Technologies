@@ -54,6 +54,7 @@ export const Footer: React.FC = () => {
                 { label: 'Capabilities & Services', path: '/services' as RoutePath },
                 { label: 'Delivered Work', path: '/work' as RoutePath },
                 { label: 'Execution Process', path: '/process' as RoutePath },
+                { label: 'Studio Team', path: '/team' as RoutePath },
                 { label: 'About Axorks', path: '/about' as RoutePath },
                 { label: 'Engineering Insights', path: '/blog' as RoutePath },
                 { label: 'Selective Practice / Careers', path: '/careers' as RoutePath },

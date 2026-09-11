@@ -519,6 +519,97 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
             ))}
+
+            {/* Additional Production Systems: MediVerse & FUME Fragrances */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
+              {/* MediVerse */}
+              {PROJECTS.filter((p) => p.id === 'mediverse').map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => navigate('/work')}
+                  className="glass-2 holographic-edge rounded-3xl p-6 sm:p-8 spatial-card cursor-pointer group border-white/10 hover:border-[#A78BFA]/50 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#A78BFA]/15 text-[#A78BFA] border border-[#A78BFA]/30">
+                        {project.categoryBadge}
+                      </span>
+                      <span className="text-[11px] font-mono-code text-[var(--text-muted)]">
+                        {project.statusBadge}
+                      </span>
+                    </div>
+
+                    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[#040812] mb-5 border border-white/10">
+                      <img
+                        src={project.images[0].src}
+                        alt={project.images[0].alt}
+                        className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    <h3 className="font-display-hero text-xl sm:text-2xl font-bold text-white mb-1.5 group-hover:text-[#A78BFA] transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs font-headline font-semibold text-[#A78BFA] mb-3">
+                      {project.tagline}
+                    </p>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#A78BFA] font-bold">
+                    <span>Inspect MediVerse Architecture</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              ))}
+
+              {/* FUME Fragrances */}
+              {PROJECTS.filter((p) => p.id === 'fume').map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => navigate('/work')}
+                  className="glass-2 holographic-edge rounded-3xl p-6 sm:p-8 spatial-card cursor-pointer group border-white/10 hover:border-[#F43F5E]/50 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#F43F5E]/15 text-[#F43F5E] border border-[#F43F5E]/30">
+                        {project.categoryBadge}
+                      </span>
+                      <span className="text-[11px] font-mono-code text-[var(--text-muted)]">
+                        {project.statusBadge}
+                      </span>
+                    </div>
+
+                    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[#040812] mb-5 border border-white/10">
+                      <img
+                        src={project.images[1]?.src || project.images[0].src}
+                        alt={project.images[1]?.alt || project.images[0].alt}
+                        className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    <h3 className="font-display-hero text-xl sm:text-2xl font-bold text-white mb-1.5 group-hover:text-[#F43F5E] transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs font-headline font-semibold text-[#F43F5E] mb-3">
+                      {project.tagline}
+                    </p>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#F43F5E] font-bold">
+                    <span>Inspect FUME Brand &amp; E-Commerce</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

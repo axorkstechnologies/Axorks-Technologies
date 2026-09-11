@@ -11,7 +11,7 @@ const NAV_LINKS: { label: string; path: RoutePath }[] = [
   { label: 'Services', path: '/services' },
   { label: 'Work', path: '/work' },
   { label: 'Process', path: '/process' },
-  { label: 'About', path: '/about' },
+  { label: 'Team', path: '/team' },
   { label: 'Blog', path: '/blog' },
   { label: 'Careers', path: '/careers' },
   { label: 'Contact', path: '/contact' },
