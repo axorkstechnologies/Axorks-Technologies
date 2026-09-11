@@ -10,7 +10,7 @@ export const ContactPage: React.FC = () => {
     fullName: '',
     email: '',
     phone: '',
-    service: 'AI Automations & Workflows',
+    service: 'AI Automation & Intelligent Systems',
     budget: '$1,000 to $3,000 (Milestone Delivery)',
     scope: '',
   });
@@ -143,12 +143,12 @@ export const ContactPage: React.FC = () => {
                       onChange={(e) => setFormState({ ...formState, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-[rgba(203,195,182,0.9)] bg-white text-[#0A0F1D] text-sm focus:outline-none focus:ring-2 focus:ring-[#B48310] transition-all cursor-pointer"
                     >
-                      <option value="Custom Web Application">Custom Web Application</option>
-                      <option value="AI Automations & Multi-AI Workflows">AI Automations &amp; Multi-AI Workflows</option>
-                      <option value="Mobile Applications (iOS / Android)">Mobile Applications (iOS / Android)</option>
-                      <option value="Web3 & Blockchain Systems">Web3 &amp; Blockchain Systems</option>
-                      <option value="Product Development">Product Development</option>
-                      <option value="Ongoing Technical Support">Ongoing Technical Support</option>
+                      <option value="AI Automation & Intelligent Systems">AI Automation &amp; Intelligent Systems</option>
+                      <option value="Custom Web Applications">Custom Web Applications</option>
+                      <option value="Web3 & Decentralized Applications">Web3 &amp; Decentralized Applications</option>
+                      <option value="Mobile Apps">Mobile Apps</option>
+                      <option value="Ongoing Support & Infrastructure">Ongoing Support &amp; Infrastructure</option>
+                      <option value="Proprietary Product Development">Proprietary Product Development</option>
                     </select>
                   </div>
                 </div>

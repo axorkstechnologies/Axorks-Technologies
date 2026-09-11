@@ -7,7 +7,14 @@ import { PROJECTS, TEAM_MEMBERS } from '../data/mockData';
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const founder = TEAM_MEMBERS.find((m) => m.id === 'mujahid') || TEAM_MEMBERS[0];
-  const coreSpecialists = TEAM_MEMBERS.filter((m) => m.id !== 'mujahid').slice(0, 4);
+  const featuredTeam = [
+    TEAM_MEMBERS.find((m) => m.id === 'furqan'),
+    TEAM_MEMBERS.find((m) => m.id === 'farwa'),
+    TEAM_MEMBERS.find((m) => m.id === 'yousaf-piryani'),
+    TEAM_MEMBERS.find((m) => m.id === 'alina'),
+    TEAM_MEMBERS.find((m) => m.id === 'shayan'),
+    TEAM_MEMBERS.find((m) => m.id === 'ali-haider'),
+  ].filter(Boolean) as typeof TEAM_MEMBERS;
 
   return (
     <div className="w-full">
@@ -82,9 +89,9 @@ export const HomePage: React.FC = () => {
             </button>
           </div>
 
-          {/* Asymmetric Bento: Primary AI Automation (7 Cols) + Stacked Web & Mobile (5 Cols) */}
+          {/* Asymmetric Bento: Official Order 1. AI (7-Col) + 2. Web (5-Col), followed by 3. Web3 (6-Col) + 4. Mobile (6-Col) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            {/* Master Featured Card: AI Automations & Multi-AI Workflows (7 Cols) */}
+            {/* 1. AI Automation & Intelligent Systems (Primary Flagship · 7 Cols) */}
             <div
               onClick={() => navigate('/services')}
               className="lg:col-span-7 glass-2 holographic-edge rounded-3xl p-7 sm:p-10 spatial-card cursor-pointer group flex flex-col justify-between border-[var(--emerald)]/30 hover:border-[var(--emerald)]/60 transition-all"
@@ -95,12 +102,12 @@ export const HomePage: React.FC = () => {
                     Flagship Core · AI First
                   </span>
                   <span className="font-mono-code text-xs text-[var(--text-muted)]">
-                    PRIMARY DISCIPLINE
+                    PRIMARY DISCIPLINE · 01
                   </span>
                 </div>
 
                 <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--emerald)] transition-colors">
-                  AI Automations &amp; Multi-AI Workflows
+                  AI Automation &amp; Intelligent Systems
                 </h3>
 
                 <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
@@ -136,60 +143,156 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Stacked 5-Column Sidebars: Custom Web Applications & Mobile */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              {/* Discipline 02: Custom Web Applications */}
-              <div
-                onClick={() => navigate('/services')}
-                className="flex-1 glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card cursor-pointer group flex flex-col justify-between border-white/10 hover:border-[var(--gold)]/50 transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
-                      Bespoke Web Platforms
-                    </span>
-                    <span className="font-mono-code text-xs text-[var(--text-muted)]">
-                      DISCIPLINE 02
-                    </span>
-                  </div>
-                  <h4 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--gold)] transition-colors">
-                    Custom Web Applications
-                  </h4>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Full-stack portals, operations dashboards, and SaaS products built with Next.js, Node.js, and PostgreSQL for maximum concurrency and uptime.
-                  </p>
+            {/* 2. Custom Web Applications (Secondary Flagship · 5 Cols) */}
+            <div
+              onClick={() => navigate('/services')}
+              className="lg:col-span-5 glass-2 holographic-edge rounded-3xl p-7 sm:p-10 spatial-card cursor-pointer group flex flex-col justify-between border-[var(--gold)]/30 hover:border-[var(--gold)]/60 transition-all"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
+                    Bespoke Web Platforms
+                  </span>
+                  <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                    DISCIPLINE 02
+                  </span>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--gold)] font-semibold">
-                  <span>View Web Scope</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+
+                <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--gold)] transition-colors">
+                  Custom Web Applications
+                </h3>
+
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                  Full-stack bespoke portals, operations dashboards, and SaaS platforms built with Next.js, Node.js, and PostgreSQL for maximum concurrency and uptime.
+                </p>
+
+                <div className="space-y-2.5 mb-6 pt-4 border-t border-[var(--glass-border)] text-xs text-[var(--text-secondary)]">
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
+                    <span>Next.js &amp; React High-Performance Architecture</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
+                    <span>Real-Time Operations Dashboards &amp; Telemetry</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
+                    <span>Role-Based Access Control (RBAC) &amp; Security</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
+                    <span>Automated CI/CD Deployments on AWS &amp; Vercel</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Discipline 03: Mobile Solutions */}
-              <div
-                onClick={() => navigate('/services')}
-                className="flex-1 glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card cursor-pointer group flex flex-col justify-between border-white/10 hover:border-[#A78BFA]/50 transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#A78BFA]/15 text-[#A78BFA] border border-[#A78BFA]/30">
-                      Cross-Platform Mobile
-                    </span>
-                    <span className="font-mono-code text-xs text-[var(--text-muted)]">
-                      DISCIPLINE 03
-                    </span>
+              <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--gold)] font-bold">
+                <span>Enterprise Architecture</span>
+                <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  View Web Scope <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </div>
+
+            {/* 3. Web3 & Decentralized Applications (Third Discipline · 6 Cols) */}
+            <div
+              onClick={() => navigate('/services')}
+              className="lg:col-span-6 glass-2 holographic-edge rounded-3xl p-7 sm:p-9 spatial-card cursor-pointer group flex flex-col justify-between border-white/10 hover:border-[#38BDF8]/50 transition-all"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#38BDF8]/15 text-[#38BDF8] border border-[#38BDF8]/30">
+                    Decentralized Systems
+                  </span>
+                  <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                    DISCIPLINE 03
+                  </span>
+                </div>
+
+                <h4 className="font-headline text-xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[#38BDF8] transition-colors">
+                  Web3 &amp; Decentralized Applications
+                </h4>
+
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                  Production-grade decentralized applications, audited smart contracts in Solidity and Rust, DeFi settlement protocols, and non-custodial wallet integrations engineered with mathematical security.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6 pt-4 border-t border-[var(--glass-border)] text-xs text-[var(--text-secondary)]">
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                    <span>Audited Solidity &amp; Rust Smart Contracts</span>
                   </div>
-                  <h4 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[#A78BFA] transition-colors">
-                    Flutter &amp; Native Mobile Apps
-                  </h4>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Native-performance iOS and Android applications with offline-first synchronization, hardware biometric authentication, and app store deployment.
-                  </p>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                    <span>DeFi Settlement &amp; Liquidity Rails</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                    <span>Viem, Ethers.js &amp; Web3 Integrations</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                    <span>Multi-Chain Bridges &amp; Non-Custodial Auth</span>
+                  </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#A78BFA] font-semibold">
-                  <span>View Mobile Scope</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+
+              <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#38BDF8] font-semibold">
+                <span>Audited Smart Contracts</span>
+                <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  View Web3 Scope <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </div>
+
+            {/* 4. Mobile Apps (Supporting Discipline · 6 Cols) */}
+            <div
+              onClick={() => navigate('/services')}
+              className="lg:col-span-6 glass-2 holographic-edge rounded-3xl p-7 sm:p-9 spatial-card cursor-pointer group flex flex-col justify-between border-white/10 hover:border-[#A78BFA]/50 transition-all"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#A78BFA]/15 text-[#A78BFA] border border-[#A78BFA]/30">
+                    Cross-Platform Mobile
+                  </span>
+                  <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                    DISCIPLINE 04
+                  </span>
                 </div>
+
+                <h4 className="font-headline text-xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[#A78BFA] transition-colors">
+                  Flutter &amp; Native Mobile Apps
+                </h4>
+
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                  Native-performance iOS and Android applications built with Flutter. 60fps native performance, resilient offline-first SQLite synchronization, hardware biometric security, and app store deployment.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6 pt-4 border-t border-[var(--glass-border)] text-xs text-[var(--text-secondary)]">
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
+                    <span>Unified Flutter Codebase for iOS &amp; Android</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
+                    <span>Resilient Offline-First Local Database Sync</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
+                    <span>Hardware Biometric Authentication</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
+                    <span>App Store &amp; Google Play Deployment</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#A78BFA] font-semibold">
+                <span>iOS &amp; Android Production</span>
+                <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  View Mobile Scope <ArrowRight className="w-3.5 h-3.5" />
+                </span>
               </div>
             </div>
           </div>
@@ -605,16 +708,16 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. Soft Team Section (Intentional Placeholder Cards for Core Disciplines) */}
+      {/* 8. Studio Team Roster (Real Photos Restored for Furqan & Farwa; Intentional Cards for Specialists) */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[var(--bg-secondary)]/30 border-t border-[var(--glass-border)]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
               <span className="font-mono-code text-xs uppercase text-[#A78BFA] tracking-widest font-semibold block mb-1">
-                05 // ENGINEERING ROSTER
+                05 // STUDIO ROSTER
               </span>
               <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-white">
-                Core Engineering Specialists.
+                Core Engineering Specialists &amp; Client Partners.
               </h3>
             </div>
             <button
@@ -626,18 +729,37 @@ export const HomePage: React.FC = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {coreSpecialists.map((member) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredTeam.map((member) => (
               <div
                 key={member.id}
-                className="p-5 rounded-2xl glass-2 border-white/10 flex flex-col justify-between hover:border-white/20 transition-all"
+                className="p-6 rounded-2xl glass-2 border-white/10 flex flex-col justify-between hover:border-white/20 transition-all group"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[var(--gold)] mb-3">
-                    {member.name.slice(0, 2).toUpperCase()}
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    {member.image ? (
+                      <div className="w-14 h-14 rounded-2xl overflow-hidden border border-[var(--gold)]/40 shadow-md bg-[#111622] shrink-0">
+                        <img
+                          src={member.image}
+                          alt={`${member.name}, ${member.role} at Axorks`}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-14 h-14 rounded-2xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-sm font-bold text-[var(--gold)] shrink-0">
+                        {member.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
+                      </div>
+                    )}
+                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase bg-white/[0.04] text-[var(--text-muted)] border border-white/[0.08]">
+                      {member.id === 'furqan' || member.id === 'farwa' ? 'Partnerships' : 'Engineering'}
+                    </span>
                   </div>
-                  <h4 className="font-headline text-sm font-bold text-white">{member.name}</h4>
-                  <div className="text-[11px] font-mono-code text-[var(--text-muted)] mt-0.5 mb-2">
+
+                  <h4 className="font-headline text-base font-bold text-white group-hover:text-[var(--gold)] transition-colors">
+                    {member.name}
+                  </h4>
+                  <div className="text-xs font-mono-code text-[var(--gold)] mt-0.5 mb-2 font-semibold">
                     {member.role}
                   </div>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">

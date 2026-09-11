@@ -6,10 +6,10 @@ import { Check, ArrowRight, Tag } from 'lucide-react';
 export const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const webApp = SERVICES.find((s) => s.id === 'web-apps') || SERVICES[0];
-  const aiAuto = SERVICES.find((s) => s.id === 'ai-automation') || SERVICES[1];
-  const mobileApp = SERVICES.find((s) => s.id === 'mobile-apps') || SERVICES[2];
-  const web3 = SERVICES.find((s) => s.id === 'web3-blockchain') || SERVICES[3];
+  const aiAuto = SERVICES.find((s) => s.id === 'ai-automation') || SERVICES[0];
+  const webApp = SERVICES.find((s) => s.id === 'web-apps') || SERVICES[1];
+  const web3 = SERVICES.find((s) => s.id === 'web3-blockchain') || SERVICES[2];
+  const mobileApp = SERVICES.find((s) => s.id === 'mobile-apps') || SERVICES[3];
   const support = SERVICES.find((s) => s.id === 'support') || SERVICES[4];
   const productDev = SERVICES.find((s) => s.id === 'product-dev') || SERVICES[5];
 
@@ -184,44 +184,11 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Card 03: Mobile Apps */}
-              <div className="glass-2 holographic-edge rounded-3xl p-7 spatial-card flex flex-col justify-between border-white/10 hover:border-[#A78BFA]/50 transition-all">
-                <div>
-                  <span className="font-mono-code text-[11px] text-[#A78BFA] font-bold uppercase tracking-wider block mb-2">
-                    DISCIPLINE 03
-                  </span>
-                  <h3 className="font-headline text-lg font-bold text-white mb-1">
-                    {mobileApp.title}
-                  </h3>
-                  <p className="text-xs font-headline text-[#A78BFA] font-semibold mb-3">
-                    {mobileApp.tagline}
-                  </p>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
-                    {mobileApp.description}
-                  </p>
-                  <div className="space-y-1.5 pt-3 border-t border-[var(--glass-border)] mb-4">
-                    {mobileApp.deliverables.slice(0, 3).map((d, i) => (
-                      <div key={i} className="flex items-start gap-2 text-[11px] text-[var(--text-secondary)]">
-                        <Check className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#A78BFA]" />
-                        <span>{d}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="w-full py-2.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[#A78BFA] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[#A78BFA] transition-all cursor-pointer flex items-center justify-center gap-1.5"
-                >
-                  <span>Request Scope</span>
-                  <ArrowRight className="w-3 h-3" />
-                </button>
-              </div>
-
-              {/* Card 04: Web3 & Blockchain */}
+              {/* Card 03: Web3 & Decentralized Applications */}
               <div className="glass-2 holographic-edge rounded-3xl p-7 spatial-card flex flex-col justify-between border-white/10 hover:border-[#38BDF8]/50 transition-all">
                 <div>
                   <span className="font-mono-code text-[11px] text-[#38BDF8] font-bold uppercase tracking-wider block mb-2">
-                    DISCIPLINE 04
+                    DISCIPLINE 03
                   </span>
                   <h3 className="font-headline text-lg font-bold text-white mb-1">
                     {web3.title}
@@ -250,25 +217,25 @@ export const ServicesPage: React.FC = () => {
                 </button>
               </div>
 
-              {/* Card 05: Proprietary Product Dev */}
-              <div className="glass-2 holographic-edge rounded-3xl p-7 spatial-card flex flex-col justify-between border-white/10 hover:border-[#F43F5E]/50 transition-all">
+              {/* Card 04: Mobile Apps */}
+              <div className="glass-2 holographic-edge rounded-3xl p-7 spatial-card flex flex-col justify-between border-white/10 hover:border-[#A78BFA]/50 transition-all">
                 <div>
-                  <span className="font-mono-code text-[11px] text-[#F43F5E] font-bold uppercase tracking-wider block mb-2">
-                    DISCIPLINE 05
+                  <span className="font-mono-code text-[11px] text-[#A78BFA] font-bold uppercase tracking-wider block mb-2">
+                    DISCIPLINE 04
                   </span>
                   <h3 className="font-headline text-lg font-bold text-white mb-1">
-                    {productDev.title}
+                    {mobileApp.title}
                   </h3>
-                  <p className="text-xs font-headline text-[#F43F5E] font-semibold mb-3">
-                    {productDev.tagline}
+                  <p className="text-xs font-headline text-[#A78BFA] font-semibold mb-3">
+                    {mobileApp.tagline}
                   </p>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
-                    {productDev.description}
+                    {mobileApp.description}
                   </p>
                   <div className="space-y-1.5 pt-3 border-t border-[var(--glass-border)] mb-4">
-                    {productDev.deliverables.slice(0, 3).map((d, i) => (
+                    {mobileApp.deliverables.slice(0, 3).map((d, i) => (
                       <div key={i} className="flex items-start gap-2 text-[11px] text-[var(--text-secondary)]">
-                        <Check className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#F43F5E]" />
+                        <Check className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#A78BFA]" />
                         <span>{d}</span>
                       </div>
                     ))}
@@ -276,18 +243,18 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <button
                   onClick={() => navigate('/contact')}
-                  className="w-full py-2.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[#F43F5E] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[#F43F5E] transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[#A78BFA] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[#A78BFA] transition-all cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <span>Request Scope</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
 
-              {/* Card 06: Ongoing Support & SLA */}
+              {/* Card 05: Ongoing Support & Infrastructure */}
               <div className="glass-2 holographic-edge rounded-3xl p-7 spatial-card flex flex-col justify-between border-white/10 hover:border-[var(--emerald)]/50 transition-all">
                 <div>
                   <span className="font-mono-code text-[11px] text-[var(--emerald)] font-bold uppercase tracking-wider block mb-2">
-                    DISCIPLINE 06
+                    DISCIPLINE 05
                   </span>
                   <h3 className="font-headline text-lg font-bold text-white mb-1">
                     {support.title}
@@ -310,6 +277,39 @@ export const ServicesPage: React.FC = () => {
                 <button
                   onClick={() => navigate('/contact')}
                   className="w-full py-2.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[var(--emerald)] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[var(--emerald)] transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <span>Request Scope</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+
+              {/* Card 06: Proprietary Product Development */}
+              <div className="glass-2 holographic-edge rounded-3xl p-7 spatial-card flex flex-col justify-between border-white/10 hover:border-[#F43F5E]/50 transition-all">
+                <div>
+                  <span className="font-mono-code text-[11px] text-[#F43F5E] font-bold uppercase tracking-wider block mb-2">
+                    DISCIPLINE 06
+                  </span>
+                  <h3 className="font-headline text-lg font-bold text-white mb-1">
+                    {productDev.title}
+                  </h3>
+                  <p className="text-xs font-headline text-[#F43F5E] font-semibold mb-3">
+                    {productDev.tagline}
+                  </p>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
+                    {productDev.description}
+                  </p>
+                  <div className="space-y-1.5 pt-3 border-t border-[var(--glass-border)] mb-4">
+                    {productDev.deliverables.slice(0, 3).map((d, i) => (
+                      <div key={i} className="flex items-start gap-2 text-[11px] text-[var(--text-secondary)]">
+                        <Check className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#F43F5E]" />
+                        <span>{d}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <button
+                  onClick={() => navigate('/contact')}
+                  className="w-full py-2.5 rounded-xl glass-2 border border-[var(--glass-border)] hover:border-[#F43F5E] text-xs font-headline font-bold uppercase tracking-wider text-white hover:text-[#F43F5E] transition-all cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <span>Request Scope</span>
                   <ArrowRight className="w-3 h-3" />

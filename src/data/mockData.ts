@@ -72,7 +72,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Furqan',
     role: 'Business Development Officer',
     description: 'Enterprise relationships, client acquisitions, and strategic partnerships across North America and Europe.',
-    image: null,
+    image: '/Images/FURQAN Business Development Officer.jpeg',
     accent: 'emerald',
   },
   {
@@ -80,7 +80,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Farwa',
     role: 'Marketing & Outreach Specialist',
     description: 'Brand strategy, technical content campaigns, and digital outreach for enterprise client development.',
-    image: null,
+    image: '/Images/FARWA Marketing & Outreach.jpeg',
     accent: 'gold',
   },
 ];
@@ -197,12 +197,12 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// ─── SERVICES (AI-First: AI Automation #1, Custom Web Apps #2, Mobile #3) ───
+// ─── SERVICES (Official Order: 1. AI, 2. Web, 3. Web3, 4. Mobile) ───────────
 
 export const SERVICES: Service[] = [
   {
     id: 'ai-automation',
-    title: 'AI Automations & Multi-AI Workflows',
+    title: 'AI Automation & Intelligent Systems',
     tagline: 'Intelligent Systems That Work Autonomously',
     description:
       'Intelligent multi-agent workflows, autonomous pipelines, RAG retrieval engines, and document processing systems that eliminate manual clerical bottlenecks and run 24/7.',
@@ -247,31 +247,8 @@ export const SERVICES: Service[] = [
     accent: 'gold',
   },
   {
-    id: 'mobile-apps',
-    title: 'Mobile Applications',
-    tagline: 'Native Performance on Every Device',
-    description:
-      'Cross-platform iOS and Android applications with Flutter. 60fps native performance, offline-first data sync, hardware biometric security, and app store deployment.',
-    icon: 'Smartphone',
-    features: [
-      'Unified Flutter codebase for iOS and Android',
-      'Resilient offline-first local database caching',
-      'Hardware biometric authentication (Face ID / Fingerprint)',
-      'Apple App Store and Google Play Store publishing support',
-    ],
-    deliverables: [
-      'Cross-platform iOS and Android mobile app build',
-      'Cloud backend API and real-time push notification setup',
-      'App Store and Google Play submission assets and provisioning',
-      'Offline data synchronization queue architecture',
-      'Full source code and build instructions',
-    ],
-    technologies: ['Flutter', 'Dart', 'Firebase', 'Swift', 'Kotlin', 'Node.js', 'REST API', 'SQLite'],
-    accent: 'violet',
-  },
-  {
     id: 'web3-blockchain',
-    title: 'Web3 & Blockchain Systems',
+    title: 'Web3 & Decentralized Applications',
     tagline: 'Decentralized Systems & Audited Smart Contracts',
     description:
       'Decentralized applications, audited smart contracts, DeFi settlement rails, and blockchain integrations engineered for security and transparency.',
@@ -291,6 +268,29 @@ export const SERVICES: Service[] = [
     ],
     technologies: ['Solidity', 'Hardhat', 'Ethers.js', 'Rust', 'IPFS', 'The Graph', 'React', 'Web3.js'],
     accent: 'cyan',
+  },
+  {
+    id: 'mobile-apps',
+    title: 'Mobile Apps',
+    tagline: 'Native Performance on Every Device',
+    description:
+      'Cross-platform iOS and Android applications with Flutter. 60fps native performance, offline-first data sync, hardware biometric security, and app store deployment.',
+    icon: 'Smartphone',
+    features: [
+      'Unified Flutter codebase for iOS and Android',
+      'Resilient offline-first local database caching',
+      'Hardware biometric authentication (Face ID / Fingerprint)',
+      'Apple App Store and Google Play Store publishing support',
+    ],
+    deliverables: [
+      'Cross-platform iOS and Android mobile app build',
+      'Cloud backend API and real-time push notification setup',
+      'App Store and Google Play submission assets and provisioning',
+      'Offline data synchronization queue architecture',
+      'Full source code and build instructions',
+    ],
+    technologies: ['Flutter', 'Dart', 'Firebase', 'Swift', 'Kotlin', 'Node.js', 'REST API', 'SQLite'],
+    accent: 'violet',
   },
   {
     id: 'support',

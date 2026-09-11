@@ -273,28 +273,40 @@ export const AboutPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {furqan && (
-                <div className="p-6 rounded-2xl glass-2 border-white/10 hover:border-[var(--gold)]/40 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[var(--gold)] mb-4">
-                    FQ
+                <div className="p-6 sm:p-7 rounded-2xl glass-2 border-white/10 hover:border-[var(--gold)]/40 transition-all flex flex-col sm:flex-row items-start gap-5">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-[var(--gold)]/40 shadow-md shrink-0 bg-[#111622]">
+                    <img
+                      src={furqan.image || '/Images/FURQAN Business Development Officer.jpeg'}
+                      alt={`${furqan.name}, ${furqan.role}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <h4 className="font-headline text-base font-bold text-white mb-1">{furqan.name}</h4>
-                  <div className="text-xs font-mono-code text-[var(--gold)] mb-3">{furqan.role}</div>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Manages international client acquisition, enterprise qualification, and technical scope alignment across North American and European engagements.
-                  </p>
+                  <div className="flex-1">
+                    <h4 className="font-headline text-lg font-bold text-white mb-1">{furqan.name}</h4>
+                    <div className="text-xs font-mono-code text-[var(--gold)] font-semibold mb-2">{furqan.role}</div>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                      {furqan.description}
+                    </p>
+                  </div>
                 </div>
               )}
 
               {farwa && (
-                <div className="p-6 rounded-2xl glass-2 border-white/10 hover:border-[#F43F5E]/40 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[#F43F5E] mb-4">
-                    FW
+                <div className="p-6 sm:p-7 rounded-2xl glass-2 border-white/10 hover:border-[#F43F5E]/40 transition-all flex flex-col sm:flex-row items-start gap-5">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-[#F43F5E]/40 shadow-md shrink-0 bg-[#111622]">
+                    <img
+                      src={farwa.image || '/Images/FARWA Marketing & Outreach.jpeg'}
+                      alt={`${farwa.name}, ${farwa.role}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <h4 className="font-headline text-base font-bold text-white mb-1">{farwa.name}</h4>
-                  <div className="text-xs font-mono-code text-[#F43F5E] mb-3">{farwa.role}</div>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Leads strategic brand communications, engineering content publication, and targeted client outreach across global developer communities.
-                  </p>
+                  <div className="flex-1">
+                    <h4 className="font-headline text-lg font-bold text-white mb-1">{farwa.name}</h4>
+                    <div className="text-xs font-mono-code text-[#F43F5E] font-semibold mb-2">{farwa.role}</div>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                      {farwa.description}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>

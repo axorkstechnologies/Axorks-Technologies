@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
             </button>
 
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
-              Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, and mobile solutions. All work is delivered with fixed-price proposals and clear milestone-based payments.
+              Axorks is an AI-first software engineering studio based in Karachi and Islamabad. We help growing businesses automate manual work and build reliable custom systems through intelligent automation, custom web applications, web3 platforms, and mobile solutions. All work is delivered with fixed-price proposals and clear milestone-based payments.
             </p>
 
             <div className="flex items-center gap-2 text-[var(--gold)] font-mono-code text-xs font-semibold">
@@ -78,12 +78,12 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm text-[var(--text-secondary)]">
               {[
-                'AI Automations & Multi-AI',
+                'AI Automation & Intelligent Systems',
                 'Custom Web Applications',
-                'Cross-Platform Mobile Apps',
-                'Web3 & Blockchain Systems',
-                'Ongoing Support & SLA',
-                'Proprietary Products',
+                'Web3 & Decentralized Applications',
+                'Mobile Apps',
+                'Ongoing Support & Infrastructure',
+                'Proprietary Product Development',
               ].map((service) => (
                 <li key={service}>
                   <button

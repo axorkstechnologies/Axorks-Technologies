@@ -8,8 +8,8 @@ export const DiscoveryPortal: React.FC = () => {
     fullName: '',
     email: '',
     phone: '',
-    service: 'Custom Web Application',
-    budget: '$1,000 - $3,000 (Starter Milestone)',
+    service: 'AI Automation & Intelligent Systems',
+    budget: '$1,000 to $3,000 (Starter Milestone)',
     scope: '',
   });
 
@@ -116,12 +116,12 @@ export const DiscoveryPortal: React.FC = () => {
                       onChange={(e) => setFormState((prev) => ({ ...prev, service: e.target.value }))}
                       className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all cursor-pointer"
                     >
-                      <option value="Custom Web Application">Custom Web Application</option>
-                      <option value="AI Automation & Multi-AI Workflows">AI Automation &amp; Multi-AI</option>
-                      <option value="Mobile App (Flutter / iOS / Android)">Mobile App (Flutter / Native)</option>
-                      <option value="Web3 & Blockchain Systems">Web3 &amp; Blockchain</option>
-                      <option value="Proprietary Product Development">Product Development</option>
-                      <option value="Ongoing Engineering SLA & Support">Ongoing Support &amp; Maintenance</option>
+                      <option value="AI Automation & Intelligent Systems">AI Automation &amp; Intelligent Systems</option>
+                      <option value="Custom Web Applications">Custom Web Applications</option>
+                      <option value="Web3 & Decentralized Applications">Web3 &amp; Decentralized Applications</option>
+                      <option value="Mobile Apps">Mobile Apps (Flutter / Native)</option>
+                      <option value="Ongoing Support & Infrastructure">Ongoing Support &amp; Maintenance</option>
+                      <option value="Proprietary Product Development">Proprietary Product Development</option>
                     </select>
                   </div>
                 </div>
