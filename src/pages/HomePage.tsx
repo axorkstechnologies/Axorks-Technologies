@@ -1,73 +1,75 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { useNavigate } from '../router/Router';
-import { ArrowRight, CheckCircle2, ShieldCheck, Cpu, Globe, Smartphone, Blocks, Sparkles } from 'lucide-react';
-import { PROJECTS, TEAM_MEMBERS } from '../data/mockData';
+import { ArrowRight } from 'lucide-react';
+import { PROJECTS } from '../data/mockData';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const agrotrace = PROJECTS.find((p) => p.id === 'agrotrace') || PROJECTS[0];
+  const ipmi = PROJECTS.find((p) => p.id === 'ipmi-os') || PROJECTS[1];
 
   return (
     <div className="w-full">
       {/* 1. Hero Section (Strictly Right Side Atmospheric Motion • High Contrast Left Text) */}
       <Hero onOpenDiscovery={() => navigate('/contact')} />
 
-      {/* 2. Commercial Guarantee Strip */}
-      <section className="w-full py-10 px-4 sm:px-6 lg:px-8 bg-[var(--bg-secondary)]/60 border-y border-[var(--glass-border)]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-[var(--gold)]/15 border border-[var(--gold)]/30 flex items-center justify-center text-[var(--gold)] shrink-0">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs font-mono-code font-bold uppercase text-[var(--text-primary)]">Fixed-Price Proposals</div>
-              <div className="text-[11px] text-[var(--text-muted)] font-mono-code">Guaranteed scope before code</div>
-            </div>
+      {/* 2. Executive Commercial Protocol Strip — Minimalist Studio Ledger (No AI-Icon Bloat) */}
+      <section className="w-full py-7 px-4 sm:px-6 lg:px-8 bg-[#080D1A] border-y border-[var(--glass-border)]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[var(--glass-border)]">
+          <div className="pt-3 sm:pt-0 sm:pr-6 flex flex-col">
+            <span className="font-mono-code text-[11px] text-[var(--gold)] font-bold tracking-widest uppercase mb-1">
+              // COMMERCIAL TERMS
+            </span>
+            <span className="font-headline text-lg font-bold text-white tracking-tight">Fixed-Price Proposals</span>
+            <span className="text-xs text-[var(--text-secondary)] mt-1 font-normal leading-relaxed">
+              Guaranteed functional scope &amp; price locked before development begins.
+            </span>
           </div>
 
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-[var(--emerald)]/15 border border-[var(--emerald)]/30 flex items-center justify-center text-[var(--emerald)] shrink-0">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs font-mono-code font-bold uppercase text-[var(--text-primary)]">Milestone Release</div>
-              <div className="text-[11px] text-[var(--text-muted)] font-mono-code">Pay only upon approved builds</div>
-            </div>
+          <div className="pt-4 sm:pt-0 sm:px-6 flex flex-col">
+            <span className="font-mono-code text-[11px] text-[var(--emerald)] font-bold tracking-widest uppercase mb-1">
+              // PAYMENT GOVERNANCE
+            </span>
+            <span className="font-headline text-lg font-bold text-white tracking-tight">Milestone Releases</span>
+            <span className="text-xs text-[var(--text-secondary)] mt-1 font-normal leading-relaxed">
+              You inspect &amp; verify functioning staging builds before milestone funds release.
+            </span>
           </div>
 
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-[var(--violet)]/15 border border-[var(--violet)]/30 flex items-center justify-center text-[var(--violet)] shrink-0">
-              <Cpu className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs font-mono-code font-bold uppercase text-[var(--text-primary)]">Direct Senior Engineers</div>
-              <div className="text-[11px] text-[var(--text-muted)] font-mono-code">Zero offshore junior handoffs</div>
-            </div>
+          <div className="pt-4 sm:pt-0 sm:px-6 flex flex-col">
+            <span className="font-mono-code text-[11px] text-[#A78BFA] font-bold tracking-widest uppercase mb-1">
+              // DIRECT ENGAGEMENT
+            </span>
+            <span className="font-headline text-lg font-bold text-white tracking-tight">Senior Hands Only</span>
+            <span className="text-xs text-[var(--text-secondary)] mt-1 font-normal leading-relaxed">
+              Direct partner architecting in Karachi &amp; Islamabad. Zero offshore junior handoffs.
+            </span>
           </div>
 
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-[var(--cyan)]/15 border border-[var(--cyan)]/30 flex items-center justify-center text-[var(--cyan)] shrink-0">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xs font-mono-code font-bold uppercase text-[var(--text-primary)]">From $1,000 Starting</div>
-              <div className="text-[11px] text-[var(--text-muted)] font-mono-code">Transparent commercial tiers</div>
-            </div>
+          <div className="pt-4 sm:pt-0 sm:pl-6 flex flex-col">
+            <span className="font-mono-code text-[11px] text-[#38BDF8] font-bold tracking-widest uppercase mb-1">
+              // ENTRY TIERS
+            </span>
+            <span className="font-headline text-lg font-bold text-white tracking-tight">From $1,000 Upward</span>
+            <span className="text-xs text-[var(--text-secondary)] mt-1 font-normal leading-relaxed">
+              Transparent milestone allocations for serious engineering engagements.
+            </span>
           </div>
         </div>
       </section>
 
-      {/* 3. Core Capabilities Overview Teaser */}
+      {/* 3. Core Capabilities — Asymmetric Studio Bento (Break Symmetrical 4-Card Pattern) */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          {/* Editorial Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--gold)]/30 text-xs uppercase text-[var(--gold)] tracking-widest font-semibold font-mono-code mb-3">
-                <Globe className="w-3.5 h-3.5" />
-                <span>Engineering Pillars</span>
-              </div>
+              <span className="font-mono-code text-xs uppercase text-[var(--gold)] tracking-widest font-semibold block mb-2">
+                01 // CAPABILITIES TAXONOMY
+              </span>
               <h2 className="font-display-hero text-3xl sm:text-4xl lg:text-[48px] text-[var(--text-primary)] font-extrabold tracking-tight">
-                What We Build.
+                Architectural Disciplines.
               </h2>
             </div>
 
@@ -75,108 +77,134 @@ export const HomePage: React.FC = () => {
               onClick={() => navigate('/services')}
               className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-wider text-[var(--gold)] hover:underline cursor-pointer group"
             >
-              <span>Explore All Capabilities</span>
+              <span>Explore All 6 Services</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Asymmetric Bento: Large 7-Column Master Card + 5-Column Stacked Pair */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            {/* Master Featured Card: Full-Stack Web & Multi-Agent AI Systems (7 Cols) */}
             <div
               onClick={() => navigate('/services')}
-              className="glass-2 holographic-edge rounded-3xl p-7 spatial-card cursor-pointer group flex flex-col justify-between"
+              className="lg:col-span-7 glass-2 holographic-edge rounded-3xl p-7 sm:p-10 spatial-card cursor-pointer group flex flex-col justify-between border-[var(--gold)]/30 hover:border-[var(--gold)]/60 transition-all"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[var(--gold)]/15 border border-[var(--gold)]/35 flex items-center justify-center text-[var(--gold)] mb-6 group-hover:scale-105 transition-transform">
-                  <Globe className="w-6 h-6" />
+                <div className="flex items-center justify-between gap-3 mb-6">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
+                    Flagship Core
+                  </span>
+                  <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                    DISCIPLINE 01 &amp; 02
+                  </span>
                 </div>
-                <h3 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--gold)] transition-colors">
-                  Custom Web Applications
+
+                <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--gold)] transition-colors">
+                  Custom Web Applications &amp; Multi-AI Workflows
                 </h3>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  Enterprise-grade web platforms, scalable dashboards, multi-tenant SaaS, and reactive portals built on modern React, Node, and TypeScript.
+
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                  We engineer high-concurrency bespoke web applications, enterprise client portals, and multi-tenant platforms unified with autonomous AI agent pipelines, RAG retrieval engines, and real-time operational telemetry.
                 </p>
+
+                {/* Concrete Architectural Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 pt-4 border-t border-[var(--glass-border)] text-xs text-[var(--text-secondary)]">
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
+                    <span>Next.js, Node.js &amp; TypeScript Core</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--emerald)]" />
+                    <span>Autonomous Multi-Agent Pipelines</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                    <span>Real-Time State &amp; WebSocket Sync</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
+                    <span>SOC2/HIPAA Readiness &amp; CI/CD</span>
+                  </div>
+                </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--gold)] font-semibold">
-                <span>View Scope</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+
+              <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--gold)] font-bold">
+                <span>Inspect Web &amp; AI Scope</span>
+                <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  View Specifications <ArrowRight className="w-3.5 h-3.5" />
+                </span>
               </div>
             </div>
 
-            <div
-              onClick={() => navigate('/services')}
-              className="glass-2 holographic-edge rounded-3xl p-7 spatial-card cursor-pointer group flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[var(--emerald)]/15 border border-[var(--emerald)]/35 flex items-center justify-center text-[var(--emerald)] mb-6 group-hover:scale-105 transition-transform">
-                  <Cpu className="w-6 h-6" />
+            {/* Stacked Asymmetric 5-Column Sidebars */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              {/* Specialized Card: Cross-Platform Mobile */}
+              <div
+                onClick={() => navigate('/services')}
+                className="flex-1 glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card cursor-pointer group flex flex-col justify-between border-white/10 hover:border-[#A78BFA]/50 transition-all"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#A78BFA]/15 text-[#A78BFA] border border-[#A78BFA]/30">
+                      Mobile Engineering
+                    </span>
+                    <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                      DISCIPLINE 03
+                    </span>
+                  </div>
+                  <h4 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[#A78BFA] transition-colors">
+                    Flutter &amp; Native Mobile Apps
+                  </h4>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                    Native-performance iOS &amp; Android systems with offline-first synchronization, hardware biometric security, and clean App Store releases.
+                  </p>
                 </div>
-                <h3 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--emerald)] transition-colors">
-                  AI Automations &amp; Workflows
-                </h3>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  Autonomous agent systems, document intelligence pipelines, proprietary neural model integrations, and operational automation.
-                </p>
+                <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#A78BFA] font-semibold">
+                  <span>View Mobile Scope</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--emerald)] font-semibold">
-                <span>View Scope</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
 
-            <div
-              onClick={() => navigate('/services')}
-              className="glass-2 holographic-edge rounded-3xl p-7 spatial-card cursor-pointer group flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[var(--violet)]/15 border border-[var(--violet)]/35 flex items-center justify-center text-[var(--violet)] mb-6 group-hover:scale-105 transition-transform">
-                  <Smartphone className="w-6 h-6" />
+              {/* Specialized Card: Web3 & Blockchain */}
+              <div
+                onClick={() => navigate('/services')}
+                className="flex-1 glass-2 holographic-edge rounded-3xl p-6 sm:p-7 spatial-card cursor-pointer group flex flex-col justify-between border-white/10 hover:border-[#38BDF8]/50 transition-all"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#38BDF8]/15 text-[#38BDF8] border border-[#38BDF8]/30">
+                      Decentralized Systems
+                    </span>
+                    <span className="font-mono-code text-xs text-[var(--text-muted)]">
+                      DISCIPLINE 04
+                    </span>
+                  </div>
+                  <h4 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[#38BDF8] transition-colors">
+                    Web3 &amp; Audited Smart Contracts
+                  </h4>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                    Production Ethereum &amp; EVM architectures, secure Solidity smart contracts, DeFi settlement rails, and custodial wallet integrations.
+                  </p>
                 </div>
-                <h3 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--violet)] transition-colors">
-                  Mobile Applications
-                </h3>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  High-performance iOS and Android applications with offline-first synchronization, native device sensor bridges, and Flutter engines.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--violet)] font-semibold">
-                <span>View Scope</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
-
-            <div
-              onClick={() => navigate('/services')}
-              className="glass-2 holographic-edge rounded-3xl p-7 spatial-card cursor-pointer group flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[var(--cyan)]/15 border border-[var(--cyan)]/35 flex items-center justify-center text-[var(--cyan)] mb-6 group-hover:scale-105 transition-transform">
-                  <Blocks className="w-6 h-6" />
+                <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[#38BDF8] font-semibold">
+                  <span>View Web3 Scope</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h3 className="font-headline text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--cyan)] transition-colors">
-                  Web3 &amp; Blockchain Systems
-                </h3>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  Audited smart contracts, DeFi settlement protocols, cross-chain state bridges, and production Ethereum decentralized applications.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--cyan)] font-semibold">
-                <span>View Scope</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Featured Delivered Work Teaser (Strictly Contained Screenshots) */}
+      {/* 4. Featured Delivered Work — Master Stage Showcase (Strictly Contained Screenshots) */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 bg-[var(--bg-secondary)]/40 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-2 border-[var(--emerald)]/30 text-xs uppercase text-[var(--emerald)] tracking-widest font-semibold font-mono-code mb-3">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Delivered Systems</span>
-              </div>
+              <span className="font-mono-code text-xs uppercase text-[var(--emerald)] tracking-widest font-semibold block mb-2">
+                02 // VERIFIABLE PRODUCTION CODE
+              </span>
               <h2 className="font-display-hero text-3xl sm:text-4xl lg:text-[48px] text-[var(--text-primary)] font-extrabold tracking-tight">
                 Proof Through Real Work.
               </h2>
@@ -186,51 +214,159 @@ export const HomePage: React.FC = () => {
               onClick={() => navigate('/work')}
               className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-wider text-[var(--emerald)] hover:underline cursor-pointer group"
             >
-              <span>View All Case Studies</span>
+              <span>View All Production Case Studies</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {PROJECTS.slice(0, 2).map((project) => (
-              <div
-                key={project.id}
-                onClick={() => navigate('/work')}
-                className="glass-2 holographic-edge rounded-3xl p-6 spatial-card cursor-pointer group flex flex-col justify-between"
-              >
-                <div>
-                  {/* Strictly Contained Image Box */}
-                  <div className="relative w-full aspect-[16/9] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-[#050A14] border border-[var(--glass-border)] shrink-0 mb-6">
-                    <img
-                      src={project.images[0].src}
-                      alt={project.images[0].alt}
-                      className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-mono-code uppercase font-bold text-white bg-black/70 backdrop-blur-md border border-white/20">
-                      {project.statusBadge}
-                    </div>
+          {/* Master Case Study 01: AgroTrace — High-Impact Expanded Media Stage */}
+          <div
+            onClick={() => navigate('/work')}
+            className="mb-10 glass-2 holographic-edge rounded-3xl p-6 sm:p-8 spatial-card cursor-pointer group border-white/10 hover:border-[var(--emerald)]/50 transition-all"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Media Viewport — Strictly Contained Browser Frame */}
+              <div className="lg:col-span-7 overflow-hidden rounded-2xl bg-[#070C18] border border-white/10 p-2 sm:p-3">
+                {/* Clean Browser Chrome Header */}
+                <div className="flex items-center justify-between pb-2 px-2 border-b border-white/[0.06] mb-2 text-[10px] font-mono-code text-white/50">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/60" />
+                    <span className="ml-2 text-white/40">agrotrace.production.sys</span>
                   </div>
-
-                  <h3 className="font-display-hero text-2xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--gold)] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs font-headline font-semibold text-[var(--gold)] mb-3">
-                    {project.tagline}
-                  </p>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
+                  <span className="text-[var(--emerald)] font-bold">LIVE TELEMETRY</span>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--text-muted)]">
-                  <span>{project.categoryBadge}</span>
-                  <span className="text-[var(--gold)] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    Inspect Case Study <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040812]">
+                  <img
+                    src={agrotrace.images[0].src}
+                    alt={agrotrace.images[0].alt}
+                    className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
                 </div>
               </div>
-            ))}
+
+              {/* Case Study Summary */}
+              <div className="lg:col-span-5 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--emerald)]/15 text-[var(--emerald)] border border-[var(--emerald)]/30">
+                      {agrotrace.categoryBadge}
+                    </span>
+                    <span className="text-[11px] font-mono-code text-[var(--text-muted)]">
+                      {agrotrace.statusBadge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--emerald)] transition-colors">
+                    {agrotrace.title}
+                  </h3>
+
+                  <p className="text-xs font-headline font-semibold text-[var(--emerald)] mb-3">
+                    {agrotrace.tagline}
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                    {agrotrace.description}
+                  </p>
+
+                  {/* Measurable Metric Strip */}
+                  <div className="grid grid-cols-2 gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-6">
+                    {agrotrace.metrics.map((m, idx) => (
+                      <div key={idx}>
+                        <div className="font-display-hero text-2xl font-bold text-white">
+                          {m.value}
+                        </div>
+                        <div className="text-[10px] font-mono-code uppercase text-[var(--text-muted)] mt-0.5">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--emerald)] font-bold">
+                  <span>Inspect Full System Blueprint</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary Case Study 02: IPMI-OS 2.0 AI Trading Engine */}
+          <div
+            onClick={() => navigate('/work')}
+            className="glass-2 holographic-edge rounded-3xl p-6 sm:p-8 spatial-card cursor-pointer group border-white/10 hover:border-[var(--gold)]/50 transition-all"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Media Viewport */}
+              <div className="lg:col-span-7 lg:order-last overflow-hidden rounded-2xl bg-[#070C18] border border-white/10 p-2 sm:p-3">
+                <div className="flex items-center justify-between pb-2 px-2 border-b border-white/[0.06] mb-2 text-[10px] font-mono-code text-white/50">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/60" />
+                    <span className="ml-2 text-white/40">ipmi-os.execution-engine</span>
+                  </div>
+                  <span className="text-[var(--gold)] font-bold">AI DECISION PIPELINE</span>
+                </div>
+
+                <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040812]">
+                  <img
+                    src={ipmi.images[0].src}
+                    alt={ipmi.images[0].alt}
+                    className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Case Study Summary */}
+              <div className="lg:col-span-5 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
+                      {ipmi.categoryBadge}
+                    </span>
+                    <span className="text-[11px] font-mono-code text-[var(--text-muted)]">
+                      {ipmi.statusBadge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display-hero text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--gold)] transition-colors">
+                    {ipmi.title}
+                  </h3>
+
+                  <p className="text-xs font-headline font-semibold text-[var(--gold)] mb-3">
+                    {ipmi.tagline}
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 font-normal">
+                    {ipmi.description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-6">
+                    {ipmi.metrics.map((m, idx) => (
+                      <div key={idx}>
+                        <div className="font-display-hero text-2xl font-bold text-white">
+                          {m.value}
+                        </div>
+                        <div className="text-[10px] font-mono-code uppercase text-[var(--text-muted)] mt-0.5">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between text-xs font-mono-code text-[var(--gold)] font-bold">
+                  <span>Inspect Algorithmic Architecture</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -240,15 +376,14 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="surface-ivory rounded-3xl p-8 sm:p-12 lg:p-16 spatial-card">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F172A]/10 text-xs uppercase text-[#0F172A] tracking-widest font-semibold font-mono-code mb-4">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#B48310]" />
-                <span>Milestone Governance</span>
-              </div>
+              <span className="font-mono-code text-xs uppercase text-[#0F172A] tracking-widest font-bold block mb-3">
+                03 // MILESTONE GOVERNANCE BLUEPRINT
+              </span>
               <h2 className="font-display-hero text-3xl sm:text-4xl lg:text-[44px] text-[#0A0F1D] font-extrabold tracking-tight leading-tight">
                 No Hourly Billing. You Approve Working Staging Builds Before Payment.
               </h2>
-              <p className="mt-4 text-base text-[#1E293B] leading-relaxed">
-                AXORKS eliminates agency billing uncertainty with fixed-price technical proposals, itemized milestone checkpoints, and complete IP transfer on final payment.
+              <p className="mt-4 text-base text-[#1E293B] leading-relaxed font-normal">
+                AXORKS eliminates agency billing uncertainty. We write an itemized Technical Specification Document with guaranteed fixed pricing. Every sprint milestone is reviewed on private staging before funds release, concluding with 100% intellectual property transfer.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -272,11 +407,11 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Direct Leadership Teaser */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-20 bg-[var(--bg-secondary)]/50 relative">
+      {/* 6. Direct Leadership Teaser — Executive Studio Standard */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-20 bg-[var(--bg-secondary)]/50 relative border-t border-[var(--glass-border)]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-6">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[var(--gold)]/40 shrink-0">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[var(--gold)]/40 shrink-0 shadow-xl">
               <img
                 src="/Images/Founder and CEO SOFTWARE ENGINEER.jpeg"
                 alt="Muhammad Mujahid — Founder & CEO"
@@ -290,8 +425,8 @@ export const HomePage: React.FC = () => {
               <h3 className="font-display-hero text-xl sm:text-2xl font-extrabold text-[var(--text-primary)]">
                 Muhammad Mujahid
               </h3>
-              <p className="text-xs text-[var(--text-secondary)] mt-1 max-w-lg">
-                Direct partner access from initial architectural scoping to final deployment. 10 engineering specialists in Karachi &amp; Islamabad.
+              <p className="text-xs text-[var(--text-secondary)] mt-1 max-w-lg font-normal">
+                Direct partner access from initial architectural scoping to production deployment. 10 software engineers and domain specialists in Karachi &amp; Islamabad.
               </p>
             </div>
           </div>
@@ -308,3 +443,4 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
+

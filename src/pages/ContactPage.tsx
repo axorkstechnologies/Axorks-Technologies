@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from '../router/Router';
 import { FAQ_ITEMS } from '../data/mockData';
-import { Send, CheckCircle2, MessageSquare, Mail, ChevronDown, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle2, MessageSquare, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const navigate = useNavigate();
@@ -41,13 +41,12 @@ export const ContactPage: React.FC = () => {
             Request a Fixed-Price Proposal.
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed font-normal">
             Projects start from $1,000. Share your system requirements below to receive an itemized technical scope, milestone schedule, and transparent commercial proposal from senior engineering within 24 hours.
           </p>
 
           <div className="mt-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-2 border border-[var(--gold)]/30 text-xs uppercase text-[var(--gold)] tracking-widest font-semibold font-mono-code">
-            <Clock className="w-3.5 h-3.5" />
-            <span>24-Hour Proposal Turnaround</span>
+            <span>24-Hour Technical Proposal Turnaround</span>
           </div>
         </div>
       </section>
@@ -56,7 +55,7 @@ export const ContactPage: React.FC = () => {
       <section className="w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* ─── Proposal Intake Form on Refined Soft-Ivory Luxury Surface ─── */}
-          <div className="lg:col-span-7 surface-ivory rounded-3xl p-6 sm:p-8 lg:p-10 spatial-card shadow-2xl">
+          <div className="lg:col-span-7 surface-ivory rounded-3xl p-6 sm:p-8 lg:p-10 spatial-card shadow-2xl border border-[rgba(214,207,195,0.85)]">
             <div className="flex items-center justify-between pb-4 mb-6 border-b border-[rgba(214,207,195,0.7)]">
               <div>
                 <h2 className="font-headline text-xl sm:text-2xl font-bold text-[#0A0F1D]">
@@ -66,10 +65,9 @@ export const ContactPage: React.FC = () => {
                   Milestone-backed delivery • Zero hourly surprises
                 </p>
               </div>
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 text-[#0A0F1D] text-[11px] font-mono-code font-bold">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#B48310]" />
-                <span>Fixed Price</span>
-              </div>
+              <span className="hidden sm:inline-block px-3 py-1 rounded-md bg-[#0F172A] text-white text-[10px] font-mono-code font-bold uppercase tracking-wider">
+                Fixed-Price Proposal
+              </span>
             </div>
 
             {submitted ? (

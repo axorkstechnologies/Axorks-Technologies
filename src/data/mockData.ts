@@ -139,8 +139,6 @@ export const PROJECTS: Project[] = [
       'AI-powered global healthcare platform providing digital care access, specialist connections, and home medical assistance. Built with compliance for WHO, SDG 3, HIPAA, and GDPR standards.',
     images: [
       { src: '/Images/Mediverse.jpeg', alt: 'MediVerse — AI healthcare platform main dashboard' },
-      { src: '/Images/mediverse2.jpeg', alt: 'MediVerse — digital care access and specialist directory' },
-      { src: '/Images/Mediverse3.jpeg', alt: 'MediVerse — home medical assistance interface' },
       { src: '/Images/Mediverse4.jpeg', alt: 'MediVerse — compliance and patient records management' },
     ],
     tags: ['Healthcare AI', 'HIPAA Compliant', 'Telemedicine', 'WHO / SDG 3'],

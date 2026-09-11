@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Tag, MapPin, CheckCircle2, ShieldCheck, MessageSquare, Clock } from 'lucide-react';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface HeroProps {
@@ -101,20 +101,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
             initial={{ opacity: 1, y: 0 }}
             className="flex flex-wrap items-center gap-2.5 pt-1"
           >
-            <div className="px-3.5 py-1.5 rounded-full bg-black/45 border border-[#F5C761]/45 text-[#F5C761] font-mono-code text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-2 backdrop-blur-md">
-              <Tag className="w-3.5 h-3.5 text-[#F5C761]" />
-              <span className="font-bold text-white">
-                Projects start from <span className="text-[#F5C761]">$1,000</span>
-              </span>
+            <div className="px-3.5 py-1.5 rounded-full bg-black/50 border border-[#F5C761]/40 text-[#F5C761] font-mono-code text-[11px] sm:text-xs uppercase tracking-wider backdrop-blur-md">
+              <span className="text-white/80">From </span>
+              <span className="font-bold text-[#F5C761]">$1,000 Starting</span>
             </div>
 
-            <div className="px-3.5 py-1.5 rounded-full bg-black/45 border border-white/10 text-slate-200 font-mono-code text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-md">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+            <div className="px-3.5 py-1.5 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-[11px] sm:text-xs uppercase tracking-wider backdrop-blur-md">
               <span>100% Fixed-Price Milestones</span>
             </div>
 
-            <div className="px-3.5 py-1.5 rounded-full bg-black/45 border border-white/10 text-slate-200 font-mono-code text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-md">
-              <MapPin className="w-3.5 h-3.5 text-[#A78BFA]" />
+            <div className="px-3.5 py-1.5 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-[11px] sm:text-xs uppercase tracking-wider backdrop-blur-md">
               <span>Offices in Karachi &amp; Islamabad</span>
             </div>
           </motion.div>
@@ -147,17 +143,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
             </a>
           </motion.div>
 
-          {/* Quiet Reassurance Strip */}
-          <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono-code text-slate-300">
-            <div className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-[#10B981]" />
-              <span>24-hour proposal turnaround</span>
-            </div>
-            <span>•</span>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#F5C761]" />
-              <span>100% IP ownership transfer</span>
-            </div>
+          {/* Quiet Reassurance Strip — Typography First */}
+          <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono-code text-slate-300">
+            <span>24-hour proposal turnaround</span>
+            <span className="text-white/30">•</span>
+            <span>100% intellectual property transfer</span>
+            <span className="text-white/30">•</span>
+            <span>No hourly lock-in</span>
           </div>
         </div>
       </div>
