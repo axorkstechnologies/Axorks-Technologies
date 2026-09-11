@@ -73,7 +73,7 @@ export const DiscoveryPortal: React.FC = () => {
                       required
                       value={formState.fullName}
                       onChange={(e) => setFormState((prev) => ({ ...prev, fullName: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]/60"
+                      className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]"
                       placeholder="e.g. Alexander Vance"
                     />
                   </div>
@@ -87,7 +87,7 @@ export const DiscoveryPortal: React.FC = () => {
                       required
                       value={formState.email}
                       onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]/60"
+                      className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]"
                       placeholder="alexander@company.com"
                     />
                   </div>
@@ -102,7 +102,7 @@ export const DiscoveryPortal: React.FC = () => {
                       type="tel"
                       value={formState.phone}
                       onChange={(e) => setFormState((prev) => ({ ...prev, phone: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]/60"
+                      className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]"
                       placeholder="+92 314 103 0223"
                     />
                   </div>
@@ -151,7 +151,7 @@ export const DiscoveryPortal: React.FC = () => {
                     rows={4}
                     value={formState.scope}
                     onChange={(e) => setFormState((prev) => ({ ...prev, scope: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)]/60 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-primary)] text-sm focus:outline-none focus:border-[var(--gold)] transition-all placeholder:text-[var(--text-muted)] resize-none"
                     placeholder="Describe your current goals, core features needed, or technical challenges..."
                   />
                 </div>

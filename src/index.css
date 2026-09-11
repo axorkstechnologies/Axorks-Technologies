@@ -46,8 +46,8 @@
   --bg-tertiary: #E2E7EC;
   --bg-card: #FFFFFF;
   --text-primary: #0A0F1D;     /* High contrast charcoal 14:1 */
-  --text-secondary: #1F2937;   /* High contrast slate 9:1 */
-  --text-muted: #475569;       /* High contrast muted 5.8:1 */
+  --text-secondary: #1E293B;   /* High contrast slate 10:1 */
+  --text-muted: #334155;       /* High contrast muted 7:1 (zero wash-out) */
 
   /* Adjusted jewel tones for light background contrast */
   --gold: #B48310;
@@ -63,16 +63,21 @@
   --cyan: #0284C7;
   --cyan-light: #0369A1;
 
-  --glass-bg: rgba(255, 255, 255, 0.92);
-  --glass-border: rgba(15, 23, 42, 0.12);
-  --glass-highlight: rgba(255, 255, 255, 1);
+  --glass-bg: #FFFFFF;
+  --glass-border: rgba(15, 23, 42, 0.14);
+  --glass-highlight: transparent;
   --glass-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(15, 23, 42, 0.05);
   --caustic-glow: radial-gradient(circle at 50% 0%, rgba(180, 131, 16, 0.08), rgba(5, 138, 94, 0.05) 45%, transparent 70%);
 
   /* Hero Scrim for Light Mode */
-  --hero-scrim: linear-gradient(to right, #F8F9FA 0%, rgba(248, 249, 250, 0.95) 45%, rgba(248, 249, 250, 0.6) 70%, transparent 100%);
+  --hero-scrim: transparent;
   --input-bg: #FFFFFF;
-  --input-border: rgba(15, 23, 42, 0.16);
+  --input-border: rgba(15, 23, 42, 0.22);
+}
+
+/* Eliminate white gradient glare over text in light mode */
+[data-theme="light"] .glass-2::before {
+  display: none !important;
 }
 
 /* ─── BASE & UNINHIBITED VERTICAL SCROLL FLOW ──────────────────────────────── */
@@ -143,6 +148,7 @@
     transparent 100%
   );
   pointer-events: none;
+  z-index: 0;
 }
 
 /* Holographic animated edge sheen */
@@ -192,12 +198,10 @@
 
 .spatial-stage {
   perspective: 1200px;
-  transform-style: preserve-3d;
 }
 
 .spatial-card {
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
-  transform-style: preserve-3d;
   will-change: transform;
 }
 

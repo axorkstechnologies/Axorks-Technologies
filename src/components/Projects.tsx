@@ -76,22 +76,26 @@ export const Projects: React.FC = () => {
             return (
               <div
                 key={project.id}
-                className="glass-2 holographic-edge rounded-3xl overflow-hidden spatial-card shadow-[0_24px_64px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
+                className="glass-2 holographic-edge rounded-3xl overflow-hidden isolate spatial-card shadow-[0_24px_64px_rgba(0,0,0,0.12)] dark:shadow-[0_24px_64px_rgba(0,0,0,0.7)]"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                   {/* Media Viewport (7 Cols) */}
-                  <div className={`lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 ${
+                  <div className={`lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 overflow-hidden ${
                     isReversed ? 'lg:order-last' : 'lg:order-first'
                   }`}>
-                    {/* Main Image Frame */}
+                    {/* Main Image Frame — Strictly Contained with Hardware Mask */}
                     <div
-                      className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden bg-black/10 dark:bg-[#050A14] group cursor-pointer border border-[var(--glass-border)]"
+                      className="relative aspect-[16/9] sm:aspect-[16/8.8] w-full rounded-2xl overflow-hidden isolate bg-black/20 dark:bg-[#050A14] group cursor-pointer border border-[var(--glass-border)]"
+                      style={{
+                        transform: 'translateZ(0)',
+                        WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+                      }}
                       onClick={() => setLightboxImage({ src: currentImage.src, alt: currentImage.alt, title: project.title })}
                     >
                       <img
                         src={currentImage.src}
                         alt={currentImage.alt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover object-top block max-w-full rounded-2xl transition-opacity duration-300 group-hover:opacity-95"
                         loading="lazy"
                       />
 
@@ -122,27 +126,29 @@ export const Projects: React.FC = () => {
 
                     {/* Screenshot Selector Thumbnails */}
                     <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center gap-2 overflow-x-auto gallery-scroll pb-1">
-                      <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 mr-1">
+                      <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 mr-1 font-semibold">
                         Screens ({project.images.length}):
                       </span>
                       {project.images.map((img, imgIdx) => (
                         <button
                           key={imgIdx}
                           onClick={() => handleSelectImage(project.id, imgIdx)}
-                          className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer relative ${
+                          className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden isolate border-2 transition-all cursor-pointer relative ${
                             currentImgIndex === imgIdx
-                              ? 'scale-105 shadow-md'
-                              : 'opacity-50 hover:opacity-100 border-transparent'
+                              ? 'shadow-md ring-2 ring-[var(--gold)]/40'
+                              : 'opacity-60 hover:opacity-100 border-transparent'
                           }`}
                           style={{
                             borderColor: currentImgIndex === imgIdx ? accent.color : 'transparent',
+                            transform: 'translateZ(0)',
+                            WebkitMaskImage: '-webkit-radial-gradient(white, black)',
                           }}
                           aria-label={`View screenshot ${imgIdx + 1}`}
                         >
                           <img
                             src={img.src}
                             alt={img.alt}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover block"
                             loading="lazy"
                           />
                         </button>

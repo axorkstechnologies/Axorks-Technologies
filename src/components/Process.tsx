@@ -83,7 +83,7 @@ export const Process: React.FC = () => {
                   </div>
 
                   <div
-                    className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs font-mono-code"
+                    className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center gap-2 text-xs font-mono-code font-semibold"
                     style={{ color: accent.color }}
                   >
                     <CheckCircle2 className="w-3.5 h-3.5" />
