@@ -214,8 +214,8 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'January 2025',
     readTime: '8 min read',
     author: {
-      name: 'Yousaf Piryani',
-      role: 'Principal AI Engineer',
+      name: 'Yousuf',
+      role: 'Deep Learning / AI Engineer',
     },
     tableOfContents: [
       'Beyond Single-Prompt Chatbots',
@@ -276,7 +276,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'December 2024',
     readTime: '6 min read',
     author: {
-      name: 'Muhammad Faisal Qasim',
+      name: 'Faisal',
       role: 'Full-Stack Software Engineer',
     },
     tableOfContents: [
@@ -400,7 +400,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'January 2025',
     readTime: '7 min read',
     author: {
-      name: 'Ali Haider',
+      name: 'Ali',
       role: 'Web3 & Blockchain Developer (Ethereum)',
     },
     tableOfContents: [

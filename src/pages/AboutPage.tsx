@@ -176,17 +176,28 @@ export const AboutPage: React.FC = () => {
               {yousaf && (
                 <div className="p-6 rounded-2xl glass-2 border-white/10 hover:border-[var(--gold)]/40 transition-all">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[var(--gold)]">
-                      YP
-                    </div>
+                    {yousaf.image ? (
+                      <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--gold)]/40 shadow-md bg-[#111622] shrink-0">
+                        <img
+                          src={yousaf.image}
+                          alt={`${yousaf.name}, ${yousaf.role} at Axorks`}
+                          className="w-full h-full object-cover object-[26%_40%]"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center font-mono-code text-xs font-bold text-[var(--gold)]">
+                        Y
+                      </div>
+                    )}
                     <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono-code font-bold uppercase bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
-                      30 Years Experience
+                      Deep Learning / AI
                     </span>
                   </div>
                   <h4 className="font-headline text-base font-bold text-white mb-1">{yousaf.name}</h4>
                   <div className="text-xs font-mono-code text-[var(--gold)] mb-3">{yousaf.role}</div>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Over 30 years of experience in neural network architectures, deep learning models, and advanced AI systems. US-returned principal engineer advising on complex enterprise deployments.
+                    {yousaf.description}
                   </p>
                 </div>
               )}

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { TEAM_MEMBERS } from '../data/mockData';
 import { useNavigate } from '../router/Router';
 import { Mail, MessageSquare, ArrowRight, Shield, Award, CheckCircle2, Code2, Cpu, Globe, Users } from 'lucide-react';
@@ -186,7 +186,7 @@ export const TeamPage: React.FC = () => {
                 <div
                   key={member.id}
                   className={`p-6 sm:p-7 rounded-3xl glass-2 border-white/10 flex flex-col justify-between hover:border-white/25 transition-all group spatial-card ${
-                    isFaisal ? 'border-[var(--gold)]/40 shadow-xl' : ''
+                    isFaisal || isYousaf ? 'border-[var(--gold)]/40 shadow-xl' : ''
                   }`}
                 >
                   <div>
@@ -196,7 +196,7 @@ export const TeamPage: React.FC = () => {
                           <img
                             src={member.image}
                             alt={`${member.name}, ${member.role} at Axorks`}
-                            className="w-full h-full object-cover object-[center_20%] transition-transform duration-300 group-hover:scale-105"
+                            className={`w-full h-full object-cover ${isYousaf ? 'object-[26%_40%]' : 'object-[center_20%]'} transition-transform duration-300 group-hover:scale-105`}
                             loading="lazy"
                           />
                         </div>
@@ -207,7 +207,7 @@ export const TeamPage: React.FC = () => {
                       )}
 
                       <span className="px-2.5 py-1 rounded-md text-[10px] font-mono-code font-bold uppercase bg-white/[0.04] text-[var(--text-muted)] border border-white/[0.08]">
-                        {isYousaf ? '30 Yrs Exp' : isFaisal ? 'Full-Stack' : 'Engineering'}
+                        {isYousaf ? 'Deep Learning / AI' : isFaisal ? 'Full-Stack' : 'Engineering'}
                       </span>
                     </div>
 

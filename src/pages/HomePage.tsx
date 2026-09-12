@@ -82,6 +82,85 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 2.5. Direct Engineering Model (Soft Light / Warm Ivory Surface) */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="surface-ivory rounded-3xl p-8 sm:p-14 lg:p-18 text-[#0A0F1D] spatial-card">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 pb-8 border-b border-[#0A0F1D]/15">
+              <div className="max-w-2xl">
+                <span className="font-mono-code text-xs uppercase text-[#0F172A] tracking-widest font-bold block mb-3">
+                  Engineering Model
+                </span>
+                <h2 className="font-display-hero text-3xl sm:text-4xl lg:text-[42px] text-[#0A0F1D] font-extrabold tracking-tight leading-tight">
+                  Software engineering without agency overhead or billing games.
+                </h2>
+              </div>
+              <p className="text-sm sm:text-base text-[#1E293B] max-w-md leading-relaxed font-normal">
+                Traditional agencies bury projects under non-technical account managers and hourly retainers. We provide direct access to senior practitioners delivering tested software on predictable milestones.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08] flex flex-col justify-between">
+                <div>
+                  <div className="font-mono-code text-xs font-bold uppercase text-[#D97706] mb-2">
+                    01 / Direct Access
+                  </div>
+                  <h3 className="font-headline text-lg font-bold text-[#0A0F1D] mb-2">
+                    Senior Practitioners
+                  </h3>
+                  <p className="text-xs text-[#334155] leading-relaxed">
+                    Collaborate directly with lead architects and senior specialists. No non-technical layers or junior delegating.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08] flex flex-col justify-between">
+                <div>
+                  <div className="font-mono-code text-xs font-bold uppercase text-[#059669] mb-2">
+                    02 / Transparency
+                  </div>
+                  <h3 className="font-headline text-lg font-bold text-[#0A0F1D] mb-2">
+                    Fixed-Price Milestones
+                  </h3>
+                  <p className="text-xs text-[#334155] leading-relaxed">
+                    Projects start from $1,000 with itemized scopes. Payments are released only after you test working staging builds.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08] flex flex-col justify-between">
+                <div>
+                  <div className="font-mono-code text-xs font-bold uppercase text-[#7C3AED] mb-2">
+                    03 / Innovation
+                  </div>
+                  <h3 className="font-headline text-lg font-bold text-[#0A0F1D] mb-2">
+                    AI-Powered Velocity
+                  </h3>
+                  <p className="text-xs text-[#334155] leading-relaxed">
+                    We use modern AI workflows and multi-agent systems to compress development timelines and reduce operational overhead.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08] flex flex-col justify-between">
+                <div>
+                  <div className="font-mono-code text-xs font-bold uppercase text-[#2563EB] mb-2">
+                    04 / Integrity
+                  </div>
+                  <h3 className="font-headline text-lg font-bold text-[#0A0F1D] mb-2">
+                    100% Commercial IP
+                  </h3>
+                  <p className="text-xs text-[#334155] leading-relaxed">
+                    Complete commercial handover of repositories, schemas, and credentials upon delivery. Zero proprietary lock-in.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. What We Build */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative">
         <div className="max-w-7xl mx-auto">
@@ -868,7 +947,7 @@ export const HomePage: React.FC = () => {
                         <img
                           src={member.image}
                           alt={`${member.name}, ${member.role} at Axorks`}
-                          className="w-full h-full object-cover object-[center_20%] transition-transform duration-300 group-hover:scale-105"
+                          className={`w-full h-full object-cover ${member.id === 'yousaf-piryani' ? 'object-[26%_40%]' : 'object-[center_20%]'} transition-transform duration-300 group-hover:scale-105`}
                           loading="lazy"
                         />
                       </div>
