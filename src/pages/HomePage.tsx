@@ -777,24 +777,26 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Founder Profile */}
-              <div className="lg:col-span-7 space-y-5 text-left">
-                <span className="font-mono-code text-xs uppercase text-[var(--gold)] tracking-widest font-bold block">
-                  Founder &amp; Lead Architect
-                </span>
+              <div className="lg:col-span-7 text-left">
+                <div className="mb-6">
+                  <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-mono-code font-bold uppercase tracking-wider bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30">
+                    FOUNDER &amp; CEO
+                  </span>
+                </div>
 
-                <h3 className="font-display-hero text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                <h3 className="font-display-hero text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
                   Muhammad Mujahid
                 </h3>
 
-                <p className="text-sm sm:text-base font-headline font-semibold text-[var(--gold)]">
+                <p className="text-sm sm:text-base font-headline font-semibold text-[var(--gold)] mb-5">
                   Founder &amp; CEO / Chief Systems Architect · BS Software Engineering
                 </p>
 
-                <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+                <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed mb-6">
                   Muhammad directs systems architecture, AI workflow engineering, and proposal scoping at Axorks. Every client engagement is personally guided by senior leadership, ensuring that engineering decisions deliver real business efficiency and measurable profitability.
                 </p>
 
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-2 flex flex-wrap items-center gap-3 mb-6">
                   <div className="px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-mono-code text-slate-300">
                     BS Software Engineering
                   </div>
@@ -806,7 +808,7 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 flex flex-wrap items-center gap-4">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <button
                     onClick={() => navigate('/contact')}
                     className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#F5C761] to-[#D97706] text-[#2A1800] text-xs font-headline font-bold uppercase tracking-wider glow-gold-jewel cursor-pointer shadow-lg transition-all"
@@ -892,6 +894,63 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8.5. Studio Production Standards (Soft Light / Warm Ivory Surface) */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="surface-ivory rounded-3xl p-8 sm:p-12 lg:p-16 text-[#0A0F1D] spatial-card">
+            <div className="max-w-3xl mb-12">
+              <span className="font-mono-code text-xs uppercase text-[#0F172A] tracking-widest font-bold block mb-3">
+                Production Standards
+              </span>
+              <h3 className="font-display-hero text-2xl sm:text-3xl lg:text-4xl text-[#0A0F1D] font-extrabold tracking-tight leading-tight">
+                Engineering excellence delivered with complete transparency.
+              </h3>
+              <p className="mt-3 text-sm sm:text-base text-[#1E293B] leading-relaxed font-normal">
+                Every system is built to production-grade benchmarks with clear commercial ownership, clean documentation, and direct access to senior engineers.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-[#0A0F1D]/15">
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08]">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#D97706] mb-2">
+                  01 / Fixed Scope
+                </div>
+                <h4 className="font-headline text-base font-bold text-[#0A0F1D] mb-1.5">
+                  Itemized Proposals
+                </h4>
+                <p className="text-xs text-[#334155] leading-relaxed">
+                  Clear specifications and milestone definitions before any code is written. Zero budget overruns.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08]">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#059669] mb-2">
+                  02 / Staging Verification
+                </div>
+                <h4 className="font-headline text-base font-bold text-[#0A0F1D] mb-1.5">
+                  Tested Deliverables
+                </h4>
+                <p className="text-xs text-[#334155] leading-relaxed">
+                  Inspect and interact with working software on private staging environments at every sprint milestone.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-black/[0.03] border border-black/[0.08]">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#2563EB] mb-2">
+                  03 / Commercial Ownership
+                </div>
+                <h4 className="font-headline text-base font-bold text-[#0A0F1D] mb-1.5">
+                  100% IP Handover
+                </h4>
+                <p className="text-xs text-[#334155] leading-relaxed">
+                  Full transfer of git repositories, database schemas, CI/CD pipelines, and architecture blueprints upon final delivery.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
