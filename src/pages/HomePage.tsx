@@ -831,7 +831,7 @@ export const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               {/* Authentic Photo */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border-2 border-[var(--gold)]/60 shadow-2xl bg-[#111622] shrink-0">
+                <div className="relative w-56 h-80 sm:w-64 sm:h-96 lg:w-72 lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-[var(--gold)]/60 shadow-2xl bg-[#111622] shrink-0">
                   <img
                     src={founder.image || '/Images/Founder and CEO SOFTWARE ENGINEER.jpeg'}
                     alt="Muhammad Mujahid, Founder and CEO of Axorks Technologies"
