@@ -3,6 +3,7 @@ import { Hero } from '../components/Hero';
 import { useNavigate } from '../router/Router';
 import { ArrowRight, Check, ShieldCheck, Tag, Users, Building2, Clock, Key, Mail, MessageSquare } from 'lucide-react';
 import { PROJECTS, TEAM_MEMBERS } from '../data/mockData';
+import { ProjectCarousel } from '../components/ProjectCarousel';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -433,25 +434,15 @@ export const HomePage: React.FC = () => {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                   {/* Media Viewport */}
-                  <div className="lg:col-span-7 overflow-hidden rounded-2xl bg-[#070C18] border border-white/10 p-2.5 sm:p-3.5">
-                    <div className="flex items-center justify-between pb-2.5 px-2 border-b border-white/[0.06] mb-2.5 text-[10px] font-mono-code text-white/50">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/60" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/60" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/60" />
-                        <span className="ml-2 text-white/40">agrotrace.live.system</span>
-                      </div>
-                      <span className="text-[var(--emerald)] font-bold">LIVE TELEMETRY</span>
-                    </div>
-
-                    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040812]">
-                      <img
-                        src={project.images[0].src}
-                        alt={project.images[0].alt}
-                        className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
-                        loading="lazy"
-                      />
-                    </div>
+                  <div className="lg:col-span-7">
+                    <ProjectCarousel
+                      images={project.images}
+                      projectTitle={project.title}
+                      systemUrl="agrotrace.live.system"
+                      badgeText="Live Telemetry"
+                      accentColor="var(--emerald)"
+                      aspectRatioClass="aspect-[16/10]"
+                    />
                   </div>
 
                   {/* Details */}
@@ -521,25 +512,15 @@ export const HomePage: React.FC = () => {
                 className="glass-2 holographic-edge rounded-3xl p-6 sm:p-10 spatial-card cursor-pointer group border-white/10 hover:border-[var(--gold)]/50 transition-all"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                  <div className="lg:col-span-7 lg:order-last overflow-hidden rounded-2xl bg-[#070C18] border border-white/10 p-2.5 sm:p-3.5">
-                    <div className="flex items-center justify-between pb-2.5 px-2 border-b border-white/[0.06] mb-2.5 text-[10px] font-mono-code text-white/50">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/60" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/60" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/60" />
-                        <span className="ml-2 text-white/40">ipmi-os.decision.engine</span>
-                      </div>
-                      <span className="text-[var(--gold)] font-bold">ALGORITHMIC DECISION ENGINE</span>
-                    </div>
-
-                    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040812]">
-                      <img
-                        src={project.images[0].src}
-                        alt={project.images[0].alt}
-                        className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
-                        loading="lazy"
-                      />
-                    </div>
+                  <div className="lg:col-span-7 lg:order-last">
+                    <ProjectCarousel
+                      images={project.images}
+                      projectTitle={project.title}
+                      systemUrl="ipmi-os.decision.engine"
+                      badgeText="Algorithmic AI"
+                      accentColor="var(--gold)"
+                      aspectRatioClass="aspect-[16/10]"
+                    />
                   </div>
 
                   <div className="lg:col-span-5 flex flex-col justify-between">
@@ -618,12 +599,14 @@ export const HomePage: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[#040812] mb-5 border border-white/10">
-                      <img
-                        src={project.images[0].src}
-                        alt={project.images[0].alt}
-                        className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
-                        loading="lazy"
+                    <div className="mb-5">
+                      <ProjectCarousel
+                        images={project.images}
+                        projectTitle={project.title}
+                        systemUrl="mediverse.clinical.platform"
+                        badgeText="Healthcare AI"
+                        accentColor="#A78BFA"
+                        aspectRatioClass="aspect-[16/10]"
                       />
                     </div>
 
@@ -662,12 +645,14 @@ export const HomePage: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[#040812] mb-5 border border-white/10">
-                      <img
-                        src={project.images[1]?.src || project.images[0].src}
-                        alt={project.images[1]?.alt || project.images[0].alt}
-                        className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.02]"
-                        loading="lazy"
+                    <div className="mb-5">
+                      <ProjectCarousel
+                        images={project.images}
+                        projectTitle={project.title}
+                        systemUrl="fume-fragrances.storefront"
+                        badgeText="Luxury Storefront"
+                        accentColor="#F43F5E"
+                        aspectRatioClass="aspect-[16/10]"
                       />
                     </div>
 

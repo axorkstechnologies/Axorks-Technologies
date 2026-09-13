@@ -1,22 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PROJECTS } from '../data/mockData';
 import { useNavigate } from '../router/Router';
-import { Maximize2, X, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { ProjectCarousel } from '../components/ProjectCarousel';
 
 export const DeliveredWorkPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedImages, setSelectedImages] = useState<Record<string, number>>({
-    agrotrace: 0,
-    'ipmi-os': 0,
-    mediverse: 0,
-    fume: 0,
-  });
-
-  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string; title: string } | null>(null);
-
-  const handleSelectImage = (projectId: string, index: number) => {
-    setSelectedImages((prev) => ({ ...prev, [projectId]: index }));
-  };
 
   const agrotrace = PROJECTS.find((p) => p.id === 'agrotrace') || PROJECTS[0];
   const ipmi = PROJECTS.find((p) => p.id === 'ipmi-os') || PROJECTS[1];
@@ -39,7 +28,7 @@ export const DeliveredWorkPage: React.FC = () => {
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] max-w-3xl leading-relaxed font-normal">
-            Platforms we have architected, developed, and deployed into live commercial operations. Every case study below is backed by deployed software. Click any viewport to inspect full-resolution interfaces.
+            Platforms we have architected, developed, and deployed into live commercial operations. Every case study below is backed by deployed production software.
           </p>
         </div>
       </section>
@@ -73,57 +62,16 @@ export const DeliveredWorkPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Expansive Full-Width Browser Frame */}
-            <div className="overflow-hidden rounded-2xl bg-[#070C18] border border-white/15 mb-6 shadow-2xl">
-              {/* Chrome Status Header */}
-              <div className="flex items-center justify-between px-4 py-2.5 bg-[#0A1020] border-b border-white/[0.08] text-[11px] font-mono-code text-white/50">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/70" />
-                  <span className="ml-3 text-white/60">agrotrace.live.system · Sindh-Punjab Corridor</span>
-                </div>
-                <button
-                  onClick={() => setLightboxImage({ src: agrotrace.images[selectedImages.agrotrace || 0].src, alt: agrotrace.images[selectedImages.agrotrace || 0].alt, title: agrotrace.title })}
-                  className="flex items-center gap-1 text-[var(--emerald)] hover:underline cursor-pointer"
-                >
-                  <Maximize2 className="w-3 h-3" />
-                  <span>Expand High-Res</span>
-                </button>
-              </div>
-
-              {/* Main Image Stage: Strictly Contained */}
-              <div
-                className="relative w-full aspect-[16/9] sm:aspect-[16/8.5] max-h-[580px] overflow-hidden bg-[#040711] group cursor-pointer"
-                onClick={() => setLightboxImage({ src: agrotrace.images[selectedImages.agrotrace || 0].src, alt: agrotrace.images[selectedImages.agrotrace || 0].alt, title: agrotrace.title })}
-              >
-                <img
-                  src={agrotrace.images[selectedImages.agrotrace || 0].src}
-                  alt={agrotrace.images[selectedImages.agrotrace || 0].alt}
-                  className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.01]"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Thumbnail Selector Rail */}
-              <div className="px-4 py-3 bg-[#0A1020]/90 border-t border-white/[0.08] flex items-center gap-3 overflow-x-auto gallery-scroll">
-                <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 font-semibold">
-                  Verified Views ({agrotrace.images.length}):
-                </span>
-                {agrotrace.images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleSelectImage('agrotrace', idx)}
-                    className={`shrink-0 w-20 sm:w-24 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
-                      (selectedImages.agrotrace || 0) === idx
-                        ? 'border-[var(--emerald)] ring-2 ring-[var(--emerald)]/40 opacity-100'
-                        : 'border-transparent opacity-50 hover:opacity-100'
-                    }`}
-                  >
-                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
+            {/* Expansive Full-Width Slideshow Frame */}
+            <div className="mb-6">
+              <ProjectCarousel
+                images={agrotrace.images}
+                projectTitle={agrotrace.title}
+                systemUrl="agrotrace.live.system · Sindh-Punjab Corridor"
+                badgeText="Live Telemetry"
+                accentColor="var(--emerald)"
+                aspectRatioClass="aspect-[16/9] sm:aspect-[16/8.5] max-h-[580px]"
+              />
             </div>
 
             {/* Asymmetric 2-Column Debrief Below */}
@@ -179,55 +127,16 @@ export const DeliveredWorkPage: React.FC = () => {
           {/* ─── CASE STUDY 02: IPMI-OS 2.0 (Asymmetric 7/5 Telemetry Split) ─── */}
           <div className="glass-2 holographic-edge rounded-3xl overflow-hidden spatial-card p-6 sm:p-8 lg:p-10 border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.7)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Media Viewport (7 Cols): Strictly Contained Browser Frame */}
-              <div className="lg:col-span-7 overflow-hidden rounded-2xl bg-[#070C18] border border-white/15 p-2 sm:p-3">
-                <div className="flex items-center justify-between pb-2 px-2 border-b border-white/[0.08] mb-2 text-[10px] font-mono-code text-white/50">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/70" />
-                    <span className="ml-2 text-white/60">ipmi-os.ai-decision-engine</span>
-                  </div>
-                  <button
-                    onClick={() => setLightboxImage({ src: ipmi.images[selectedImages['ipmi-os'] || 0].src, alt: ipmi.images[selectedImages['ipmi-os'] || 0].alt, title: ipmi.title })}
-                    className="flex items-center gap-1 text-[var(--gold)] hover:underline cursor-pointer"
-                  >
-                    <Maximize2 className="w-3 h-3" />
-                    <span>Expand</span>
-                  </button>
-                </div>
-
-                <div
-                  className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040711] group cursor-pointer"
-                  onClick={() => setLightboxImage({ src: ipmi.images[selectedImages['ipmi-os'] || 0].src, alt: ipmi.images[selectedImages['ipmi-os'] || 0].alt, title: ipmi.title })}
-                >
-                  <img
-                    src={ipmi.images[selectedImages['ipmi-os'] || 0].src}
-                    alt={ipmi.images[selectedImages['ipmi-os'] || 0].alt}
-                    className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.01]"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Thumbnails */}
-                <div className="mt-3 pt-2 border-t border-white/[0.08] flex items-center gap-2 overflow-x-auto gallery-scroll">
-                  <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 font-semibold mr-1">
-                    Screens ({ipmi.images.length}):
-                  </span>
-                  {ipmi.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSelectImage('ipmi-os', idx)}
-                      className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
-                        (selectedImages['ipmi-os'] || 0) === idx
-                          ? 'border-[var(--gold)] ring-2 ring-[var(--gold)]/40 opacity-100'
-                          : 'border-transparent opacity-50 hover:opacity-100'
-                      }`}
-                    >
-                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
+              {/* Media Viewport (7 Cols): Slideshow Frame */}
+              <div className="lg:col-span-7">
+                <ProjectCarousel
+                  images={ipmi.images}
+                  projectTitle={ipmi.title}
+                  systemUrl="ipmi-os.ai-decision-engine"
+                  badgeText="Algorithmic AI"
+                  accentColor="var(--gold)"
+                  aspectRatioClass="aspect-[16/10]"
+                />
               </div>
 
               {/* Case Study Summary (5 Cols) */}
@@ -340,55 +249,16 @@ export const DeliveredWorkPage: React.FC = () => {
                 </button>
               </div>
 
-              {/* Media Viewport (7 Cols on Right): Only 2 Authentic Screenshots */}
-              <div className="lg:col-span-7 overflow-hidden rounded-2xl bg-[#070C18] border border-white/15 p-2 sm:p-3">
-                <div className="flex items-center justify-between pb-2 px-2 border-b border-white/[0.08] mb-2 text-[10px] font-mono-code text-white/50">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/70" />
-                    <span className="ml-2 text-white/60">mediverse.clinical.platform</span>
-                  </div>
-                  <button
-                    onClick={() => setLightboxImage({ src: mediverse.images[selectedImages.mediverse || 0].src, alt: mediverse.images[selectedImages.mediverse || 0].alt, title: mediverse.title })}
-                    className="flex items-center gap-1 text-[#A78BFA] hover:underline cursor-pointer"
-                  >
-                    <Maximize2 className="w-3 h-3" />
-                    <span>Expand</span>
-                  </button>
-                </div>
-
-                <div
-                  className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040711] group cursor-pointer"
-                  onClick={() => setLightboxImage({ src: mediverse.images[selectedImages.mediverse || 0].src, alt: mediverse.images[selectedImages.mediverse || 0].alt, title: mediverse.title })}
-                >
-                  <img
-                    src={mediverse.images[selectedImages.mediverse || 0].src}
-                    alt={mediverse.images[selectedImages.mediverse || 0].alt}
-                    className="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-[1.01]"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Filtered Curated 2 Screenshots */}
-                <div className="mt-3 pt-2 border-t border-white/[0.08] flex items-center gap-2">
-                  <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 font-semibold mr-1">
-                    Authentic Production Views:
-                  </span>
-                  {mediverse.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSelectImage('mediverse', idx)}
-                      className={`shrink-0 w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
-                        (selectedImages.mediverse || 0) === idx
-                          ? 'border-[#A78BFA] ring-2 ring-[#A78BFA]/40 opacity-100'
-                          : 'border-transparent opacity-50 hover:opacity-100'
-                      }`}
-                    >
-                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
+              {/* Media Viewport (7 Cols on Right): Slideshow Frame */}
+              <div className="lg:col-span-7">
+                <ProjectCarousel
+                  images={mediverse.images}
+                  projectTitle={mediverse.title}
+                  systemUrl="mediverse.clinical.platform"
+                  badgeText="Clinical Health"
+                  accentColor="#A78BFA"
+                  aspectRatioClass="aspect-[16/10]"
+                />
               </div>
             </div>
           </div>
@@ -398,54 +268,15 @@ export const DeliveredWorkPage: React.FC = () => {
           <div className="glass-2 holographic-edge rounded-3xl overflow-hidden spatial-card p-6 sm:p-8 lg:p-10 border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.7)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Media Viewport */}
-              <div className="lg:col-span-7 overflow-hidden rounded-2xl bg-[#070C18] border border-white/15 p-2 sm:p-3">
-                <div className="flex items-center justify-between pb-2 px-2 border-b border-white/[0.08] mb-2 text-[10px] font-mono-code text-white/50">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/70" />
-                    <span className="ml-2 text-white/60">fume-fragrances.storefront</span>
-                  </div>
-                  <button
-                    onClick={() => setLightboxImage({ src: fume.images[selectedImages.fume || 0].src, alt: fume.images[selectedImages.fume || 0].alt, title: fume.title })}
-                    className="flex items-center gap-1 text-[#F43F5E] hover:underline cursor-pointer"
-                  >
-                    <Maximize2 className="w-3 h-3" />
-                    <span>Expand</span>
-                  </button>
-                </div>
-
-                <div
-                  className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-[#040711] group cursor-pointer"
-                  onClick={() => setLightboxImage({ src: fume.images[selectedImages.fume || 0].src, alt: fume.images[selectedImages.fume || 0].alt, title: fume.title })}
-                >
-                  <img
-                    src={fume.images[selectedImages.fume || 0].src}
-                    alt={fume.images[selectedImages.fume || 0].alt}
-                    className="w-full h-full object-cover object-center block transition-transform duration-500 group-hover:scale-[1.01]"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Thumbnails */}
-                <div className="mt-3 pt-2 border-t border-white/[0.08] flex items-center gap-2 overflow-x-auto gallery-scroll">
-                  <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 font-semibold mr-1">
-                    Design Views ({fume.images.length}):
-                  </span>
-                  {fume.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSelectImage('fume', idx)}
-                      className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
-                        (selectedImages.fume || 0) === idx
-                          ? 'border-[#F43F5E] ring-2 ring-[#F43F5E]/40 opacity-100'
-                          : 'border-transparent opacity-50 hover:opacity-100'
-                      }`}
-                    >
-                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
+              <div className="lg:col-span-7">
+                <ProjectCarousel
+                  images={fume.images}
+                  projectTitle={fume.title}
+                  systemUrl="fume-fragrances.storefront"
+                  badgeText="Luxury Storefront"
+                  accentColor="#F43F5E"
+                  aspectRatioClass="aspect-[16/10]"
+                />
               </div>
 
               {/* Case Study Summary */}
@@ -504,45 +335,6 @@ export const DeliveredWorkPage: React.FC = () => {
 
         </div>
       </section>
-
-      {/* Lightbox Modal: High-Resolution Full-Screen Uncropped Inspection */}
-      {lightboxImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6"
-          onClick={() => setLightboxImage(null)}
-        >
-          <div
-            className="relative max-w-6xl w-full max-h-[92vh] glass-2 rounded-3xl overflow-hidden p-3 sm:p-5 shadow-2xl border border-white/20 flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between pb-3 px-2 border-b border-[var(--glass-border)] mb-3">
-              <div>
-                <h4 className="font-headline font-bold text-base text-white">
-                  {lightboxImage.title}
-                </h4>
-                <p className="text-xs text-[var(--text-muted)] font-mono-code">
-                  {lightboxImage.alt}
-                </p>
-              </div>
-              <button
-                onClick={() => setLightboxImage(null)}
-                className="w-9 h-9 rounded-xl glass-2 border-[var(--glass-border)] flex items-center justify-center text-white hover:text-[var(--gold)] transition-colors cursor-pointer"
-                aria-label="Close image modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden flex-1 max-h-[80vh] flex items-center justify-center bg-black/80">
-              <img
-                src={lightboxImage.src}
-                alt={lightboxImage.alt}
-                className="max-w-full max-h-[78vh] object-contain rounded-xl block"
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Bottom Conversion Strip */}
       <section className="w-full px-4 sm:px-6 lg:px-8 mt-20">
