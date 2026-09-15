@@ -66,15 +66,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
           {/* Availability & Guarantee Pill */}
           <motion.div
             initial={{ opacity: 1, y: 0 }}
-            className="inline-flex flex-wrap items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 border border-[#10B981]/50 shadow-sm backdrop-blur-md"
+            className="flex flex-wrap items-center gap-2.5"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
-            </span>
-            <span className="text-[11px] sm:text-xs font-mono-code font-bold uppercase tracking-wider text-[#10B981]">
-              AI-First Engineering Studio · Karachi &amp; Islamabad
-            </span>
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 border border-[#10B981]/50 shadow-sm backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+              </span>
+              <span className="text-[11px] sm:text-xs font-mono-code font-bold uppercase tracking-wider text-[#10B981]">
+                AI-First Engineering Studio · Karachi &amp; Islamabad
+              </span>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-[#06B6D4]/40 text-[#38BDF8] font-mono-code text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]" />
+              <span>Serving USA • UK • Europe • Saudi Arabia • UAE • Kuwait • Bahrain</span>
+            </div>
           </motion.div>
 
           {/* Locked Exact H1 Headline */}
@@ -117,8 +124,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
               <span>100% IP Ownership</span>
             </div>
 
-            <div className="px-3.5 py-2 rounded-full bg-black/50 border border-white/15 text-slate-200 font-mono-code text-xs uppercase tracking-wider backdrop-blur-md">
-              <span>Direct Partner Access</span>
+            <div className="px-3.5 py-2 rounded-full bg-black/50 border border-[#06B6D4]/30 text-slate-200 font-mono-code text-xs uppercase tracking-wider backdrop-blur-md">
+              <span className="text-[#38BDF8] font-semibold">Direct Senior Access</span>
             </div>
           </motion.div>
 

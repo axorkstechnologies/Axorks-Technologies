@@ -4,6 +4,9 @@ import { useNavigate } from '../router/Router';
 import { ArrowRight, Check, ShieldCheck, Tag, Users, Building2, Clock, Key, Mail, MessageSquare } from 'lucide-react';
 import { PROJECTS, TEAM_MEMBERS } from '../data/mockData';
 import { ProjectCarousel } from '../components/ProjectCarousel';
+import { SocialProofStrip } from '../components/SocialProofStrip';
+import { ClientStories } from '../components/ClientStories';
+import { GlobalReach } from '../components/GlobalReach';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,6 +24,9 @@ export const HomePage: React.FC = () => {
     <div className="w-full">
       {/* 1. Hero Section (Locked H1, Subline, Pricing, Atmospheric Motion) */}
       <Hero onOpenDiscovery={() => navigate('/contact')} />
+
+      {/* 1.5. Social Proof Strip (Direct Real Client Logos & Outcomes) */}
+      <SocialProofStrip />
 
       {/* 2. Trust Bar: Clear Commercial Commitments */}
       <section className="w-full py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#080D1A] border-y border-[var(--glass-border)]">
@@ -678,6 +684,9 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 4.5. Client Stories & Clean Testimonials (Option 2 Testimonial Suite) */}
+      <ClientStories />
+
       {/* 5. How We Work: 4-Step Milestone Process */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative">
         <div className="max-w-7xl mx-auto">
@@ -823,6 +832,9 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* 6.5. Global Reach & Gulf Positioning (USA, UK, Europe, Saudi Arabia, UAE, Kuwait, Bahrain) */}
+      <GlobalReach />
 
       {/* 7. Founder Section: Muhammad Mujahid (Commanding Centerpiece) */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative">

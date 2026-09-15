@@ -149,9 +149,13 @@ export const Footer: React.FC = () => {
           <div className="text-xs text-[var(--text-muted)]">
             &copy; {currentYear} Axorks Pvt Limited. All rights reserved.
           </div>
-          <div className="flex items-center gap-4 text-xs text-[var(--text-muted)] font-mono-code">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-[var(--text-muted)] font-mono-code text-center">
+            <span className="text-[#38BDF8] font-semibold">
+              Serving USA &bull; UK &bull; Europe &bull; Saudi Arabia &bull; UAE &bull; Kuwait &bull; Bahrain
+            </span>
+            <span className="hidden sm:inline text-white/20">|</span>
             <span>Registered Private Software Company</span>
-            <span>•</span>
+            <span className="hidden sm:inline">•</span>
             <span>Karachi &amp; Islamabad</span>
           </div>
         </div>

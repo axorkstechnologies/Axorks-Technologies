@@ -20,6 +20,12 @@ export interface Project {
   problem?: string;
   solution?: string;
   result?: string;
+  difference?: string;
+  headline?: string;
+  clientTestimonial?: string;
+  clientAuthor?: string;
+  clientRole?: string;
+  clientLogo?: string;
   images: ProjectImage[];
   tags: string[];
   statusBadge: string;
@@ -29,6 +35,24 @@ export interface Project {
     label: string;
   }[];
   accent: 'gold' | 'emerald' | 'violet' | 'wine';
+}
+
+export interface ClientStory {
+  id: string;
+  number: string;
+  clientName: string;
+  industry: string;
+  headline: string;
+  problem: string;
+  solution: string;
+  difference: string;
+  testimonial: string;
+  highlightMetric?: {
+    value: string;
+    label: string;
+  };
+  logo: string;
+  accent: 'emerald' | 'gold' | 'violet' | 'wine';
 }
 
 export interface Service {

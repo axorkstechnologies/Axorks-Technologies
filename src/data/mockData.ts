@@ -1,4 +1,4 @@
-import { TeamMember, Project, Service, ProcessStep, WhyItem, FaqItem } from '../types';
+import { TeamMember, Project, Service, ProcessStep, WhyItem, FaqItem, ClientStory } from '../types';
 
 // ─── TEAM MEMBERS (Only Founder has photo; intentional placeholders for rest) ─
 
@@ -92,14 +92,22 @@ export const PROJECTS: Project[] = [
     id: 'agrotrace',
     title: 'AgroTrace',
     tagline: 'Real-Time Food Supply-Chain Tracking',
+    headline: "Keeping track of goods shouldn't mean chasing updates.",
     description:
-      'Real-time food supply-chain tracking platform for Sindh and Punjab. Live logistics, thermal monitoring, export compliance, dashboards, alerts, and supply node management across agricultural distribution networks.',
+      'Real-time food supply-chain tracking platform for agricultural shipments. Live logistics, thermal monitoring, export compliance, dashboards, alerts, and supply node management across agricultural distribution networks.',
     problem:
-      'Perishable agricultural shipments across Sindh and Punjab suffered from unmonitored thermal spikes, lack of GPS transit visibility, and manual paper-based export documentation that caused high spoilage and regulatory fines.',
+      'Agricultural shipments were difficult to monitor while in transit, with limited visibility and a lot of manual information handling.',
     solution:
-      'Axorks engineered a real-time IoT telemetry and multi-agent tracking platform. The system connects vehicle sensors, cold-storage facilities, and border inspection points into a unified live dashboard with automated thermal alerts and electronic compliance certificates.',
+      'Axorks created one place to follow shipments, receive alerts when attention was needed, and keep important information organized.',
+    difference:
+      'Clearer visibility and faster response. AgroTrace achieved a 42% reduction in cold-chain spoilage across 14,000 active supply nodes.',
     result:
       'Achieved a 42% reduction in cold-chain spoilage across 14,000 active supply nodes, with transit delay notifications delivered in real time to distribution operators.',
+    clientTestimonial:
+      'We now have a much clearer view of what is happening while goods are in transit, so the team can respond faster when something needs attention.',
+    clientAuthor: 'AgroTrace Operations',
+    clientRole: 'Agriculture · Supply Chain',
+    clientLogo: '/Logos/agrotrace_logo.png',
     images: [
       { src: '/Images/Agrotrace.jpeg', alt: 'AgroTrace supply chain tracking dashboard with live logistics map' },
       { src: '/Images/agrotrace2.jpeg', alt: 'AgroTrace operations overview and monitoring panel' },
@@ -120,14 +128,22 @@ export const PROJECTS: Project[] = [
     id: 'ipmi-os',
     title: 'IPMI-OS 2.0',
     tagline: 'AI-Powered Trading & Decision System',
+    headline: 'When there is too much information, decisions get harder.',
     description:
       'Advanced AI-powered trading and decision system with multi-tier TQE analysis, opportunity scanner, risk governor, order flow intelligence, and a live execution engine for data-driven market decisions.',
     problem:
-      'Discretionary trading desks faced cognitive overload, erratic trade execution during high volatility, and delayed response times when parsing multi-exchange order flows and liquidity shifts.',
+      'Trading teams were dealing with fast-moving market information and the pressure of making consistent decisions during high volatility.',
     solution:
-      'Axorks architected a high-throughput algorithmic decision engine with multi-tier TQE analysis, real-time market microstructure scanners, automated risk governance rules, and sub-second execution triggers.',
+      'Axorks built a decision system that helps organize market activity, support faster responses, and apply predefined risk controls.',
+    difference:
+      'A more structured approach to trading decisions and risk management.',
     result:
       'Delivered institutional-grade order flow intelligence with automated risk governors that eliminate emotional trade execution and enforce strict risk management parameters.',
+    clientTestimonial:
+      "The challenge wasn't a lack of information: it was having too much of it at the wrong time. The system gives us a more structured way to respond.",
+    clientAuthor: 'IPMI Trading Desk',
+    clientRole: 'FinTech · AI Trading',
+    clientLogo: '/Logos/ipmios_logo.png',
     images: [
       { src: '/Images/IPMI-OS.jpeg', alt: 'IPMI-OS 2.0 AI trading dashboard with opportunity scanner' },
       { src: '/Images/IPMI-OS2.jpeg', alt: 'IPMI-OS 2.0 multi-tier TQE analysis engine' },
@@ -147,14 +163,22 @@ export const PROJECTS: Project[] = [
     id: 'mediverse',
     title: 'MediVerse',
     tagline: 'AI-Powered Global Healthcare Platform',
+    headline: 'Healthcare feels easier when access is connected.',
     description:
       'AI-powered global healthcare platform providing digital care access, specialist connections, and home medical assistance. Built with compliance for WHO, SDG 3, HIPAA, and GDPR standards.',
     problem:
-      'Patients in emerging markets lacked direct access to verified clinical specialists, while cross-border medical consultations suffered from fragmented health records, language barriers, and non-compliant communication channels.',
+      'The project needed to bring digital care access, specialist connections, and home medical assistance together in one platform.',
     solution:
-      'Axorks built a secure, HIPAA-compliant digital health platform featuring encrypted video consultations, electronic health record synchronization, automated clinical triage assistance, and multi-language patient guidance.',
+      'Axorks built a global healthcare platform designed to connect these services in one digital environment.',
+    difference:
+      'A more connected healthcare experience, with the platform designed around WHO, SDG 3, HIPAA, and GDPR requirements.',
     result:
       'Enabled direct access to global medical specialists under verified HIPAA and GDPR privacy safeguards, ensuring complete data security for sensitive health consultations.',
+    clientTestimonial:
+      'We wanted healthcare access to feel more connected instead of making people navigate different services on their own.',
+    clientAuthor: 'MediVerse Clinical Network',
+    clientRole: 'Healthcare · Telemedicine',
+    clientLogo: '/Logos/mediverse_logo.png',
     images: [
       { src: '/Images/Mediverse.jpeg', alt: 'MediVerse AI healthcare platform main dashboard' },
       { src: '/Images/Mediverse4.jpeg', alt: 'MediVerse compliance and patient records management' },
@@ -172,14 +196,22 @@ export const PROJECTS: Project[] = [
     id: 'fume',
     title: 'FUME Fragrances',
     tagline: 'Premium Fragrance Brand & E-Commerce',
+    headline: 'A premium product deserves a premium online experience.',
     description:
       'Premium fragrance brand website and full e-commerce experience. Haute parfumerie presentation, discovery collection showcase, product pages, and elegant packaging, designed and built end-to-end by Axorks.',
     problem:
-      'A luxury fragrance house needed a digital commerce presence that matched the sensory sophistication of haute parfumerie without relying on generic Shopify templates or slow third-party plugins.',
+      'FUME needed more than a basic online store. The brand needed its website to present the products, collections, and overall experience at a premium level.',
     solution:
-      'Axorks created a bespoke luxury e-commerce platform with custom typography, rich editorial product storytelling, an interactive olfactory discovery set selector, and frictionless multi-currency checkout.',
+      'Axorks designed and built the complete e-commerce experience, including product pages, discovery collections, and brand-focused presentation.',
+    difference:
+      'A cohesive digital storefront where customers can discover the brand and shop in one polished experience.',
     result:
       'Delivered an ultra-fast, premium digital boutique that elevated brand perception and achieved high conversion rates across high-ticket fragrance collections.',
+    clientTestimonial:
+      "We didn't want the website to feel like just another online store. We wanted people to experience the brand from the moment they arrived.",
+    clientAuthor: 'FUME Fragrances',
+    clientRole: 'Luxury Brand · E-Commerce',
+    clientLogo: '/Logos/fume_logo.jpg',
     images: [
       { src: '/Images/Fume prints-04.png', alt: 'FUME Fragrances brand logo and identity' },
       { src: '/Images/4bVSv.jpg', alt: 'FUME Fragrances premium product bottle presentation' },
@@ -193,6 +225,79 @@ export const PROJECTS: Project[] = [
       { value: 'Full', label: 'End-to-End Build' },
       { value: 'Bespoke', label: 'Design System' },
     ],
+    accent: 'wine',
+  },
+];
+
+// ─── CLIENT STORIES (Direct from Client Stories Specification) ───────────────
+
+export const CLIENT_STORIES: ClientStory[] = [
+  {
+    id: 'agrotrace',
+    number: '01',
+    clientName: 'AgroTrace',
+    industry: 'Agriculture · Supply Chain',
+    headline: "Keeping track of goods shouldn't mean chasing updates.",
+    problem: 'Agricultural shipments were difficult to monitor while in transit, with limited visibility and a lot of manual information handling.',
+    solution: 'Axorks created one place to follow shipments, receive alerts when attention was needed, and keep important information organized.',
+    difference: 'Clearer visibility and faster response. AgroTrace achieved a 42% reduction in cold-chain spoilage across 14,000 active supply nodes.',
+    testimonial: 'We now have a much clearer view of what is happening while goods are in transit, so the team can respond faster when something needs attention.',
+    highlightMetric: {
+      value: '42%',
+      label: 'reduction in spoilage',
+    },
+    logo: '/Logos/agrotrace_logo.png',
+    accent: 'emerald',
+  },
+  {
+    id: 'ipmi-os',
+    number: '02',
+    clientName: 'IPMI-OS 2.0',
+    industry: 'FinTech · AI Trading',
+    headline: 'When there is too much information, decisions get harder.',
+    problem: 'Trading teams were dealing with fast-moving market information and the pressure of making consistent decisions during high volatility.',
+    solution: 'Axorks built a decision system that helps organize market activity, support faster responses, and apply predefined risk controls.',
+    difference: 'A more structured approach to trading decisions and risk management.',
+    testimonial: "The challenge wasn't a lack of information: it was having too much of it at the wrong time. The system gives us a more structured way to respond.",
+    highlightMetric: {
+      value: '<1s',
+      label: 'execution response',
+    },
+    logo: '/Logos/ipmios_logo.png',
+    accent: 'gold',
+  },
+  {
+    id: 'mediverse',
+    number: '03',
+    clientName: 'MediVerse',
+    industry: 'Healthcare · Telemedicine',
+    headline: 'Healthcare feels easier when access is connected.',
+    problem: 'The project needed to bring digital care access, specialist connections, and home medical assistance together in one platform.',
+    solution: 'Axorks built a global healthcare platform designed to connect these services in one digital environment.',
+    difference: 'A more connected healthcare experience, with the platform designed around WHO, SDG 3, HIPAA, and GDPR requirements.',
+    testimonial: 'We wanted healthcare access to feel more connected instead of making people navigate different services on their own.',
+    highlightMetric: {
+      value: '100%',
+      label: 'HIPAA & WHO compliance',
+    },
+    logo: '/Logos/mediverse_logo.png',
+    accent: 'violet',
+  },
+  {
+    id: 'fume',
+    number: '04',
+    clientName: 'FUME Fragrances',
+    industry: 'Luxury Brand · E-Commerce',
+    headline: 'A premium product deserves a premium online experience.',
+    problem: 'FUME needed more than a basic online store. The brand needed its website to present the products, collections, and overall experience at a premium level.',
+    solution: 'Axorks designed and built the complete e-commerce experience, including product pages, discovery collections, and brand-focused presentation.',
+    difference: 'A cohesive digital storefront where customers can discover the brand and shop in one polished experience.',
+    testimonial: "We didn't want the website to feel like just another online store. We wanted people to experience the brand from the moment they arrived.",
+    highlightMetric: {
+      value: 'Bespoke',
+      label: 'luxury commerce experience',
+    },
+    logo: '/Logos/fume_logo.jpg',
     accent: 'wine',
   },
 ];
@@ -247,29 +352,6 @@ export const SERVICES: Service[] = [
     accent: 'gold',
   },
   {
-    id: 'web3-blockchain',
-    title: 'Web3 & Decentralized Applications',
-    tagline: 'Decentralized Systems & Audited Smart Contracts',
-    description:
-      'Decentralized applications, audited smart contracts, DeFi settlement rails, and blockchain integrations engineered for security and transparency.',
-    icon: 'Blocks',
-    features: [
-      'Audited smart contracts in Solidity and Rust',
-      'DeFi protocols and automated settlement logic',
-      'Decentralized application frontends with Web3.js and Viem',
-      'Non-custodial wallet integrations and multi-chain bridges',
-    ],
-    deliverables: [
-      'Audited smart contracts with comprehensive test suites',
-      'Decentralized application frontend and wallet connection',
-      'Deployment scripts and gas optimization reports',
-      'Security audit report and documentation',
-      'Full source code ownership transfer',
-    ],
-    technologies: ['Solidity', 'Hardhat', 'Ethers.js', 'Rust', 'IPFS', 'The Graph', 'React', 'Web3.js'],
-    accent: 'cyan',
-  },
-  {
     id: 'mobile-apps',
     title: 'Mobile Apps',
     tagline: 'Native Performance on Every Device',
@@ -291,6 +373,29 @@ export const SERVICES: Service[] = [
     ],
     technologies: ['Flutter', 'Dart', 'Firebase', 'Swift', 'Kotlin', 'Node.js', 'REST API', 'SQLite'],
     accent: 'violet',
+  },
+  {
+    id: 'web3-blockchain',
+    title: 'Web3 & Decentralized Applications',
+    tagline: 'Decentralized Systems & Audited Smart Contracts',
+    description:
+      'Decentralized applications, audited smart contracts, DeFi settlement rails, and blockchain integrations engineered for security and transparency.',
+    icon: 'Blocks',
+    features: [
+      'Audited smart contracts in Solidity and Rust',
+      'DeFi protocols and automated settlement logic',
+      'Decentralized application frontends with Web3.js and Viem',
+      'Non-custodial wallet integrations and multi-chain bridges',
+    ],
+    deliverables: [
+      'Audited smart contracts with comprehensive test suites',
+      'Decentralized application frontend and wallet connection',
+      'Deployment scripts and gas optimization reports',
+      'Security audit report and documentation',
+      'Full source code ownership transfer',
+    ],
+    technologies: ['Solidity', 'Hardhat', 'Ethers.js', 'Rust', 'IPFS', 'The Graph', 'React', 'Web3.js'],
+    accent: 'cyan',
   },
   {
     id: 'support',

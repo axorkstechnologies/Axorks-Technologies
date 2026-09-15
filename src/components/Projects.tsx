@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
 import { PROJECTS } from '../data/mockData';
-import { ArrowRight, Maximize2, X, Activity, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Activity, CheckCircle2 } from 'lucide-react';
+import { ProjectCarousel } from './ProjectCarousel';
 
 const ACCENT_COLORS: Record<string, {
   color: string;
@@ -30,19 +30,14 @@ const ACCENT_COLORS: Record<string, {
   },
 };
 
+const SYSTEM_URLS: Record<string, string> = {
+  agrotrace: 'agrotrace.live.system',
+  'ipmi-os': 'ipmios.execution.engine',
+  mediverse: 'mediverse.global.network',
+  fume: 'fumefragrances.boutique',
+};
+
 export const Projects: React.FC = () => {
-  const [selectedImages, setSelectedImages] = useState<Record<string, number>>({
-    agrotrace: 0,
-    'ipmi-os': 0,
-    mediverse: 0,
-    fume: 0,
-  });
-
-  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string; title: string } | null>(null);
-
-  const handleSelectImage = (projectId: string, index: number) => {
-    setSelectedImages((prev) => ({ ...prev, [projectId]: index }));
-  };
 
   return (
     <section className="w-full py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative bg-[var(--bg-secondary)]/40 border-y border-[var(--glass-border)]" id="work">
@@ -61,17 +56,16 @@ export const Projects: React.FC = () => {
 
           <div className="font-mono-code text-xs text-[var(--text-muted)] flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping" />
-            <span>Real Production Systems • Click Any Screenshot to Expand</span>
+            <span>Real Production Systems • Verified In Staging &amp; Live Deployment</span>
           </div>
         </div>
 
         {/* 4 Case Study Cards */}
         <div className="space-y-16 lg:space-y-24 spatial-stage">
           {PROJECTS.map((project, index) => {
-            const currentImgIndex = selectedImages[project.id] ?? 0;
-            const currentImage = project.images[currentImgIndex];
             const accent = ACCENT_COLORS[project.accent] || ACCENT_COLORS.gold;
             const isReversed = index % 2 === 1;
+            const systemUrl = SYSTEM_URLS[project.id] || `${project.id}.axorks.cloud`;
 
             return (
               <div
@@ -80,79 +74,18 @@ export const Projects: React.FC = () => {
                 style={{ clipPath: 'inset(0 round 1.5rem)' }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 w-full overflow-hidden">
-                  {/* Media Viewport (7 Cols) */}
-                  <div className={`min-w-0 lg:col-span-7 flex flex-col justify-between p-4 sm:p-6 bg-[var(--bg-card)]/40 overflow-hidden ${
+                  {/* Media Viewport (7 Cols) - Smooth ProjectCarousel with Zero Expand Button */}
+                  <div className={`min-w-0 lg:col-span-7 p-4 sm:p-6 bg-[var(--bg-card)]/40 overflow-hidden flex flex-col justify-center ${
                     isReversed ? 'lg:order-last' : 'lg:order-first'
                   }`}>
-                    {/* Main Image Frame: Strictly Contained with Hardware Geometric Clipping */}
-                    <div
-                      className="relative aspect-[16/9] sm:aspect-[16/8.8] w-full rounded-2xl overflow-hidden isolate bg-[#050A14] group cursor-pointer border border-[var(--glass-border)] shrink-0"
-                      style={{
-                        clipPath: 'inset(0 round 1rem)',
-                      }}
-                      onClick={() => setLightboxImage({ src: currentImage.src, alt: currentImage.alt, title: project.title })}
-                    >
-                      <img
-                        src={currentImage.src}
-                        alt={currentImage.alt}
-                        className="w-full h-full object-cover object-top block max-w-full transition-opacity duration-300 group-hover:opacity-95"
-                        loading="lazy"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-                      {/* Status Badges */}
-                      <div className="absolute top-3.5 left-3.5 flex flex-wrap items-center gap-2">
-                        <span
-                          className="px-3 py-1 rounded-full text-[10px] font-mono-code uppercase font-bold backdrop-blur-xl border"
-                          style={{
-                            backgroundColor: accent.badgeBg,
-                            color: accent.color,
-                            borderColor: accent.color,
-                          }}
-                        >
-                          {project.categoryBadge}
-                        </span>
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono-code uppercase font-semibold text-white bg-black/70 backdrop-blur-xl border border-white/20">
-                          {project.statusBadge}
-                        </span>
-                      </div>
-
-                      {/* Expand Button */}
-                      <div className="absolute bottom-3.5 right-3.5 w-9 h-9 rounded-xl glass-2 border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white shadow-lg">
-                        <Maximize2 className="w-4 h-4" />
-                      </div>
-                    </div>
-
-                    {/* Screenshot Selector Thumbnails */}
-                    <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center gap-2 overflow-x-auto gallery-scroll pb-1">
-                      <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase shrink-0 mr-1 font-semibold">
-                        Screens ({project.images.length}):
-                      </span>
-                      {project.images.map((img, imgIdx) => (
-                        <button
-                          key={imgIdx}
-                          onClick={() => handleSelectImage(project.id, imgIdx)}
-                          className={`shrink-0 w-16 sm:w-20 aspect-[16/10] rounded-lg overflow-hidden border-2 transition-all cursor-pointer relative ${
-                            currentImgIndex === imgIdx
-                              ? 'shadow-md ring-2 ring-[var(--gold)]/40'
-                              : 'opacity-60 hover:opacity-100 border-transparent'
-                          }`}
-                          style={{
-                            borderColor: currentImgIndex === imgIdx ? accent.color : 'transparent',
-                            clipPath: 'inset(0 round 0.5rem)',
-                          }}
-                          aria-label={`View screenshot ${imgIdx + 1}`}
-                        >
-                          <img
-                            src={img.src}
-                            alt={img.alt}
-                            className="w-full h-full object-cover block"
-                            loading="lazy"
-                          />
-                        </button>
-                      ))}
-                    </div>
+                    <ProjectCarousel
+                      images={project.images}
+                      projectTitle={project.title}
+                      systemUrl={systemUrl}
+                      badgeText={project.statusBadge}
+                      accentColor={accent.color}
+                      aspectRatioClass="aspect-[16/10] sm:aspect-[16/9.5]"
+                    />
                   </div>
 
                   {/* Case Study Details & Measurable Metrics (5 Cols) */}
@@ -235,50 +168,6 @@ export const Projects: React.FC = () => {
           })}
         </div>
       </div>
-
-      {/* Lightbox Modal */}
-      <AnimatePresence>
-        {lightboxImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
-            onClick={() => setLightboxImage(null)}
-          >
-            <div
-              className="relative max-w-6xl w-full max-h-[90vh] glass-2 rounded-3xl overflow-hidden p-2 sm:p-4 shadow-[0_32px_100px_rgba(0,0,0,0.9)]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between pb-3 px-2 border-b border-[var(--glass-border)] mb-3">
-                <div>
-                  <h4 className="font-headline font-bold text-base text-[var(--text-primary)]">
-                    {lightboxImage.title}
-                  </h4>
-                  <p className="text-xs text-[var(--text-muted)] font-mono-code">
-                    {lightboxImage.alt}
-                  </p>
-                </div>
-                <button
-                  onClick={() => setLightboxImage(null)}
-                  className="w-9 h-9 rounded-xl glass-2 border-[var(--glass-border)] flex items-center justify-center text-[var(--text-primary)] hover:text-[var(--gold)] transition-colors cursor-pointer"
-                  aria-label="Close image modal"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div className="relative rounded-2xl overflow-hidden max-h-[78vh] flex items-center justify-center bg-black/40">
-                <img
-                  src={lightboxImage.src}
-                  alt={lightboxImage.alt}
-                  className="max-w-full max-h-[78vh] object-contain rounded-xl"
-                />
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
