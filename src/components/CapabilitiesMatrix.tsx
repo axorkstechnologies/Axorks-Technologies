@@ -97,21 +97,21 @@ export const CapabilitiesMatrix: React.FC = () => {
                   <CheckCircle2 className="w-6 h-6 text-[var(--emerald)] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-headline text-sm font-bold text-white uppercase tracking-wider mb-1">No Hourly Retainers</h4>
-                    <p className="text-xs text-[var(--text-muted-dark)] leading-relaxed">Scope is locked upfront. You never pay for our learning curve or idle hours.</p>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">Scope is locked upfront. You never pay for our learning curve or idle hours.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="w-6 h-6 text-[var(--emerald)] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-headline text-sm font-bold text-white uppercase tracking-wider mb-1">Zero Non-Technical Layers</h4>
-                    <p className="text-xs text-[var(--text-muted-dark)] leading-relaxed">No account managers. You interface directly with the architects writing your system.</p>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">No account managers. You interface directly with the architects writing your system.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="w-6 h-6 text-[var(--emerald)] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-headline text-sm font-bold text-white uppercase tracking-wider mb-1">Milestone Verification</h4>
-                    <p className="text-xs text-[var(--text-muted-dark)] leading-relaxed">Payments are locked to delivered, functional staging builds. Total financial safety.</p>
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">Payments are locked to delivered, functional staging builds. Total financial safety.</p>
                   </div>
                 </li>
               </ul>

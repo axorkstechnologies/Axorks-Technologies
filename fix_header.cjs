@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+﻿const fs = require('fs');
+
+let code = fs.readFileSync('src/components/Header.tsx', 'utf8');
+
+const newHeaderCode = `import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, MessageSquare, ArrowRight } from 'lucide-react';
 import { useRouter, RoutePath } from '../router/Router';
@@ -42,11 +46,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={\`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] \${
         scrolled 
           ? 'bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-[#0F172A]/10 shadow-sm py-4' 
           : 'bg-transparent border-transparent py-6'
-      }`}
+      }\`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between">
@@ -64,14 +68,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-headline text-lg sm:text-xl font-extrabold tracking-widest transition-colors leading-none ${
+              <span className={\`font-headline text-lg sm:text-xl font-extrabold tracking-widest transition-colors leading-none \${
                 scrolled ? 'text-[#0F172A]' : 'text-white'
-              }`}>
+              }\`}>
                 AXORKS
               </span>
-              <span className={`text-[8px] sm:text-[9px] font-mono-code tracking-widest uppercase mt-0.5 ${
+              <span className={\`text-[8px] sm:text-[9px] font-mono-code tracking-widest uppercase mt-0.5 \${
                 scrolled ? 'text-[#64748B]' : 'text-white/60'
-              }`}>
+              }\`}>
                 TECHNOLOGIES
               </span>
             </div>
@@ -84,11 +88,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`px-4 py-2 text-[11px] font-headline uppercase tracking-wider transition-all rounded-lg cursor-pointer ${
+                  className={\`px-4 py-2 text-[11px] font-headline uppercase tracking-wider transition-all rounded-lg cursor-pointer \${
                     scrolled
                       ? (isActive ? 'bg-[#0F172A]/5 text-[#0F172A] font-bold' : 'text-[#334155] hover:text-[#0F172A] hover:bg-[#0F172A]/5 font-semibold')
                       : (isActive ? 'bg-white/10 text-white font-bold' : 'text-white/70 hover:text-white hover:bg-white/5 font-semibold')
-                  }`}
+                  }\`}
                 >
                   {link.label}
                 </button>
@@ -101,20 +105,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
               href="https://wa.me/923141030223?text=I'm%20interested%20in%20a%20technical%20discovery%20call%20and%20fixed-price%20proposal."
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-2 rounded-lg transition-colors flex items-center justify-center ${
+              className={\`p-2 rounded-lg transition-colors flex items-center justify-center \${
                 scrolled ? 'text-[#0F766E] bg-[#0F766E]/10 hover:bg-[#0F766E]/20' : 'text-white bg-white/10 hover:bg-white/20'
-              }`}
+              }\`}
               aria-label="WhatsApp"
             >
               <MessageSquare className="w-4 h-4" />
             </a>
             <button
               onClick={handleCta}
-              className={`magnetic-btn px-5 py-2.5 rounded-xl font-headline text-[11px] uppercase tracking-wider font-bold transition-all flex items-center gap-2 ${
+              className={\`magnetic-btn px-5 py-2.5 rounded-xl font-headline text-[11px] uppercase tracking-wider font-bold transition-all flex items-center gap-2 \${
                 scrolled 
                   ? 'bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-md' 
                   : 'bg-[var(--gold)] text-[#0F172A] hover:bg-[var(--gold-light)] shadow-[0_0_20px_rgba(201,151,46,0.3)]'
-              }`}
+              }\`}
             >
               <span>Book Discovery Call</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -123,9 +127,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
+            className={\`lg:hidden p-2 rounded-lg transition-colors \${
               scrolled ? 'text-[#0F172A] hover:bg-[#0F172A]/5' : 'text-white hover:bg-white/10'
-            }`}
+            }\`}
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -147,9 +151,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`w-full text-left px-4 py-3 rounded-xl text-sm font-headline tracking-wide uppercase transition-colors ${
+                  className={\`w-full text-left px-4 py-3 rounded-xl text-sm font-headline tracking-wide uppercase transition-colors \${
                     currentPath === link.path ? 'bg-[#0F172A]/5 text-[#0F172A] font-bold' : 'text-[#334155] font-semibold hover:bg-[#0F172A]/5'
-                  }`}
+                  }\`}
                 >
                   {link.label}
                 </button>
@@ -178,3 +182,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
     </header>
   );
 };
+`
+fs.writeFileSync('src/components/Header.tsx', newHeaderCode);
+console.log('Header completely rewritten to Executive Edge-to-Edge standards.');

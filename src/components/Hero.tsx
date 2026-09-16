@@ -9,7 +9,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenDiscovery }) => {
   return (
     <section
-      className="relative w-full overflow-hidden px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20 lg:pb-32 min-h-[85vh] flex items-center bg-[#060A16]"
+      className="relative w-full overflow-hidden px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-32 min-h-[85vh] flex items-center bg-[#060A16]"
     >
       {/* ─── SYSTEMS LIMITED ATMOSPHERIC MOTION (Strictly Right Side • Atmospheric Background) ─── */}
       <div
