@@ -1,11 +1,25 @@
-﻿import React from 'react';
-import { Globe, MapPin, Clock } from 'lucide-react';
-import { useRouter } from '../router/Router';
+﻿const fs = require('fs');
 
-export const GlobalDelivery: React.FC = () => {
-  const { navigate } = useRouter();
+let globalDeliveryCode = fs.readFileSync('src/components/GlobalDelivery.tsx', 'utf8');
 
-  return (
+// The section is currently bg-[var(--bg-primary)] which maps to light. We need to wrap it in `.dark-surface`
+// However, since it's a standalone component, we can either wrap its internal `<section>` with `.dark-surface`, 
+// or let the caller (HomePage) do it. Wrapping inside `GlobalDelivery.tsx` is better so it always appears dark.
+
+// First, wrap the return inside <div className="dark-surface"> ... </div>
+globalDeliveryCode = globalDeliveryCode.replace(
+  /<section className="w-full bg-\\[var\(--bg-primary\)\\] py-20 lg:py-28 relative border-t border-\\[var\(--glass-border\)\\]" id="global-delivery">/,
+  `<div className="dark-surface">
+    <section className="w-full bg-[var(--bg-primary)] py-20 lg:py-28 relative border-y border-white/10" id="global-delivery">`
+);
+
+// Close the wrapper
+globalDeliveryCode = globalDeliveryCode.replace(
+  /<\/section>\s*<\/div>\s*<\/section>\s*\);\s*};/m, // Wait, regex is risky. Let's do simple string replace at the end
+  ''
+); // Actually let's just do a clean replace
+
+const replacement = `
     <div className="dark-surface">
       <section className="w-full bg-[var(--bg-primary)] py-20 lg:py-28 relative border-y border-white/10" id="global-delivery">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +59,7 @@ export const GlobalDelivery: React.FC = () => {
 
             {/* Right: Global Reach & Offices */}
             <div className="lg:col-span-6 lg:col-start-7">
-              <div className="bg-[var(--bg-secondary)] border border-white/5 p-8 sm:p-10 rounded-3xl spatial-card shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+              <div className="bg-[var(--bg-secondary)] border border-white/5 p-8 sm:p-10 rounded-3xl spatial-card shadow-lg">
                 <Globe className="w-10 h-10 text-[#0284C7] mb-6" />
                 <h3 className="font-display-hero text-2xl font-bold text-[var(--text-primary)] mb-4">
                   Global delivery. Local proximity.
@@ -90,3 +104,8 @@ export const GlobalDelivery: React.FC = () => {
     </div>
   );
 };
+`
+globalDeliveryCode = globalDeliveryCode.substring(0, globalDeliveryCode.indexOf('<section className="w-full')) + replacement;
+fs.writeFileSync('src/components/GlobalDelivery.tsx', globalDeliveryCode);
+
+console.log('GlobalDelivery set to dark-surface');

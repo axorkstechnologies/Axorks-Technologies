@@ -1,55 +1,55 @@
-@import "tailwindcss";
-
-/* ─── THEME VARIABLES & JEWEL PALETTE (ABSOLUTE MAXIMUM) ─── */
+﻿@import "tailwindcss";
 
 :root {
-  /* Core Light-Dominant System */
-  --bg-primary: #FAF8F5;       /* Warm Alabaster */
-  --bg-secondary: #F5F3EF;     /* Soft Stone */
-  --bg-tertiary: #EDE9E3;      /* Deep Cream */
+  /* Core Light-Dominant System (More Luxurious & Warm) */
+  --bg-primary: #FAF9F6;       /* Warm Pearl/Alabaster */
+  --bg-secondary: #F4F2EC;     /* Richer Soft Stone */
+  --bg-tertiary: #EBE7DF;      /* Deep Cream */
   --bg-card: #FFFFFF;
-  --text-primary: #0A0F1D;     /* Precise Charcoal */
+  --text-primary: #0F172A;     /* Even deeper charcoal */
   --text-secondary: #334155;   /* Refined Slate */
   --text-muted: #64748B;
   
-  /* Premium Jewel Accents */
-  --gold: #C9972E;
-  --gold-light: #D97706;
-  --gold-dark: #A16207;
-  --emerald: #0D9488;
+  /* Premium Jewel Accents (Richer, deeper tones on light) */
+  --gold: #B48520;
+  --gold-light: #C9972E;
+  --gold-dark: #916613;
+  --emerald: #0F766E;
   --emerald-light: #14B8A6;
-  --emerald-dark: #0F766E;
-  --violet: #7C3AED;
-  --cyan: #0284C7;
+  --emerald-dark: #0F524C;
+  --violet: #6D28D9;
+  --cyan: #0369A1;
   --burgundy: #881337;
 
   /* Glass 2.0 Tokens (Light Default) */
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(10, 15, 29, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.6);
-  --glass-shadow: 0 12px 40px -12px rgba(10, 15, 29, 0.08), 0 0 1px 1px rgba(255, 255, 255, 0.4) inset;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 12px 40px -12px rgba(15, 23, 42, 0.06), 0 0 1px 1px rgba(255, 255, 255, 0.6) inset;
 }
 
-/* Strategic Dark Punctuation (Hero, Footer) */
+/* Strategic Dark Punctuation (Hero, GlobalDelivery, Final Conversion, Footer) */
 .dark-surface {
-  --bg-primary: #040812;
-  --bg-secondary: #080D1A;
-  --bg-tertiary: #0E172A;
-  --bg-card: #0A0F1D;
+  --bg-primary: #030712;
+  --bg-secondary: #0A0F1D;
+  --bg-tertiary: #111827;
+  --bg-card: #0F172A;
   --text-primary: #F8FAFC;
   --text-secondary: #CBD5E1;
   --text-muted: #94A3B8;
+  --text-muted-dark: #64748B; /* Fallback */
   
   /* Brightened accents for dark backgrounds */
   --gold: #F5C761;
+  --gold-light: #FDE047;
   --emerald: #10B981;
   --cyan: #38BDF8;
 
   /* Dark Glass */
-  --glass-bg: rgba(8, 15, 34, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-bg: rgba(10, 15, 29, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-highlight: rgba(255, 255, 255, 0.16);
-  --glass-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.06) inset;
+  --glass-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.08) inset;
 }
 
 @layer base {
@@ -121,20 +121,20 @@
   will-change: transform;
 }
 .spatial-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 32px 64px -12px rgba(10, 15, 29, 0.12), 0 0 25px -4px rgba(201, 151, 46, 0.15);
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 32px 64px -12px rgba(15, 23, 42, 0.12), 0 0 25px -4px rgba(180, 133, 32, 0.15);
 }
 .dark-surface .spatial-card:hover {
-  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.6), 0 0 25px -4px rgba(245, 199, 97, 0.2);
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(245, 199, 97, 0.15);
 }
 
 /* ─── MAGNETIC BUTTON ─── */
 .magnetic-btn {
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
   will-change: transform;
 }
 .magnetic-btn:hover {
-  transform: translateY(-2px) scale(1.025);
+  transform: translateY(-2px) scale(1.02);
 }
 .magnetic-btn:active {
   transform: translateY(1px) scale(0.98);

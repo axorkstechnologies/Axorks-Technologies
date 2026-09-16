@@ -89,7 +89,7 @@ export const StudioTeam: React.FC = () => {
               <h4 className="font-headline text-base font-bold text-white mb-2">
                 Need a dedicated team?
               </h4>
-              <p className="text-xs text-[var(--text-muted-dark)] mb-4">
+              <p className="text-xs text-white/80 font-medium mb-4">
                 Scale your engineering capacity with Axorks dedicated developer allocations.
               </p>
               <button onClick={() => navigate('/contact')} className="text-xs font-mono-code font-bold text-[var(--gold)] hover:text-white transition-colors underline decoration-[var(--gold)] underline-offset-4">

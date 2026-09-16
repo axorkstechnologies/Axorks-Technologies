@@ -82,7 +82,7 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
             
-            <p className="mt-12 text-xs font-mono-code text-[var(--text-muted-dark)] flex flex-wrap justify-center gap-3 items-center">
+            <p className="mt-12 text-xs font-mono-code text-white/80 font-medium flex flex-wrap justify-center gap-3 items-center">
               <span className="flex items-center gap-1.5"><ArrowRight className="w-3 h-3 text-[var(--emerald)]" /> Direct access.</span> 
               <span className="opacity-30">•</span> 
               <span className="flex items-center gap-1.5"><ArrowRight className="w-3 h-3 text-[var(--emerald)]" /> 100% IP.</span> 
