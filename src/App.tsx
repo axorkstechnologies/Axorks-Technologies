@@ -1,7 +1,9 @@
-import React from 'react';
+﻿import React, { useState } from 'react';
 import { RouterProvider, useRouter } from './router/Router';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { DiscoveryPortal } from './components/DiscoveryPortal';
+
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { DeliveredWorkPage } from './pages/DeliveredWorkPage';
@@ -13,10 +15,13 @@ import { BlogPage } from './pages/BlogPage';
 import { TeamPage } from './pages/TeamPage';
 
 const AppContent: React.FC = () => {
-  const { path, navigate } = useRouter();
+  const { path } = useRouter();
+  const [isDiscoveryOpen, setIsDiscoveryOpen] = useState(false);
 
-  const renderActivePage = () => {
+  const renderPage = () => {
     switch (path) {
+      case '/':
+        return <HomePage />;
       case '/services':
         return <ServicesPage />;
       case '/work':
@@ -33,29 +38,37 @@ const AppContent: React.FC = () => {
         return <CareersPage />;
       case '/contact':
         return <ContactPage />;
-      case '/':
       default:
         return <HomePage />;
     }
   };
 
   return (
-    <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#F5C761] selection:text-[#2A1800] font-sans flex flex-col justify-between">
-      <Header onOpenDiscovery={() => navigate('/contact')} />
-
-      <main className="w-full pt-[76px] flex-1">
-        {renderActivePage()}
+    <div className="flex flex-col min-h-screen relative w-full overflow-x-hidden">
+      <Header onOpenDiscovery={() => setIsDiscoveryOpen(true)} />
+      
+      <main className="flex-1 w-full flex flex-col relative z-0">
+        {renderPage()}
       </main>
 
-      <Footer />
+      <div className="dark-surface">
+        <Footer />
+      </div>
+
+      <DiscoveryPortal 
+        isOpen={isDiscoveryOpen} 
+        onClose={() => setIsDiscoveryOpen(false)} 
+      />
     </div>
   );
 };
 
-export default function App() {
+function App() {
   return (
     <RouterProvider>
       <AppContent />
     </RouterProvider>
   );
 }
+
+export default App;
