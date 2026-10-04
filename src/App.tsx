@@ -13,6 +13,8 @@ import { CareersPage } from './pages/CareersPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
 import { TeamPage } from './pages/TeamPage';
+import { TermsPage } from './pages/TermsPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 
 const AppContent: React.FC = () => {
   const { path } = useRouter();
@@ -38,6 +40,11 @@ const AppContent: React.FC = () => {
         return <CareersPage />;
       case '/contact':
         return <ContactPage />;
+      case '/terms':
+        return <TermsPage />;
+      case '/privacy':
+        return <PrivacyPage />;
+
       default:
         return <HomePage />;
     }

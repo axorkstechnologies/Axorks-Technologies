@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, MessageSquare, ArrowRight } from 'lucide-react';
+﻿import React, { useState, useEffect } from 'react';
 import { useRouter, RoutePath } from '../router/Router';
 
 interface HeaderProps {
@@ -23,7 +21,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
-    // Run once on mount to catch initial state
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -42,61 +39,41 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
     }
   };
 
-  // The invisible links bug occurs because subpages have a light background, 
-  // but the navbar defaulted to transparent/white text until scrolled.
-  // Fix: The navbar is ONLY transparent on the exact Homepage (which has a dark hero video).
-  const isHome = currentPath === '/';
-  const isTransparent = isHome && !scrolled;
-
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        isTransparent 
-          ? 'bg-gradient-to-b from-[#060A16]/80 to-transparent border-b border-transparent py-5' 
-          : 'bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-[#0F172A]/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] py-3'
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 bg-paper ${
+        scrolled ? 'editorial-border-b' : 'border-b border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1600px] mx-auto">
+        <div className="flex items-center justify-between h-20">
           
+          {/* Typographic Logo (No rounded graphics) */}
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-3 group text-left cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer outline-none"
             aria-label="AXORKS Home"
           >
-            {/* 100% Premium Logo Frame */}
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-[8px] overflow-hidden border border-white/15 bg-[#0F172A] shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-              <img
-                src="/Logos/axorks_monogram.png"
-                alt="AXORKS emblem"
-                className="w-full h-full object-contain p-[5px]"
-              />
-            </div>
             <div className="flex flex-col">
-              <span className={`font-headline text-lg sm:text-xl font-extrabold tracking-widest transition-colors duration-300 leading-none ${
-                isTransparent ? 'text-white' : 'text-[#0F172A]'
-              }`}>
-                AXORKS
+              <span className="font-serif-headline text-xl text-ink leading-none tracking-tight">
+                Axorks Studio.
               </span>
-              <span className={`text-[8px] sm:text-[9px] font-mono-code tracking-widest uppercase mt-0.5 transition-colors duration-300 ${
-                isTransparent ? 'text-white/60' : 'text-[#64748B]'
-              }`}>
-                TECHNOLOGIES
+              <span className="font-sans-mono text-[9px] text-graphite mt-1">
+                Engineering
               </span>
             </div>
           </button>
 
-          <nav className="hidden lg:flex items-center gap-2">
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => {
               const isActive = currentPath === link.path;
               return (
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`px-4 py-2 text-[11px] font-headline uppercase tracking-wider transition-colors duration-300 rounded-lg cursor-pointer ${
-                    isTransparent
-                      ? (isActive ? 'bg-white/15 text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10 font-semibold')
-                      : (isActive ? 'bg-[#0F172A]/10 text-[#0F172A] font-bold' : 'text-[#334155] hover:text-[#0F172A] hover:bg-[#0F172A]/5 font-semibold')
+                  className={`text-xs font-sans-mono uppercase tracking-widest transition-colors ${
+                    isActive ? 'text-ink border-b border-ink pb-1' : 'text-graphite hover:text-ink pb-1'
                   }`}
                 >
                   {link.label}
@@ -105,85 +82,73 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center gap-4">
             <a
-              href="https://wa.me/923141030223?text=I'm%20interested%20in%20a%20technical%20discovery%20call%20and%20fixed-price%20proposal."
+              href="https://wa.me/923141030223"
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-2 rounded-lg transition-colors duration-300 flex items-center justify-center ${
-                isTransparent ? 'text-white bg-white/10 hover:bg-white/20' : 'text-[#0F766E] bg-[#0F766E]/10 hover:bg-[#0F766E]/20'
-              }`}
-              aria-label="WhatsApp"
+              className="text-xs font-sans-mono text-graphite hover:text-ink transition-colors uppercase tracking-widest flex items-center gap-2"
             >
-              <MessageSquare className="w-4 h-4" />
+              WhatsApp
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
-            <button
-              onClick={handleCta}
-              className={`magnetic-btn px-5 py-2.5 rounded-xl font-headline text-[11px] uppercase tracking-wider font-bold transition-all duration-300 flex items-center gap-2 ${
-                isTransparent 
-                  ? 'bg-[var(--gold)] text-[#0F172A] hover:bg-[var(--gold-light)] shadow-[0_0_20px_rgba(201,151,46,0.3)]'
-                  : 'bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-md' 
-              }`}
-            >
-              <span>Book Discovery Call</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="w-px h-4 bg-[var(--color-border)] mx-2"></div>
+            <button onClick={handleCta} className="btn-primary py-2.5 px-5">
+              Book Discovery Call
             </button>
           </div>
 
+          {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
-              isTransparent ? 'text-white hover:bg-white/10' : 'text-[#0F172A] hover:bg-[#0F172A]/5'
-            }`}
+            className="lg:hidden text-ink p-2 outline-none"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 pointer-events-auto bg-[#FAF9F6]/98 backdrop-blur-2xl border-b border-[#0F172A]/10 shadow-2xl overflow-hidden"
-          >
-            <div className="flex flex-col p-4 gap-1 max-w-7xl mx-auto">
-              {NAV_LINKS.map((link) => (
-                <button
-                  key={link.path}
-                  onClick={() => handleNavClick(link.path)}
-                  className={`w-full text-left px-4 py-3 rounded-xl text-sm font-headline tracking-wide uppercase transition-colors ${
-                    currentPath === link.path ? 'bg-[#0F172A]/10 text-[#0F172A] font-bold' : 'text-[#334155] font-semibold hover:bg-[#0F172A]/5'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
-              <div className="h-px bg-[#0F172A]/10 my-2" />
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="absolute top-20 left-0 right-0 bg-paper editorial-border-b shadow-none">
+          <div className="flex flex-col p-4 max-w-[1600px] mx-auto">
+            {NAV_LINKS.map((link) => (
               <button
-                onClick={handleCta}
-                className="w-full flex items-center justify-between px-4 py-3.5 bg-[#0F172A] text-white rounded-xl font-headline text-xs font-bold tracking-wider uppercase"
+                key={link.path}
+                onClick={() => handleNavClick(link.path)}
+                className="text-left py-4 text-sm font-sans-mono text-ink editorial-border-b"
               >
-                <span>Book Discovery Call</span>
-                <ArrowRight className="w-4 h-4" />
+                {link.label}
+              </button>
+            ))}
+            <div className="pt-6 pb-2 flex flex-col gap-4">
+              <button onClick={handleCta} className="btn-primary w-full">
+                Book Discovery Call
               </button>
               <a
-                href="https://wa.me/923141030223?text=I'm%20interested%20in%20a%20technical%20discovery%20call%20and%20fixed-price%20proposal."
+                href="https://wa.me/923141030223"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-3 bg-[#0F766E]/10 text-[#0F766E] rounded-xl font-headline text-xs font-bold tracking-wider uppercase"
+                className="btn-secondary w-full"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp: +92 314 103 0223</span>
+                WhatsApp Inquiry
               </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

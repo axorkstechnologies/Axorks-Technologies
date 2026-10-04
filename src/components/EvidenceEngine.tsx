@@ -1,116 +1,90 @@
 ﻿import React from 'react';
 import { PROJECTS, CLIENT_STORIES } from '../data/mockData';
-import { ProjectCarousel } from './ProjectCarousel';
-import { Quote, ArrowRight } from 'lucide-react';
-import { useRouter } from '../router/Router';
-import { motion } from 'motion/react';
 
 export const EvidenceEngine: React.FC = () => {
-  const { navigate } = useRouter();
-
   return (
-    <section className="w-full bg-[var(--bg-primary)] py-20 lg:py-32" id="evidence">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 lg:mb-24"
-        >
-          <span className="font-mono-code text-[10px] font-bold tracking-widest uppercase text-[var(--gold)] mb-4 block">
-            Contextual Evidence
-          </span>
-          <h2 className="font-display-hero text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-primary)] tracking-tight max-w-3xl leading-tight">
-            Production systems engineered for measurable business outcomes.
-          </h2>
-        </motion.div>
-
-        <div className="space-y-24 lg:space-y-32">
-          {PROJECTS.map((project, idx) => {
-            const story = CLIENT_STORIES[idx]; // 1:1 mapping mapping perfectly
-            const isEven = idx % 2 === 0;
-
-            return (
-              <motion.div 
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex flex-col gap-10 lg:gap-16 ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center`}
-              >
-                
-                {/* Left/Right: The UI Artifact (Project Carousel) */}
-                <div className="w-full lg:w-[55%] shrink-0">
-                  <ProjectCarousel
-                    images={project.images}
-                    projectTitle={project.title}
-                    badgeText={project.tags?.[0]}
-                    accentColor={isEven ? 'var(--gold)' : 'var(--emerald)'}
-                  />
-                </div>
-
-                {/* Right/Left: The Business Outcome (Client Story) */}
-                <div className="w-full lg:w-[45%] flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-6">
-                    {story.logo && (
-                      <div className="h-8 w-20 flex items-center justify-start shrink-0">
-                        <img src={story.logo} alt={story.clientName} className="h-full object-contain grayscale opacity-80" />
-                      </div>
-                    )}
-                    <span className="font-mono-code text-[10px] text-[var(--text-muted)] font-bold tracking-wider uppercase">
-                      {story.industry}
-                    </span>
-                  </div>
-
-                  <h3 className="font-headline text-2xl sm:text-3xl font-bold text-[var(--text-primary)] leading-snug mb-6">
-                    "{story.headline}"
-                  </h3>
-
-                  <div className="space-y-4 mb-8">
-                    <div className="relative pl-4 border-l-2 border-[var(--glass-border)]">
-                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                        <strong className="text-[var(--text-primary)] font-headline tracking-wide uppercase text-[10px]">The Challenge: </strong>
-                        {story.problem}
-                      </p>
-                    </div>
-                    <div className="relative pl-4 border-l-2 border-[var(--emerald)]/30 bg-[var(--emerald)]/[0.02] py-2">
-                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                        <strong className="text-[var(--text-primary)] font-headline tracking-wide uppercase text-[10px]">The Solution: </strong>
-                        {story.solution}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="pt-6 border-t border-[var(--glass-border)]">
-                    <div className="relative pl-6 mb-6">
-                      <Quote className="absolute left-0 top-0 w-4 h-4 text-[var(--gold)]/50" />
-                      <p className="text-sm font-headline italic text-[var(--text-primary)] leading-relaxed mb-4 font-medium">
-                        "{story.testimonial}"
-                      </p>
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-[var(--text-primary)]">{project.clientAuthor}</span>
-                        <span className="text-[10px] font-mono-code text-[var(--text-muted)] uppercase tracking-wide">{project.clientRole}</span>
-                      </div>
-                    </div>
-                    
-                    <button 
-                      onClick={() => navigate('/contact')}
-                      className="group inline-flex items-center gap-2 text-xs font-headline font-bold text-[var(--text-primary)] uppercase tracking-wider hover:text-[var(--gold)] transition-colors"
-                    >
-                      Request Similar Architecture 
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-
-              </motion.div>
-            );
-          })}
-        </div>
+    <section className="w-full py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-[1600px] mx-auto bg-paper">
+      
+      <div className="mb-20 max-w-2xl">
+        <span className="font-sans-mono text-[10px] text-graphite uppercase tracking-widest mb-6 block">
+          Verified Deployments
+        </span>
+        <h2 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl text-ink leading-[1.1] mb-6">
+          Architectural rigor proven in production environments.
+        </h2>
       </div>
+
+      <div className="flex flex-col gap-32">
+        {PROJECTS.map((project, idx) => {
+          const story = CLIENT_STORIES[idx]; 
+          return (
+            <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
+              
+              {/* Image / Proof Block (No rounded corners, pure structural) */}
+              <div className="lg:col-span-7 bg-stone editorial-border p-4 sm:p-8 flex flex-col justify-center relative">
+                <div className="absolute top-4 left-4 font-sans-mono text-[10px] text-graphite uppercase tracking-widest">
+                  Artifact {idx + 1}.0
+                </div>
+                {/* Embedded Video/Image */}
+                <div className="w-full aspect-[4/3] sm:aspect-video relative overflow-hidden mt-8">
+                  {project.images && project.images[0] ? (
+                    <img 
+                      src={project.images[0]?.src} 
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top editorial-border"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-graphite/10 flex items-center justify-center font-sans-mono text-xs text-graphite">
+                      System Interface Preview
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Editorial Text Block */}
+              <div className="lg:col-span-5 flex flex-col justify-center py-6">
+                
+                <h3 className="font-serif-headline text-3xl sm:text-4xl text-ink mb-6">
+                  {project.title}
+                </h3>
+                
+                <div className="mb-8 editorial-border-l pl-6 border-graphite/30">
+                  <span className="font-sans-mono text-[10px] text-graphite uppercase tracking-widest block mb-2">
+                    System Architecture
+                  </span>
+                  <p className="font-sans-body text-sm text-graphite leading-relaxed">
+                    {story?.solution || project.tagline}
+                  </p>
+                </div>
+
+                <div className="bg-stone/50 p-6 editorial-border">
+                  <span className="font-sans-mono text-[10px] text-oxblood uppercase tracking-widest block mb-4">
+                    Executive Outcome
+                  </span>
+                  <p className="font-serif-display text-xl text-ink italic leading-snug mb-4">
+                    "{story?.testimonial || 'Significant operational efficiency achieved through deterministic software architecture.'}"
+                  </p>
+                  <div className="flex flex-col">
+                    <span className="font-sans-body font-semibold text-sm text-ink">{project.clientAuthor}</span>
+                    <span className="font-sans-mono text-[10px] text-graphite uppercase">{project.clientRole}, {story?.clientName}</span>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {project.tags?.slice(0, 4).map(tech => (
+                    <span key={tech} className="px-3 py-1 editorial-border font-sans-mono text-[10px] text-graphite uppercase bg-paper">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+              </div>
+
+            </div>
+          );
+        })}
+      </div>
+
     </section>
   );
 };

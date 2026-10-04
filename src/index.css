@@ -1,145 +1,164 @@
 ﻿@import "tailwindcss";
 
 :root {
-  /* Core Light-Dominant System (More Luxurious & Warm) */
-  --bg-primary: #FAF9F6;       /* Warm Pearl/Alabaster */
-  --bg-secondary: #F4F2EC;     /* Richer Soft Stone */
-  --bg-tertiary: #EBE7DF;      /* Deep Cream */
-  --bg-card: #FFFFFF;
-  --text-primary: #0F172A;     /* Even deeper charcoal */
-  --text-secondary: #334155;   /* Refined Slate */
-  --text-muted: #64748B;
+  /* Strict Enterprise Color System (No Pure White/Black) */
+  --color-paper: #F7F5F0;     /* Primary Background: Warm Off-White */
+  --color-stone: #EAE6DF;     /* Secondary Background: Architectural Gray */
+  --color-ink: #0D1014;       /* Primary Text: Deep Deep Charcoal */
+  --color-graphite: #424752;  /* Secondary Text: Muted Slate */
+  --color-border: #D6D1C4;    /* Structural Lines */
   
-  /* Premium Jewel Accents (Richer, deeper tones on light) */
-  --gold: #B48520;
-  --gold-light: #C9972E;
-  --gold-dark: #916613;
-  --emerald: #0F766E;
-  --emerald-light: #14B8A6;
-  --emerald-dark: #0F524C;
-  --violet: #6D28D9;
-  --cyan: #0369A1;
-  --burgundy: #881337;
-
-  /* Glass 2.0 Tokens (Light Default) */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(15, 23, 42, 0.06);
-  --glass-highlight: rgba(255, 255, 255, 0.9);
-  --glass-shadow: 0 12px 40px -12px rgba(15, 23, 42, 0.06), 0 0 1px 1px rgba(255, 255, 255, 0.6) inset;
-}
-
-/* Strategic Dark Punctuation (Hero, GlobalDelivery, Final Conversion, Footer) */
-.dark-surface {
-  --bg-primary: #030712;
-  --bg-secondary: #0A0F1D;
-  --bg-tertiary: #111827;
-  --bg-card: #0F172A;
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-muted: #94A3B8;
-  --text-muted-dark: #64748B; /* Fallback */
+  /* Restrained Accents (No Pastels, No Neons, No Rainbows) */
+  --color-navy: #182C40;      /* Primary Action / Trust */
+  --color-oxblood: #6D1F2A;   /* Emphasis / Alert */
+  --color-forest: #1F4032;    /* Success / Growth */
   
-  /* Brightened accents for dark backgrounds */
-  --gold: #F5C761;
-  --gold-light: #FDE047;
-  --emerald: #10B981;
-  --cyan: #38BDF8;
-
-  /* Dark Glass */
-  --glass-bg: rgba(10, 15, 29, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-highlight: rgba(255, 255, 255, 0.16);
-  --glass-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.08) inset;
+  /* Fluid Spacing & Typography Base */
+  --fluid-min-width: 320;
+  --fluid-max-width: 1440;
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) * 1px) /
+    (var(--fluid-max-width) - var(--fluid-min-width))
+  );
 }
 
 @layer base {
   html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    min-height: 100%;
-    height: auto;
+    line-height: 1.6;
   }
+  
   body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
-    overflow-x: clip;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
+
+  /* Reset all generic AI aesthetics */
   * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(201, 151, 46, 0.3) transparent;
+    border-radius: 0px !important; /* Strict sharp edges */
+    box-shadow: none !important; /* No soft floaty drop shadows */
+    letter-spacing: -0.01em;
+  }
+  
+  /* Opt-in for subtle focus rings, strictly flat */
+  *:focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 2px;
   }
 }
 
-/* ─── TYPOGRAPHY HIERARCHY ─── */
-.font-display-hero {
-  font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.045em;
-  line-height: 1.08;
+/* ─── EDITORIAL TYPOGRAPHY ─── */
+.font-serif-display {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
-.font-headline {
-  font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.025em;
+
+.font-serif-headline {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
-.font-mono-code {
-  font-family: 'JetBrains Mono', monospace;
+
+.font-sans-body {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
 
-/* ─── LIQUID GLASS 2.0 ─── */
-.glass-2 {
-  background: var(--glass-bg);
-  backdrop-filter: blur(24px) saturate(1.8);
-  -webkit-backdrop-filter: blur(24px) saturate(1.8);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  position: relative;
-}
-.glass-2::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, var(--glass-highlight) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 100%);
-  pointer-events: none;
-  z-index: 0;
+.font-sans-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
-/* ─── SPATIAL 3D DEPTH ─── */
-.spatial-stage {
-  perspective: 1200px;
+/* ─── STRUCTURAL BORDERS ─── */
+.editorial-border {
+  border: 1px solid var(--color-border);
 }
-.spatial-card {
-  border-radius: 1.5rem;
-  overflow: hidden;
-  clip-path: inset(0 round 1.5rem);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
-  will-change: transform;
+.editorial-border-b {
+  border-bottom: 1px solid var(--color-border);
 }
-.spatial-card:hover {
-  transform: translateY(-4px) scale(1.005);
-  box-shadow: 0 32px 64px -12px rgba(15, 23, 42, 0.12), 0 0 25px -4px rgba(180, 133, 32, 0.15);
+.editorial-border-t {
+  border-top: 1px solid var(--color-border);
 }
-.dark-surface .spatial-card:hover {
-  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(245, 199, 97, 0.15);
+.editorial-border-l {
+  border-left: 1px solid var(--color-border);
+}
+.editorial-border-r {
+  border-right: 1px solid var(--color-border);
 }
 
-/* ─── MAGNETIC BUTTON ─── */
-.magnetic-btn {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-  will-change: transform;
-}
-.magnetic-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-}
-.magnetic-btn:active {
-  transform: translateY(1px) scale(0.98);
+/* ─── ACTION ELEMENTS ─── */
+.btn-primary {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  padding: 1rem 1.5rem;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-ink);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
+.btn-primary:hover {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-ink);
+  padding: 1rem 1.5rem;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-border);
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-ink);
+}
+
+/* ─── UTILITIES ─── */
+.bg-paper { background-color: var(--color-paper); }
+.bg-stone { background-color: var(--color-stone); }
+.bg-ink { background-color: var(--color-ink); }
+.bg-navy { background-color: var(--color-navy); }
+
+.text-ink { color: var(--color-ink); }
+.text-graphite { color: var(--color-graphite); }
+.text-paper { color: var(--color-paper); }
+.text-oxblood { color: var(--color-oxblood); }
+
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

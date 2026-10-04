@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useState } from 'react';
-import { X } from 'lucide-react';
+
 
 interface DiscoveryPortalProps {
   isOpen: boolean;
@@ -49,7 +49,7 @@ export const DiscoveryPortal: React.FC<DiscoveryPortalProps> = ({ isOpen, onClos
             onClick={onClose}
             className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-border)] rounded-full transition-colors"
           >
-            <X className="w-5 h-5" />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
           </button>
         </div>
 

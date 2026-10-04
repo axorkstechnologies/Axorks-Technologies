@@ -1,105 +1,87 @@
-import React from 'react';
-import { ArrowRight, MessageSquare, MapPin } from 'lucide-react';
+﻿import React from 'react';
 import { useRouter } from '../router/Router';
 
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
   const { navigate } = useRouter();
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    e.preventDefault();
-    navigate(path);
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-[var(--glass-border)] pt-20 pb-10 bg-[var(--bg-primary)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+    <footer className="w-full bg-paper editorial-border-t pt-20 pb-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
           
-          <div className="lg:col-span-5">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-[var(--gold)]/40 bg-[#111622] flex items-center justify-center shrink-0">
-                <img src="/Logos/axorks_monogram.png" alt="AXORKS emblem" className="w-full h-full object-contain p-0.5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-headline text-lg font-extrabold tracking-widest text-[var(--text-primary)] leading-none">
-                  AXORKS
-                </span>
-                <span className="text-[8px] font-mono-code text-[var(--text-muted)] tracking-widest uppercase mt-0.5">
-                  TECHNOLOGIES
-                </span>
-              </div>
+          <div className="lg:col-span-5 flex flex-col">
+            <div className="flex flex-col mb-8">
+              <span className="font-serif-headline text-2xl text-ink leading-none tracking-tight">
+                Axorks Studio.
+              </span>
+              <span className="font-sans-mono text-[9px] text-graphite mt-1">
+                Engineering
+              </span>
             </div>
-            <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-sm mb-8">
-              AI-first software engineering studio. Custom web applications, autonomous AI systems, and Flutter mobile platforms.
+            <p className="font-sans-body text-sm text-graphite max-w-sm leading-relaxed mb-8">
+              A specialized software engineering studio building production-grade web applications, AI systems, and mobile platforms.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="https://linkedin.com/company/axorks-technologies" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors text-sm font-headline uppercase tracking-wider font-semibold">LinkedIn</a>
-              <span className="text-[var(--text-muted)] opacity-50">•</span>
-              <a href="https://github.com/YousufPiryani" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors text-sm font-headline uppercase tracking-wider font-semibold">GitHub</a>
+            <div className="flex flex-col gap-2">
+              <span className="font-sans-mono text-[10px] text-graphite uppercase tracking-widest">
+                Direct Contact
+              </span>
+              <a href="mailto:hello@axorks.com" className="font-serif-headline text-lg text-ink hover:text-oxblood transition-colors">
+                hello@axorks.com
+              </a>
+              <a href="https://wa.me/923141030223" className="font-serif-headline text-lg text-ink hover:text-oxblood transition-colors">
+                +92 314 103 0223
+              </a>
             </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <h4 className="font-mono-code text-[10px] font-bold uppercase tracking-widest text-[var(--gold)] mb-6">Studio</h4>
-            <ul className="space-y-4">
-              <li><a href="/services" onClick={(e) => handleNavClick(e, '/services')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Capabilities</a></li>
-              <li><a href="/work" onClick={(e) => handleNavClick(e, '/work')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Verified Work</a></li>
-              <li><a href="/process" onClick={(e) => handleNavClick(e, '/process')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Delivery Process</a></li>
-              <li><a href="/team" onClick={(e) => handleNavClick(e, '/team')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Engineering Team</a></li>
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h4 className="font-mono-code text-[10px] font-bold uppercase tracking-widest text-[var(--emerald)] mb-6">Company</h4>
-            <ul className="space-y-4">
-              <li><a href="/blog" onClick={(e) => handleNavClick(e, '/blog')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Insights & Architecture</a></li>
-              <li><a href="/careers" onClick={(e) => handleNavClick(e, '/careers')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Careers</a></li>
-              <li><a href="/privacy" onClick={(e) => handleNavClick(e, '/privacy')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" onClick={(e) => handleNavClick(e, '/terms')} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
-
-          <div className="lg:col-span-3">
-            <h4 className="font-mono-code text-[10px] font-bold uppercase tracking-widest text-[#0284C7] mb-6">Direct Access</h4>
-            <ul className="space-y-4 mb-6">
-              <li>
-                <a href="mailto:contact@axorks.com" className="group flex items-center gap-3">
-                  <span className="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors">contact@axorks.com</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/923141030223" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3">
-                  <span className="text-sm text-[var(--text-secondary)] group-hover:text-[#0D9488] transition-colors">+92 314 103 0223</span>
-                </a>
-              </li>
-            </ul>
-            <div className="flex flex-col gap-2 pt-6 border-t border-[var(--glass-border)]">
-              <div className="flex items-center gap-2 text-xs text-[var(--text-muted)] font-mono-code">
-                <MapPin className="w-3.5 h-3.5" /> Karachi, Pakistan
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
+            <div className="flex flex-col gap-6">
+              <span className="font-sans-mono text-[10px] text-ink uppercase tracking-widest font-bold">
+                Studio
+              </span>
+              <div className="flex flex-col gap-4 font-sans-body text-sm text-graphite">
+                <button onClick={() => navigate('/services')} className="text-left hover:text-ink transition-colors">Expertise</button>
+                <button onClick={() => navigate('/work')} className="text-left hover:text-ink transition-colors">Deployments</button>
+                <button onClick={() => navigate('/process')} className="text-left hover:text-ink transition-colors">Protocol</button>
+                <button onClick={() => navigate('/team')} className="text-left hover:text-ink transition-colors">Architects</button>
               </div>
-              <div className="flex items-center gap-2 text-xs text-[var(--text-muted)] font-mono-code">
-                <MapPin className="w-3.5 h-3.5" /> Islamabad, Pakistan
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <span className="font-sans-mono text-[10px] text-ink uppercase tracking-widest font-bold">
+                Locations
+              </span>
+              <div className="flex flex-col gap-4 font-sans-body text-sm text-graphite">
+                <span className="text-left">Islamabad, PK</span>
+                <span className="text-left">Karachi, PK</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <span className="font-sans-mono text-[10px] text-ink uppercase tracking-widest font-bold">
+                Legal
+              </span>
+              <div className="flex flex-col gap-4 font-sans-body text-sm text-graphite">
+                <button onClick={() => navigate('/terms')} className="text-left hover:text-ink transition-colors">Terms of Service</button>
+                <button onClick={() => navigate('/privacy')} className="text-left hover:text-ink transition-colors">Privacy Policy</button>
+                <button onClick={() => navigate('/careers')} className="text-left hover:text-ink transition-colors">Careers</button>
               </div>
             </div>
           </div>
-
+          
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-[var(--text-muted)]">
-            &copy; {currentYear} Axorks Pvt Limited. All rights reserved.
-          </div>
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs font-mono-code text-center">
-            <span className="text-[#38BDF8] font-semibold">
-              Serving USA &bull; UK &bull; Europe &bull; Saudi Arabia &bull; UAE &bull; Kuwait &bull; Bahrain
-            </span>
-            <span className="hidden sm:inline text-[var(--text-muted)] opacity-50">|</span>
-            <span className="text-[var(--text-muted)]">Registered Private Software Company</span>
-            <span className="hidden sm:inline text-[var(--text-muted)] opacity-50">•</span>
-            <span className="text-[var(--text-muted)]">Karachi &amp; Islamabad</span>
+        <div className="editorial-border-t pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="font-sans-body text-xs text-graphite">
+            &copy; {currentYear} Axorks Technologies (Pvt) Ltd. All rights reserved.
+          </p>
+          <div className="font-sans-mono text-[9px] text-graphite uppercase tracking-widest">
+            Engineering Excellence
           </div>
         </div>
+
       </div>
     </footer>
   );
