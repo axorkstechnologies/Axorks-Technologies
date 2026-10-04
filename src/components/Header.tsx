@@ -8,8 +8,8 @@ interface HeaderProps {
 const NAV_LINKS: { label: string; path: RoutePath }[] = [
   { label: 'Services', path: '/services' },
   { label: 'Work', path: '/work' },
-  { label: 'Process', path: '/process' },
-  { label: 'Team', path: '/team' },
+  { label: 'Protocol', path: '/process' },
+  { label: 'Architects', path: '/team' },
   { label: 'Careers', path: '/careers' }
 ];
 
@@ -39,32 +39,33 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
     }
   };
 
+  const isHome = currentPath === '/';
+  const isTransparent = isHome && !scrolled;
+
+  // The Header is entirely solid except at the absolute top of the homepage (Hero).
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-200 bg-paper ${
-        scrolled ? 'editorial-border-b' : 'border-b border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 ${
+        isTransparent 
+          ? 'bg-transparent border-b border-transparent' 
+          : 'surface-dark border-b border-dark'
       }`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1600px] mx-auto">
-        <div className="flex items-center justify-between h-20">
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1600px] mx-auto relative z-10">
+        <div className="flex items-center justify-between h-24">
           
-          {/* Typographic Logo (No rounded graphics) */}
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 cursor-pointer outline-none"
+            className="flex items-center gap-3 cursor-pointer outline-none"
             aria-label="AXORKS Home"
           >
             <div className="flex flex-col">
-              <span className="font-serif-headline text-xl text-ink leading-none tracking-tight">
+              <span className="font-serif-headline text-2xl text-[var(--color-text-primary-dark)] leading-none tracking-tight">
                 Axorks Studio.
-              </span>
-              <span className="font-sans-mono text-[9px] text-graphite mt-1">
-                Engineering
               </span>
             </div>
           </button>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => {
               const isActive = currentPath === link.path;
@@ -72,8 +73,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`text-xs font-sans-mono uppercase tracking-widest transition-colors ${
-                    isActive ? 'text-ink border-b border-ink pb-1' : 'text-graphite hover:text-ink pb-1'
+                  className={`font-sans-mono transition-colors ${
+                    isActive ? 'text-[var(--color-text-primary-dark)]' : 'text-[var(--color-text-secondary-dark)] hover:text-[var(--color-text-primary-dark)]'
                   }`}
                 >
                   {link.label}
@@ -82,29 +83,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
             })}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-6">
             <a
               href="https://wa.me/923141030223"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-sans-mono text-graphite hover:text-ink transition-colors uppercase tracking-widest flex items-center gap-2"
+              className="font-sans-mono text-[var(--color-text-secondary-dark)] hover:text-[var(--color-text-primary-dark)] transition-colors flex items-center gap-2"
             >
-              WhatsApp
+              WhatsApp Inquiry
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <div className="w-px h-4 bg-[var(--color-border)] mx-2"></div>
-            <button onClick={handleCta} className="btn-primary py-2.5 px-5">
+            <button onClick={handleCta} className="bg-[var(--color-text-primary-dark)] text-[var(--color-obsidian)] font-sans-mono py-3 px-6 hover:bg-[var(--color-bronze)] hover:text-[var(--color-text-primary-dark)] transition-colors">
               Book Discovery Call
             </button>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-ink p-2 outline-none"
+            className="lg:hidden text-[var(--color-text-primary-dark)] p-2 outline-none"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -120,28 +118,27 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDiscovery }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-0 right-0 bg-paper editorial-border-b shadow-none">
+        <div className="absolute top-24 left-0 right-0 surface-dark border-b border-dark">
           <div className="flex flex-col p-4 max-w-[1600px] mx-auto">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.path}
                 onClick={() => handleNavClick(link.path)}
-                className="text-left py-4 text-sm font-sans-mono text-ink editorial-border-b"
+                className="text-left py-4 font-sans-mono text-[var(--color-text-primary-dark)] border-b border-dark"
               >
                 {link.label}
               </button>
             ))}
             <div className="pt-6 pb-2 flex flex-col gap-4">
-              <button onClick={handleCta} className="btn-primary w-full">
+              <button onClick={handleCta} className="bg-[var(--color-text-primary-dark)] text-[var(--color-obsidian)] font-sans-mono py-3 w-full">
                 Book Discovery Call
               </button>
               <a
                 href="https://wa.me/923141030223"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary w-full"
+                className="border border-[var(--color-text-primary-dark)] text-[var(--color-text-primary-dark)] font-sans-mono py-3 w-full text-center"
               >
                 WhatsApp Inquiry
               </a>

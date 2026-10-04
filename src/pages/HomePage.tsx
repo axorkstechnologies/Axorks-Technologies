@@ -10,41 +10,43 @@ export const HomePage: React.FC = () => {
   const { navigate } = useRouter();
 
   return (
-    <div className="w-full bg-paper">
+    <div className="w-full bg-[var(--color-obsidian)]">
       
-      {/* 1. HERO (Editorial Asymmetric) */}
+      {/* 1. HERO (Cinematic Dark) */}
       <Hero onOpenDiscovery={() => navigate('/contact')} />
 
-      {/* 2. PARADIGM MATRIX (Editorial Structural Table) */}
+      {/* 2. PARADIGM MATRIX (Cinematic Dark) */}
       <ParadigmMatrix />
 
-      {/* 3. EVIDENCE ENGINE (Verified Structural Deployments) */}
-      <EvidenceEngine />
-
-      {/* 4. GLOBAL DELIVERY (Dark Contrast Section, Navy/Ink) */}
-      <div className="bg-ink text-paper w-full editorial-border-t border-graphite/30">
-        <GlobalDelivery />
+      {/* 3. EVIDENCE ENGINE (Editorial Light) */}
+      <div className="surface-light w-full">
+        <EvidenceEngine />
       </div>
 
-      {/* 5. THE ARCHITECTS (Light) */}
-      <StudioTeam />
+      {/* 4. GLOBAL DELIVERY (Cinematic Dark) */}
+      <GlobalDelivery />
 
-      {/* 6. CONVERSION ESCALATION (Dark Navy) */}
-      <div className="bg-navy w-full editorial-border-t border-graphite/30 py-24 lg:py-32">
+      {/* 5. THE ARCHITECTS (Editorial Light) */}
+      <div className="surface-light w-full">
+        <StudioTeam />
+      </div>
+
+      {/* 6. CONVERSION ESCALATION (Deep Cinematic Dark) */}
+      <div className="surface-dark texture-noise w-full border-t border-dark py-32 lg:py-48">
         <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           
-          <span className="font-sans-mono text-[10px] uppercase tracking-widest text-stone mb-6 block">
+          <span className="font-sans-mono text-[var(--color-bronze)] mb-8 block">
             Initiate Engagement
           </span>
-          <h2 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl text-paper mb-10 max-w-3xl">
+          <h2 className="font-serif-display text-5xl sm:text-6xl lg:text-8xl text-[var(--color-text-primary-dark)] mb-16 max-w-4xl leading-[1.05]">
             Secure your architecture. <br />
-            <span className="text-graphite italic">Fixed-price in 24 hours.</span>
+            <span className="italic text-[var(--color-text-secondary-dark)]">Fixed-price in 24 hours.</span>
           </h2>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full mb-16">
             <button
               onClick={() => navigate('/contact')}
-              className="bg-paper text-ink px-8 py-4 font-sans-mono text-sm uppercase tracking-widest border border-paper hover:bg-stone transition-colors"
+              className="bg-[var(--color-text-primary-dark)] text-[var(--color-obsidian)] px-10 py-5 font-sans-mono border border-[var(--color-text-primary-dark)] hover:bg-[var(--color-bronze)] hover:border-[var(--color-bronze)] transition-all w-full sm:w-auto"
             >
               Book Discovery Call
             </button>
@@ -52,18 +54,18 @@ export const HomePage: React.FC = () => {
               href="https://wa.me/923141030223"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-transparent text-paper px-8 py-4 font-sans-mono text-sm uppercase tracking-widest border border-graphite hover:border-paper transition-colors"
+              className="bg-transparent text-[var(--color-text-primary-dark)] px-10 py-5 font-sans-mono border border-dark hover:border-[var(--color-text-primary-dark)] transition-colors w-full sm:w-auto"
             >
               WhatsApp Inquiry
             </a>
           </div>
           
-          <div className="mt-12 pt-8 editorial-border-t border-graphite/30 flex flex-wrap justify-center gap-6 items-center w-full max-w-2xl font-sans-mono text-[10px] text-graphite uppercase tracking-widest">
+          <div className="pt-12 border-t border-dark flex flex-wrap justify-center gap-x-12 gap-y-6 items-center w-full max-w-4xl font-sans-mono text-[var(--color-text-secondary-dark)]">
             <span>Direct Architect Access</span>
-            <span className="w-1 h-1 bg-graphite"></span>
+            <span className="hidden sm:block w-1.5 h-1.5 bg-dark"></span>
             <span>100% IP Transfer</span>
-            <span className="w-1 h-1 bg-graphite"></span>
-            <span>Projects from $1,000</span>
+            <span className="hidden sm:block w-1.5 h-1.5 bg-dark"></span>
+            <span>Zero Hourly Billing</span>
           </div>
 
         </section>
